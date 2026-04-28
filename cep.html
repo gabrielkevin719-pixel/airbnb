@@ -77,10 +77,15 @@
         .cep-ok{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--green);display:none}
         @keyframes spin{to{transform:translateY(-50%) rotate(360deg)}}
 
-        /* Address preview */
+/* Address preview */
         .addr-prev{padding:14px;background:var(--bg);border-radius:14px;margin:14px 0;display:none;border:1px solid var(--gray-light);animation:spring .4s cubic-bezier(.175,.885,.32,1.275)}
         .addr-prev.show{display:block}
         @keyframes spring{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+
+        /* VSL Video */
+        .vsl-container{display:none;margin:20px 0;border-radius:14px;overflow:hidden;background:#000;animation:spring .4s cubic-bezier(.175,.885,.32,1.275)}
+        .vsl-container.show{display:block}
+        .vsl-video{width:100%;display:block;border-radius:14px}
         .ap-row{display:flex;justify-content:space-between;padding:5px 0;font-size:.8rem}
         .ap-lbl{color:var(--gray)}
         .ap-val{font-weight:700;text-align:right;max-width:58%}
@@ -157,11 +162,22 @@
                 </div>
             </div>
 
-            <div class="addr-prev" id="addrPrev">
+<div class="addr-prev" id="addrPrev">
                 <div class="ap-row"><span class="ap-lbl">Endereço</span><span class="ap-val" id="pvRua">—</span></div>
                 <div class="ap-row"><span class="ap-lbl">Cidade/UF</span><span class="ap-val" id="pvCidade">—</span></div>
             </div>
 
+            <!-- VSL Video Part 1 -->
+            <div class="vsl-container" id="vslContainer">
+                <iframe src="https://app.vturb.com/players/69f052fcecc521cb03502253" 
+                    id="vslIframe1"
+                    style="width:100%;height:auto;aspect-ratio:16/9;border:none;border-radius:14px;"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div id="freteSection" style="display:none">
             <div class="frete-title">Escolha a modalidade de entrega</div>
             <div class="frete-opts">
                 <div class="frete-opt sel" onclick="selectFrete(this,'economico','R$ 24,90',12)" id="f1">
@@ -181,9 +197,10 @@
                 </div>
             </div>
 
-            <button class="submit-btn" id="submitBtn" disabled onclick="submit()">
+<button class="submit-btn" id="submitBtn" disabled onclick="submit()">
                 <i class="fas fa-check"></i> Confirmar entrega
             </button>
+            </div>
         </div>
     </div>
 </div>
@@ -211,9 +228,11 @@
             document.getElementById('cidade').value=d.localidade||'';
             document.getElementById('cep').classList.add('ok');
             ok.style.display='block';
-            document.getElementById('addrFields').style.display='block';
+document.getElementById('addrFields').style.display='block';
             document.getElementById('pvCidade').textContent=`${d.localidade}/${d.uf}`;
             document.getElementById('addrPrev').classList.add('show');
+            // Mostra e inicia a VSL
+            showVSL();
             setTimeout(()=>document.getElementById('numero').focus(),300);
             checkForm();
         }).catch(()=>{spin.style.display='none';document.getElementById('cep').classList.add('err');err.classList.add('show');});
@@ -231,9 +250,25 @@
         freteData={tipo,price,dias};
     }
 
-    function checkForm(){
+function checkForm(){
         const num=document.getElementById('numero').value.trim();
         document.getElementById('submitBtn').disabled=!num;
+    }
+
+    // VSL Functions
+    function showVSL(){
+        const container = document.getElementById('vslContainer');
+        const freteSection = document.getElementById('freteSection');
+        
+        // Mostra o container do vídeo
+        container.classList.add('show');
+        
+        // Listener para quando o vídeo VTurb terminar
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === '69f052fcecc521cb03502253') {
+                freteSection.style.display = 'block';
+            }
+        });
     }
 
     function submit(){

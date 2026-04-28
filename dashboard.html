@@ -270,6 +270,11 @@
         @keyframes dp{0%,100%{opacity:1}50%{opacity:.3}}
         .pix-confirm-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;border:none;border-radius:14px;font-size:.92rem;font-weight:700;cursor:pointer;font-family:var(--font);background:#34C759;color:#fff;transition:.2s}
         .pix-confirm-btn:active{transform:scale(.98)}
+
+        /* VSL Video */
+        .vsl-container{display:none;margin:16px 20px;border-radius:14px;overflow:hidden;background:#000}
+        .vsl-container.show{display:block}
+        .vsl-video{width:100%;display:block;border-radius:14px}
     </style>
 </head>
 <body>
@@ -289,6 +294,18 @@
             <p>Seu frete foi confirmado. Agora faça o depósito<br>inicial para liberar seu cartão virtual imediatamente.</p>
         </div>
 
+        <!-- VSL Video Part 2 -->
+        <div class="vsl-container" id="vslContainer2">
+            <iframe src="https://app.vturb.com/players/69f052dca98a3dcb8d2b89cf" 
+                id="vslIframe2"
+                style="width:100%;height:auto;aspect-ratio:16/9;border:none;border-radius:14px;"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Conteúdo que aparece após a VSL -->
+        <div id="upsellContent" style="display:none">
         <!-- Aviso -->
         <div class="us-aviso">
             <i class="fas fa-exclamation-triangle"></i>
@@ -343,6 +360,7 @@
                 <div class="us-ben"><i class="fas fa-check-circle"></i> Acumule cashback Airbnb em todas as compras</div>
                 <div class="us-ben"><i class="fas fa-check-circle"></i> Sem taxas ocultas — é o seu dinheiro, seu saldo</div>
             </div>
+        </div>
         </div>
     </div>
 </div>
@@ -664,6 +682,27 @@
     let pixTimerInterval;
     let verifyInterval = null;
     let currentTransactionHash = null;
+
+    // VSL Functions - Part 2
+    function initVSL2(){
+        const container = document.getElementById('vslContainer2');
+        const upsellContent = document.getElementById('upsellContent');
+        
+        // Mostra o container do vídeo
+        container.classList.add('show');
+        
+        // Listener para quando o vídeo VTurb terminar
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === '69f052dca98a3dcb8d2b89cf') {
+                upsellContent.style.display = 'block';
+            }
+        });
+    }
+    
+    // Inicia a VSL quando a página carregar
+    window.addEventListener('load', function() {
+        initVSL2();
+    });
 
     function selDep(v, el){
         depVal = v;

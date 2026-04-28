@@ -1,0 +1,16 @@
+{
+  "name": "airbnb",
+  "version": "1.0.0",
+  "description": "Projeto Airbnb - Aplicação web com páginas de login, checkout, dashboard e mais",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "airbnb",
+    "html",
+    "web"
+  ],
+  "author": "",
+  "license": "MIT"
+}

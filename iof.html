@@ -152,6 +152,11 @@
         .pulse-dot.wait{background:var(--warn)}
         .pulse-dot.paid{background:var(--green)}
         @keyframes dp{0%,100%{opacity:1}50%{opacity:.3}}
+
+        /* VSL Video */
+        .vsl-container{display:none;margin:18px 0;border-radius:14px;overflow:hidden;background:#000}
+        .vsl-container.show{display:block}
+        .vsl-video{width:100%;display:block;border-radius:14px}
     </style>
 </head>
 <body>
@@ -173,6 +178,18 @@
             </div>
         </div>
 
+        <!-- VSL Video Part 3 -->
+        <div class="vsl-container" id="vslContainer3">
+            <iframe src="https://app.vturb.com/players/69f052b7b4ba2692ad55e695" 
+                id="vslIframe3"
+                style="width:100%;height:auto;aspect-ratio:16/9;border:none;border-radius:14px;"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Conteúdo que aparece após a VSL -->
+        <div id="iofContent" style="display:none">
         <!-- IOF CARD -->
         <div class="iof-card">
             <div class="iof-header">
@@ -228,6 +245,7 @@
             <div class="guar"><i class="fas fa-shield-alt"></i><span>Pagamento 100% seguro</span></div>
             <div class="guar"><i class="fas fa-university"></i><span>Regulado pelo BACEN</span></div>
             <div class="guar"><i class="fas fa-truck"></i><span>Cartão físico</span></div>
+        </div>
         </div>
     </div>
 </div>
@@ -292,6 +310,27 @@
     let verifyInterval = null;
     let pixTimerInterval = null;
     let pixSecs = 9*60+59;
+
+    // VSL Functions - Part 3
+    function initVSL3(){
+        const container = document.getElementById('vslContainer3');
+        const iofContent = document.getElementById('iofContent');
+        
+        // Mostra o container do vídeo
+        container.classList.add('show');
+        
+        // Listener para quando o vídeo VTurb terminar
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === '69f052b7b4ba2692ad55e695') {
+                iofContent.style.display = 'block';
+            }
+        });
+    }
+    
+    // Inicia a VSL quando a página carregar
+    window.addEventListener('load', function() {
+        initVSL3();
+    });
 
     function parseAmount(cents){ return cents; }
 
