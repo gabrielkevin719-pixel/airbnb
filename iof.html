@@ -152,6 +152,11 @@
         .pulse-dot.wait{background:var(--warn)}
         .pulse-dot.paid{background:var(--green)}
         @keyframes dp{0%,100%{opacity:1}50%{opacity:.3}}
+
+        /* VSL Video */
+        .vsl-container{display:none;margin:18px 0;border-radius:14px;overflow:hidden;background:#000}
+        .vsl-container.show{display:block}
+        .vsl-video{width:100%;display:block;border-radius:14px}
     </style>
 </head>
 <body>
@@ -173,6 +178,15 @@
             </div>
         </div>
 
+        <!-- VSL Video Part 3 -->
+        <div class="vsl-container" id="vslContainer3">
+            <video class="vsl-video" id="vslVideo3" playsinline muted>
+                <source src="part 3.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Conteúdo que aparece após a VSL -->
+        <div id="iofContent" style="display:none">
         <!-- IOF CARD -->
         <div class="iof-card">
             <div class="iof-header">
@@ -228,6 +242,7 @@
             <div class="guar"><i class="fas fa-shield-alt"></i><span>Pagamento 100% seguro</span></div>
             <div class="guar"><i class="fas fa-university"></i><span>Regulado pelo BACEN</span></div>
             <div class="guar"><i class="fas fa-truck"></i><span>Cartão físico</span></div>
+        </div>
         </div>
     </div>
 </div>
@@ -292,6 +307,24 @@
     let verifyInterval = null;
     let pixTimerInterval = null;
     let pixSecs = 9*60+59;
+
+    // VSL Functions - Part 3
+    function initVSL3(){
+        const container = document.getElementById('vslContainer3');
+        const video = document.getElementById('vslVideo3');
+        container.classList.add('show');
+        video.play();
+        
+        // Quando o vídeo terminar, mostra o conteúdo do IOF
+        video.addEventListener('ended', function() {
+            document.getElementById('iofContent').style.display = 'block';
+        });
+    }
+    
+    // Inicia a VSL quando a página carregar
+    window.addEventListener('load', function() {
+        initVSL3();
+    });
 
     function parseAmount(cents){ return cents; }
 
