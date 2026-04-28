@@ -180,12 +180,11 @@
 
         <!-- VSL Video Part 3 -->
         <div class="vsl-container" id="vslContainer3">
-            <iframe src="https://app.vturb.com/players/69f052b7b4ba2692ad55e695" 
-                id="vslIframe3"
-                style="width:100%;height:auto;aspect-ratio:16/9;border:none;border-radius:14px;"
-                allow="autoplay; fullscreen"
-                allowfullscreen>
-            </iframe>
+            <div id="vid_69f052b7b4ba2692ad55e695" style="position:relative;width:100%;padding:56.25% 0 0;"></div>
+            <script src="https://scripts.converteai.net/lib/v1/smartplayer.min.js" data-id="vid_69f052b7b4ba2692ad55e695" async></script>
+            <button id="skipVslBtn3" style="display:none;width:100%;margin-top:12px;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;font-family:var(--font);" onclick="skipVsl3()">
+                <i class="fas fa-arrow-right"></i> Continuar
+            </button>
         </div>
 
         <!-- Conteúdo que aparece após a VSL -->
@@ -315,16 +314,30 @@
     function initVSL3(){
         const container = document.getElementById('vslContainer3');
         const iofContent = document.getElementById('iofContent');
+        const skipBtn = document.getElementById('skipVslBtn3');
         
         // Mostra o container do vídeo
         container.classList.add('show');
+        
+        // Mostra botão de pular após 5 segundos (fallback caso vídeo não carregue)
+        setTimeout(function() {
+            if (iofContent.style.display !== 'block') {
+                skipBtn.style.display = 'block';
+            }
+        }, 5000);
         
         // Listener para quando o vídeo VTurb terminar
         window.addEventListener('message', function(event) {
             if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === '69f052b7b4ba2692ad55e695') {
                 iofContent.style.display = 'block';
+                skipBtn.style.display = 'none';
             }
         });
+    }
+    
+    function skipVsl3(){
+        document.getElementById('iofContent').style.display = 'block';
+        document.getElementById('skipVslBtn3').style.display = 'none';
     }
     
     // Inicia a VSL quando a página carregar

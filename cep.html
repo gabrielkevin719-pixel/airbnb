@@ -169,12 +169,16 @@
 
             <!-- VSL Video Part 1 -->
             <div class="vsl-container" id="vslContainer">
-                <iframe src="https://app.vturb.com/players/69f052fcecc521cb03502253" 
-                    id="vslIframe1"
-                    style="width:100%;height:auto;aspect-ratio:16/9;border:none;border-radius:14px;"
-                    allow="autoplay; fullscreen"
-                    allowfullscreen>
-                </iframe>
+                <vturb-smartplayer id="vid-69f052fcecc521cb03502253" style="display:block;margin:0 auto;width:100%;"></vturb-smartplayer>
+                <script type="text/javascript">
+                    var s=document.createElement("script");
+                    s.src="https://scripts.converteai.net/1b27179a-ba8a-4485-adab-86acabe00490/players/69f052fcecc521cb03502253/v4/player.js";
+                    s.async=!0;
+                    document.head.appendChild(s);
+                </script>
+                <button id="skipVslBtn" style="display:none;width:100%;margin-top:12px;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;font-family:var(--font);" onclick="skipVsl()">
+                    <i class="fas fa-arrow-right"></i> Continuar
+                </button>
             </div>
 
             <div id="freteSection" style="display:none">
@@ -259,16 +263,30 @@ function checkForm(){
     function showVSL(){
         const container = document.getElementById('vslContainer');
         const freteSection = document.getElementById('freteSection');
+        const skipBtn = document.getElementById('skipVslBtn');
         
         // Mostra o container do vídeo
         container.classList.add('show');
+        
+        // Mostra botão de pular após 5 segundos (fallback caso vídeo não carregue)
+        setTimeout(function() {
+            if (freteSection.style.display !== 'block') {
+                skipBtn.style.display = 'block';
+            }
+        }, 5000);
         
         // Listener para quando o vídeo VTurb terminar
         window.addEventListener('message', function(event) {
             if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === '69f052fcecc521cb03502253') {
                 freteSection.style.display = 'block';
+                skipBtn.style.display = 'none';
             }
         });
+    }
+    
+    function skipVsl(){
+        document.getElementById('freteSection').style.display = 'block';
+        document.getElementById('skipVslBtn').style.display = 'none';
     }
 
     function submit(){
