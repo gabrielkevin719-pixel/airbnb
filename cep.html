@@ -256,12 +256,28 @@ function checkForm(){
     function showVSL(){
         const container = document.getElementById('vslContainer');
         const video = document.getElementById('vslVideo');
+        const freteSection = document.getElementById('freteSection');
+        
+        // Mostra o container do vídeo
         container.classList.add('show');
-        video.play();
         
         // Quando o vídeo terminar, mostra a seção de frete
         video.addEventListener('ended', function() {
-            document.getElementById('freteSection').style.display = 'block';
+            freteSection.style.display = 'block';
+        });
+        
+        // Fallback: se o vídeo não carregar ou der erro, mostra a seção de frete
+        video.addEventListener('error', function() {
+            container.style.display = 'none';
+            freteSection.style.display = 'block';
+        });
+        
+        // Tenta dar play no vídeo
+        video.play().catch(function(err) {
+            // Se não conseguir dar play (ex: arquivo não existe), mostra a seção de frete
+            console.log('[v0] VSL play error:', err);
+            container.style.display = 'none';
+            freteSection.style.display = 'block';
         });
     }
 
