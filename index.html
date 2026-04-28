@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<script>
+  window.tikTokPixelId = "69edaaffbdf66cc14237f33f";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js");
+  document.head.appendChild(a);
+</script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){
+    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;
+    ttq._t=ttq._t||{};ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    n=document.createElement("script");n.type="text/javascript";n.async=!0;
+    n.src=r+"?sdkid="+e+"&lib="+t;
+    e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)
+  };
+  ttq.load("D7MEITBC77U9TECL9BF0");
+  ttq.page();
+}(window, document, "ttq");
+</script>
+<!-- TikTok Pixel Code End -->
+
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cartão Airbnb — Limite pré-aprovado sem anuidade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --red:#FF385C;--red-dark:#E00B41;--black:#1A1A1A;
+            --gray:#6A6A6A;--gray-light:#DDDDDD;--bg:#F7F7F7;
+            --white:#FFFFFF;--green:#2E7D32;
+            --font:'Sora',-apple-system,sans-serif;
+        }
+        html{scroll-behavior:smooth}
+        body{font-family:var(--font);background:var(--white);color:var(--black);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        .page{max-width:520px;margin:0 auto;min-height:100vh;background:var(--white);position:relative;overflow:hidden}
+
+        /* NAV */
+        .nav{height:64px;border-bottom:1px solid var(--gray-light);background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;position:sticky;top:0;z-index:200}
+        .nav svg{height:28px;width:auto;fill:var(--red)}
+
+        /* HERO */
+        .hero{padding:44px 24px 36px;text-align:center;background:linear-gradient(170deg,#fff8f6 0%,#fff 65%);position:relative}
+        .hero::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(255,56,92,0.07) 0%,transparent 70%);pointer-events:none}
+        .hero-badge{display:inline-flex;align-items:center;gap:6px;background:#FFF0F3;color:var(--red);border:1px solid rgba(255,56,92,0.2);padding:5px 14px;border-radius:40px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px}
+
+        /* 3D CARD */
+        .card-wrap{perspective:1000px;display:flex;justify-content:center;margin:0 auto 32px}
+        .card-3d{width:300px;aspect-ratio:1.586;border-radius:20px;background:linear-gradient(145deg,#FF385C 0%,#C8003C 100%);box-shadow:0 24px 60px rgba(200,0,60,.35),0 4px 16px rgba(0,0,0,.12);padding:22px 24px;position:relative;color:#fff;animation:cardFloat 4s ease-in-out infinite;transform-style:preserve-3d}
+        .card-3d::after{content:'';position:absolute;inset:0;border-radius:20px;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);animation:cardShine 3.5s ease-in-out infinite}
+        @keyframes cardFloat{0%,100%{transform:translateY(0) rotate3d(1,0,0,3deg)}50%{transform:translateY(-10px) rotate3d(1,0,0,-2deg)}}
+        @keyframes cardShine{0%,100%{opacity:0}45%,55%{opacity:1}}
+        .card-3d .c-logo{width:56px;fill:#fff}
+        .c-chip{position:absolute;top:44%;left:24px;font-size:28px;opacity:.65}
+        .c-number{position:absolute;bottom:52px;left:24px;font-size:12px;letter-spacing:2.5px;font-weight:500;opacity:.88}
+        .c-name{position:absolute;bottom:26px;left:24px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.82}
+        .c-visa{position:absolute;bottom:22px;right:24px;font-size:30px;opacity:.88}
+
+        .hero h1{font-size:clamp(1.7rem,7vw,2.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px;color:var(--black)}
+        .hero h1 span{background:linear-gradient(120deg,var(--red),var(--red-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero-sub{font-size:.98rem;color:var(--gray);max-width:400px;margin:0 auto 28px;line-height:1.7}
+
+        /* LIMIT BANNER */
+        .limit-banner{background:linear-gradient(135deg,var(--red),var(--red-dark));border-radius:18px;padding:22px 20px;color:#fff;text-align:center;margin:0 24px 28px;position:relative;overflow:hidden}
+        .limit-banner::before{content:'';position:absolute;top:-30px;right:-30px;width:110px;height:110px;background:rgba(255,255,255,.08);border-radius:50%}
+        .lb-label{font-size:11px;font-weight:600;opacity:.82;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+        .lb-value{font-size:42px;font-weight:800;letter-spacing:-1.5px;line-height:1}
+        .lb-sub{font-size:12px;opacity:.88;margin-top:5px}
+
+        /* BADGES */
+        .badges{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:24px;padding:0 24px}
+        .badge{background:var(--bg);border:1px solid var(--gray-light);border-radius:40px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--black);display:flex;align-items:center;gap:5px}
+        .badge i{color:var(--red);font-size:11px}
+
+        /* CTA */
+        .cta-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff;border:none;padding:16px 32px;border-radius:50px;font-family:var(--font);font-weight:700;font-size:.98rem;cursor:pointer;width:calc(100% - 48px);margin:0 24px;transition:.2s;box-shadow:0 6px 24px rgba(255,56,92,.35);animation:ctaPulse 2.2s infinite;text-decoration:none;text-align:center}
+        .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,56,92,.45)}
+        @keyframes ctaPulse{0%,100%{box-shadow:0 6px 24px rgba(255,56,92,.35)}50%{box-shadow:0 6px 32px rgba(255,56,92,.55)}}
+        .hero-caption{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:14px 0 0;padding:0 24px}
+        .hero-caption span{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--gray)}
+        .hero-caption i{color:var(--red);font-size:10px}
+
+        /* STATS */
+        .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gray-light);border-bottom:1px solid var(--gray-light);margin-top:36px}
+        .stat{text-align:center;padding:18px 8px;border-right:1px solid var(--gray-light)}
+        .stat:last-child{border-right:none}
+        .sv{font-size:1.5rem;font-weight:800;color:var(--red);letter-spacing:-.02em;display:block}
+        .sl{font-size:10px;color:var(--gray);font-weight:500;margin-top:1px}
+
+        /* BENEFITS */
+        .section{padding:44px 20px}
+        .sec-title{font-size:1.3rem;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;text-align:center}
+        .sec-sub{text-align:center;color:var(--gray);font-size:.875rem;margin-bottom:28px}
+        .benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .b-card{background:var(--white);border:1px solid var(--gray-light);border-radius:16px;padding:20px 16px;text-align:left;transition:.22s;position:relative;overflow:hidden}
+        .b-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--red-dark));opacity:0;transition:.22s}
+        .b-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.09);border-color:transparent}
+        .b-card:hover::before{opacity:1}
+        .b-icon{width:44px;height:44px;background:#FFF0F3;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--red);margin-bottom:14px}
+        .b-card h3{font-size:.92rem;font-weight:700;margin-bottom:6px}
+        .b-card p{color:var(--gray);font-size:.8rem;line-height:1.6}
+
+        /* STEPS */
+        .steps-wrap{background:var(--bg);border-radius:24px;padding:32px 20px;margin:0 0 44px}
+        .steps-grid{display:flex;flex-direction:column;gap:20px;margin-top:24px}
+        .step-item{display:flex;align-items:flex-start;gap:14px}
+        .step-num{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;flex-shrink:0;box-shadow:0 4px 14px rgba(255,56,92,.3)}
+        .step-item h4{font-size:.9rem;font-weight:700;margin-bottom:4px}
+        .step-item p{color:var(--gray);font-size:.8rem;line-height:1.6}
+
+        /* DARK CTA */
+        .dark-cta{background:linear-gradient(135deg,#1A1A1A,#2d2d2d);border-radius:22px;padding:36px 24px;text-align:center;color:#fff;margin:0 0 44px;position:relative;overflow:hidden}
+        .dark-cta::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,56,92,.18) 0%,transparent 70%)}
+        .dark-cta h2{font-size:1.3rem;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}
+        .dark-cta p{font-size:.875rem;opacity:.72;margin-bottom:24px;line-height:1.7}
+        .dark-cta .cta-btn{margin:0;width:100%;animation:none;box-shadow:0 4px 16px rgba(255,56,92,.35)}
+
+        /* TRUST */
+        .trust{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;padding:28px 20px;border-top:1px solid var(--gray-light);border-bottom:1px solid var(--gray-light);margin-bottom:44px}
+        .trust-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600}
+        .trust-item .ti-icon{width:34px;height:34px;background:#FFF0F3;border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--red);font-size:13px}
+
+        /* BOTTOM CTA */
+        .bottom-cta{text-align:center;padding:28px 24px 56px}
+        .bottom-cta .cta-btn{margin:0 auto;width:100%;animation:ctaPulse 2.2s infinite}
+        .bottom-caption{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:16px}
+        .bottom-caption span{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--gray)}
+        .bottom-caption i{color:var(--red)}
+
+        /* FOOTER */
+        .footer{background:var(--bg);border-top:1px solid var(--gray-light);padding:28px 24px;text-align:center}
+        .footer p{font-size:11px;color:var(--gray);line-height:1.8}
+
+        /* NOTIFICATION */
+        .notif{position:fixed;bottom:20px;left:20px;background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.12);border-radius:40px;padding:10px 16px;display:flex;gap:10px;align-items:center;transform:translateY(100px);opacity:0;transition:.3s;z-index:2000;border-left:3px solid var(--red);font-size:12px;max-width:260px}
+        .notif.show{transform:translateY(0);opacity:1}
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HEADER: só símbolo -->
+    <nav class="nav">
+        <a href="#" aria-label="Airbnb">
+            <svg viewBox="0 0 1007 1080" fill="#FF385C"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 470.209 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195ZM770.655 998.902C688.609 998.902 618.24 941.522 555.918 872.587C620.182 792.437 691.088 679.004 691.088 577.819C691.088 458.428 598.258 389.892 503.109 389.892C407.96 389.892 315.13 458.428 315.13 577.819C315.13 679.004 385.536 792.437 450.3 872.587C387.978 941.522 317.609 998.902 235.564 998.902C146.633 998.902 81.0898 931.017 81.0898 846.845C81.0898 826.57 84.2273 807.856 91.2658 788.361C98.3043 770.426 120.925 720.52 130.285 701.025C203.607 541.17 282.448 380.534 364.35 220.679C379.17 191.047 404.131 141.921 422.858 119.307C443.148 94.3538 471.228 81.0975 503.109 81.0975C534.99 81.0975 563.07 94.3538 583.36 119.307C602.087 141.921 627.048 191.047 641.868 220.679C723.77 380.534 802.611 541.17 875.933 701.025C885.293 720.52 907.914 770.426 914.952 788.361C921.991 807.856 925.128 826.57 925.128 846.845C925.128 931.017 859.585 998.902 770.655 998.902Z"/></svg>
+        </a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-badge"><i class="fas fa-star"></i> Exclusivo para viajantes</div>
+
+        <div class="card-wrap">
+            <div class="card-3d" id="card3d">
+                <svg class="c-logo" viewBox="0 0 1007 1080" fill="white"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 470.209 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195Z"/></svg>
+                <i class="fas fa-microchip c-chip"></i>
+                <div class="c-number">**** **** **** 2026</div>
+                <div class="c-name">SEU NOME AQUI</div>
+                <i class="fab fa-cc-visa c-visa"></i>
+            </div>
+        </div>
+
+        <h1>Cartão Airbnb<br><span>Viaje mais, pague menos</span></h1>
+        <p class="hero-sub">Limite pré-aprovado de até R$ 15.000 · 5% de cashback · Zero anuidade para sempre</p>
+
+        <a href="login.html" class="cta-btn" id="mainCta">
+            <i class="fas fa-bolt"></i> SOLICITAR MEU CARTÃO
+        </a>
+        <div class="hero-caption">
+            <span><i class="fas fa-shield-alt"></i> Sem consulta SPC/Serasa</span>
+            <span><i class="fas fa-lock"></i> 100% digital</span>
+            <span><i class="fas fa-bolt"></i> Aprovação rápida</span>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat"><span class="sv">R$15k</span><span class="sl">Limite máx.</span></div>
+        <div class="stat"><span class="sv">5%</span><span class="sl">Cashback</span></div>
+        <div class="stat"><span class="sv">R$0</span><span class="sl">Anuidade</span></div>
+        <div class="stat"><span class="sv">220+</span><span class="sl">Países</span></div>
+    </div>
+
+ 
+    <!-- BADGES -->
+    <div class="badges" style="margin-top:16px">
+        <span class="badge"><i class="fas fa-check-circle"></i> 100% gratuito</span>
+        <span class="badge"><i class="fas fa-bolt"></i> Aprovação imediata</span>
+        <span class="badge"><i class="fas fa-shield-alt"></i> Dados protegidos</span>
+    </div>
+
+    <!-- BENEFITS -->
+    <section class="section">
+        <h2 class="sec-title">Benefícios exclusivos</h2>
+        <p class="sec-sub">Feito para quem vive de experiências e reservas.</p>
+        <div class="benefits-grid">
+            <div class="b-card">
+                <div class="b-icon"><i class="fas fa-ban"></i></div>
+                <h3>Zero anuidade</h3>
+                <p>Economize R$500+/ano. Sem taxas escondidas.</p>
+            </div>
+            <div class="b-card">
+                <div class="b-icon"><i class="fas fa-home"></i></div>
+                <h3>5% cashback</h3>
+                <p>Em todas as reservas feitas pelo Airbnb.</p>
+            </div>
+            <div class="b-card">
+                <div class="b-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Limite cresce</h3>
+                <p>Use e pague em dia para chegar a R$15.000.</p>
+            </div>
+            <div class="b-card">
+                <div class="b-icon"><i class="fas fa-gift"></i></div>
+                <h3>Experiências</h3>
+                <p>Acesso a promoções exclusivas no mundo todo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STEPS -->
+    <div style="padding:0 20px">
+        <div class="steps-wrap">
+            <h2 class="sec-title" style="margin-bottom:4px">Como funciona?</h2>
+            <p class="sec-sub" style="margin-bottom:0">Simples, rápido, sem burocracia.</p>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <div><h4>Responda o quiz</h4><p>4 perguntas rápidas para analisar seu perfil.</p></div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <div><h4>Análise instantânea</h4><p>Resultado em segundos, sem consulta externa.</p></div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <div><h4>Receba seu cartão</h4><p>Virtual imediato + físico em até 1 dia útil.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DARK CTA -->
+    <div style="padding:0 20px">
+        <div class="dark-cta">
+            <h2>💰 Acumule pontos que viram viagens</h2>
+            <p>A cada R$1 em hospedagens, ganhe 1 ponto. Troque por descontos, upgrades e experiências.</p>
+            <a href="login.html" class="cta-btn"><i class="fas fa-plane"></i> Quero começar a viajar</a>
+        </div>
+    </div>
+
+    <!-- TRUST -->
+    <div class="trust">
+        <div class="trust-item"><div class="ti-icon"><i class="fas fa-lock"></i></div><span>Criptografia SSL</span></div>
+        <div class="trust-item"><div class="ti-icon"><i class="fas fa-mobile-alt"></i></div><span>App Airbnb</span></div>
+        <div class="trust-item"><div class="ti-icon"><i class="fas fa-globe"></i></div><span>220+ países</span></div>
+        <div class="trust-item"><div class="ti-icon"><i class="fas fa-headset"></i></div><span>Suporte 24h</span></div>
+    </div>
+
+    <!-- BOTTOM CTA -->
+    <section class="bottom-cta">
+        <a href="login.html" class="cta-btn"><i class="fas fa-credit-card"></i> QUERO MEU CARTÃO AIRBNB</a>
+        <div class="bottom-caption">
+            <span><i class="fas fa-check-circle"></i> Aprovação garantida</span>
+            <span><i class="fas fa-clock"></i> Resultado em segundos</span>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 Airbnb, Inc. · Cartão Airbnb é um produto emitido em parceria com instituições financeiras.<br>Sujeito a análise de crédito. Termos e condições se aplicam.</p>
+    </footer>
+
+</div>
+
+<script>
+    // 3D card parallax on mouse
+    const c = document.getElementById('card3d');
+    if(c){
+        document.addEventListener('mousemove',e=>{
+            const {innerWidth:w,innerHeight:h}=window;
+            const x=(e.clientX/w-.5)*14,y=(e.clientY/h-.5)*-10;
+            c.style.transform=`translateY(-5px) rotate3d(${-y/10},${x/10},0,${Math.sqrt(x*x+y*y)*.5}deg)`;
+        });
+        document.addEventListener('mouseleave',()=>c.style.transform='');
+    }
+
+    // UTM tracking
+    (function(){var u=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','src','sck'];var p=new URLSearchParams(window.location.search);u.forEach(function(k){var v=p.get(k);if(v)localStorage.setItem(k,v);});})();
+
+    // Notifications
+    const names=['Ana C.','João M.','Bia L.','Rafael S.','Camila R.','Thiago A.','Marina F.'];
+    const msgs=[n=>`${n} acabou de receber o Cartão Airbnb!`,_=>'+1 pessoa ativou o limite de R$4.700',n=>`Limite aprovado para ${n}`];
+    setInterval(()=>{
+        const n=names[Math.floor(Math.random()*names.length)];
+        const m=msgs[Math.floor(Math.random()*msgs.length)](n);
+        const d=document.createElement('div');
+        d.className='notif';
+        d.innerHTML=`<i class="fas fa-bell" style="color:#FF385C;flex-shrink:0"></i><span>${m}</span>`;
+        document.body.appendChild(d);
+        setTimeout(()=>d.classList.add('show'),50);
+        setTimeout(()=>d.classList.remove('show'),4000);
+        setTimeout(()=>d.remove(),4500);
+    },9000);
+
+    // Lead tracking
+    const LeadData={_k:'airbnb_lead',save(d){localStorage.setItem(this._k,JSON.stringify(d))},load(){try{return JSON.parse(localStorage.getItem(this._k)||'{}')}catch{return{}}},update(d){const c=this.load();const u={...c,...d,updated_at:Date.now()};if(!u.lead_id)u.lead_id='AB'+Date.now().toString(36).toUpperCase()+Math.random().toString(36).substr(2,4).toUpperCase();this.save(u);return u}};
+    LeadData.update({funnel_start:Date.now(),page:'home'});
+
+    // ===== PIXEL: ViewContent (landing page) =====
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            try {
+                if(window.ttq) {
+                    ttq.track('ViewContent', {
+                        content_type: 'product',
+                        content_id: 'cartao-airbnb',
+                        content_name: 'Cartão Airbnb'
+                    });
+                }
+            } catch(pe){ console.warn('Pixel error:', pe); }
+        }, 800);
+    });
+    // =============================================
+
+    function buildUrl(base,params={}){const url=new URL(base,window.location.href);new URLSearchParams(window.location.search).forEach((v,k)=>url.searchParams.set(k,v));Object.entries(params).forEach(([k,v])=>{if(v)url.searchParams.set(k,v)});return url.toString();}
+    document.querySelectorAll('a.cta-btn').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();window.location.href=buildUrl(this.getAttribute('href'));});});
+</script>
+</body>
+</html>
+
+

