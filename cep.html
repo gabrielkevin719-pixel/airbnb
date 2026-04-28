@@ -169,9 +169,8 @@
 
             <!-- VSL Video Part 1 -->
             <div class="vsl-container" id="vslContainer">
-                <video class="vsl-video" id="vslVideo" playsinline muted>
-                    <source src="part 1.mp4" type="video/mp4">
-                </video>
+                <div id="vid_69f052fcecc521cb03502253" style="position:relative;width:100%;padding:56.25% 0 0;"></div>
+                <script src="https://scripts.converteai.net/cbea0db7-3d86-42c7-9c4f-6636e4a0acec/players/69f052fcecc521cb03502253/player.js" async></script>
             </div>
 
             <div id="freteSection" style="display:none">
@@ -255,29 +254,16 @@ function checkForm(){
     // VSL Functions
     function showVSL(){
         const container = document.getElementById('vslContainer');
-        const video = document.getElementById('vslVideo');
         const freteSection = document.getElementById('freteSection');
         
         // Mostra o container do vídeo
         container.classList.add('show');
         
-        // Quando o vídeo terminar, mostra a seção de frete
-        video.addEventListener('ended', function() {
-            freteSection.style.display = 'block';
-        });
-        
-        // Fallback: se o vídeo não carregar ou der erro, mostra a seção de frete
-        video.addEventListener('error', function() {
-            container.style.display = 'none';
-            freteSection.style.display = 'block';
-        });
-        
-        // Tenta dar play no vídeo
-        video.play().catch(function(err) {
-            // Se não conseguir dar play (ex: arquivo não existe), mostra a seção de frete
-            console.log('[v0] VSL play error:', err);
-            container.style.display = 'none';
-            freteSection.style.display = 'block';
+        // Listener para quando o vídeo VTurb terminar
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === '69f052fcecc521cb03502253') {
+                freteSection.style.display = 'block';
+            }
         });
     }
 

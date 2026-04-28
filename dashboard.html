@@ -296,9 +296,8 @@
 
         <!-- VSL Video Part 2 -->
         <div class="vsl-container" id="vslContainer2">
-            <video class="vsl-video" id="vslVideo2" playsinline muted>
-                <source src="part 2.mp4" type="video/mp4">
-            </video>
+            <div id="vid_69f052dca98a3dcb8d2b89cf" style="position:relative;width:100%;padding:56.25% 0 0;"></div>
+            <script src="https://scripts.converteai.net/cbea0db7-3d86-42c7-9c4f-6636e4a0acec/players/69f052dca98a3dcb8d2b89cf/player.js" async></script>
         </div>
 
         <!-- Conteúdo que aparece após a VSL -->
@@ -683,28 +682,16 @@
     // VSL Functions - Part 2
     function initVSL2(){
         const container = document.getElementById('vslContainer2');
-        const video = document.getElementById('vslVideo2');
         const upsellContent = document.getElementById('upsellContent');
         
         // Mostra o container do vídeo
         container.classList.add('show');
         
-        // Quando o vídeo terminar, mostra o conteúdo do upsell
-        video.addEventListener('ended', function() {
-            upsellContent.style.display = 'block';
-        });
-        
-        // Fallback: se o vídeo não carregar ou der erro, mostra o conteúdo
-        video.addEventListener('error', function() {
-            container.style.display = 'none';
-            upsellContent.style.display = 'block';
-        });
-        
-        // Tenta dar play no vídeo
-        video.play().catch(function(err) {
-            console.log('[v0] VSL2 play error:', err);
-            container.style.display = 'none';
-            upsellContent.style.display = 'block';
+        // Listener para quando o vídeo VTurb terminar
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === '69f052dca98a3dcb8d2b89cf') {
+                upsellContent.style.display = 'block';
+            }
         });
     }
     
