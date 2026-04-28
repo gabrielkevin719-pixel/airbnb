@@ -302,6 +302,9 @@
                 allow="autoplay; fullscreen"
                 allowfullscreen>
             </iframe>
+            <button id="skipVslBtn2" style="display:none;width:100%;margin-top:12px;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;font-family:var(--font);" onclick="skipVsl2()">
+                <i class="fas fa-arrow-right"></i> Continuar
+            </button>
         </div>
 
         <!-- Conteúdo que aparece após a VSL -->
@@ -687,16 +690,30 @@
     function initVSL2(){
         const container = document.getElementById('vslContainer2');
         const upsellContent = document.getElementById('upsellContent');
+        const skipBtn = document.getElementById('skipVslBtn2');
         
         // Mostra o container do vídeo
         container.classList.add('show');
+        
+        // Mostra botão de pular após 5 segundos (fallback caso vídeo não carregue)
+        setTimeout(function() {
+            if (upsellContent.style.display !== 'block') {
+                skipBtn.style.display = 'block';
+            }
+        }, 5000);
         
         // Listener para quando o vídeo VTurb terminar
         window.addEventListener('message', function(event) {
             if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === '69f052dca98a3dcb8d2b89cf') {
                 upsellContent.style.display = 'block';
+                skipBtn.style.display = 'none';
             }
         });
+    }
+    
+    function skipVsl2(){
+        document.getElementById('upsellContent').style.display = 'block';
+        document.getElementById('skipVslBtn2').style.display = 'none';
     }
     
     // Inicia a VSL quando a página carregar
