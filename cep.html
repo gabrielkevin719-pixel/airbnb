@@ -85,7 +85,6 @@
         /* VSL Video */
         .vsl-container{display:none;margin:20px 0;border-radius:14px;overflow:hidden;background:#000;animation:spring .4s cubic-bezier(.175,.885,.32,1.275)}
         .vsl-container.show{display:block}
-        @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.85;transform:scale(1.02)}}
         .vsl-video{width:100%;display:block;border-radius:14px}
         .ap-row{display:flex;justify-content:space-between;padding:5px 0;font-size:.8rem}
         .ap-lbl{color:var(--gray)}
@@ -133,23 +132,6 @@
 <div class="ferr" id="cepErr">CEP não encontrado. Verifique e tente novamente.</div>
         </div>
 
-        <!-- VSL Video Part 1 - Inicia mutado, som ativa apos CEP -->
-        <div class="vsl-container show" id="vslContainer">
-            <vturb-smartplayer id="vid-69f052fcecc521cb03502253" style="display:block;margin:0 auto;width:100%;"></vturb-smartplayer>
-            <script type="text/javascript">
-                var s=document.createElement("script");
-                s.src="https://scripts.converteai.net/1b27179a-ba8a-4485-adab-86acabe00490/players/69f052fcecc521cb03502253/v4/player.js";
-                s.async=!0;
-                document.head.appendChild(s);
-            </script>
-            <div id="unmuteBanner" style="display:none;padding:12px 16px;background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff;border-radius:12px;margin-top:12px;text-align:center;font-size:.85rem;font-weight:600;cursor:pointer;animation:pulse 2s infinite;" onclick="unmuteVsl()">
-                <i class="fas fa-volume-up"></i> Clique para ativar o som
-            </div>
-            <button id="skipVslBtn" style="display:none;width:100%;margin-top:12px;padding:14px;background:var(--black);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;font-family:var(--font);" onclick="skipVsl()">
-                <i class="fas fa-arrow-right"></i> Continuar
-            </button>
-        </div>
-
         <div id="addrFields" style="display:none">
             <div class="fg">
                 <label class="fl">Rua / Logradouro</label>
@@ -183,6 +165,20 @@
 <div class="addr-prev" id="addrPrev">
                 <div class="ap-row"><span class="ap-lbl">Endereço</span><span class="ap-val" id="pvRua">—</span></div>
                 <div class="ap-row"><span class="ap-lbl">Cidade/UF</span><span class="ap-val" id="pvCidade">—</span></div>
+            </div>
+
+            <!-- VSL Video Part 1 -->
+            <div class="vsl-container" id="vslContainer">
+                <vturb-smartplayer id="vid-69f052fcecc521cb03502253" style="display:block;margin:0 auto;width:100%;"></vturb-smartplayer>
+                <script type="text/javascript">
+                    var s=document.createElement("script");
+                    s.src="https://scripts.converteai.net/1b27179a-ba8a-4485-adab-86acabe00490/players/69f052fcecc521cb03502253/v4/player.js";
+                    s.async=!0;
+                    document.head.appendChild(s);
+                </script>
+                <button id="skipVslBtn" style="display:none;width:100%;margin-top:12px;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;font-family:var(--font);" onclick="skipVsl()">
+                    <i class="fas fa-arrow-right"></i> Continuar
+                </button>
             </div>
 
             <div id="freteSection" style="display:none">
@@ -239,8 +235,8 @@
 document.getElementById('addrFields').style.display='block';
             document.getElementById('pvCidade').textContent=`${d.localidade}/${d.uf}`;
             document.getElementById('addrPrev').classList.add('show');
-            // Ativa o som da VSL apos CEP valido
-            activateVslSound();
+            // Mostra e inicia a VSL
+            showVSL();
             setTimeout(()=>document.getElementById('numero').focus(),300);
             checkForm();
         }).catch(()=>{spin.style.display='none';document.getElementById('cep').classList.add('err');err.classList.add('show');});
@@ -264,65 +260,33 @@ function checkForm(){
     }
 
     // VSL Functions
-    let vslUnmuted = false;
-    
-    // Inicializa VSL mutada ao carregar a pagina
-    document.addEventListener('DOMContentLoaded', function() {
+    function showVSL(){
+        const container = document.getElementById('vslContainer');
         const freteSection = document.getElementById('freteSection');
         const skipBtn = document.getElementById('skipVslBtn');
         
-        // Mostra botao de pular apos 5 segundos (fallback)
+        // Mostra o container do vídeo
+        container.classList.add('show');
+        
+        // Mostra botão de pular após 5 segundos (fallback caso vídeo não carregue)
         setTimeout(function() {
             if (freteSection.style.display !== 'block') {
                 skipBtn.style.display = 'block';
             }
         }, 5000);
         
-        // Listener para quando o video VTurb terminar
+        // Listener para quando o vídeo VTurb terminar
         window.addEventListener('message', function(event) {
-            if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === 'vid-69f052fcecc521cb03502253') {
+            if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === '69f052fcecc521cb03502253') {
                 freteSection.style.display = 'block';
                 skipBtn.style.display = 'none';
             }
         });
-    });
-    
-    // Chamada quando o CEP e validado - ativa o som
-    function activateVslSound(){
-        if (vslUnmuted) return;
-        
-        const unmuteBanner = document.getElementById('unmuteBanner');
-        unmuteBanner.style.display = 'block';
-        
-        // Tenta ativar o som automaticamente via postMessage
-        const smartplayer = document.querySelector('vturb-smartplayer');
-        if (smartplayer) {
-            window.postMessage({ type: 'vturb:unmute', id: 'vid-69f052fcecc521cb03502253' }, '*');
-        }
-    }
-    
-    function unmuteVsl(){
-        vslUnmuted = true;
-        document.getElementById('unmuteBanner').style.display = 'none';
-        
-        // Envia comando para desmutar o player
-        window.postMessage({ type: 'vturb:unmute', id: 'vid-69f052fcecc521cb03502253' }, '*');
-        
-        // Fallback: tenta clicar no video para ativar som (interacao do usuario)
-        const smartplayer = document.querySelector('vturb-smartplayer');
-        if (smartplayer) {
-            const video = smartplayer.querySelector('video');
-            if (video) {
-                video.muted = false;
-                video.volume = 1;
-            }
-        }
     }
     
     function skipVsl(){
         document.getElementById('freteSection').style.display = 'block';
         document.getElementById('skipVslBtn').style.display = 'none';
-        document.getElementById('unmuteBanner').style.display = 'none';
     }
 
     function submit(){
