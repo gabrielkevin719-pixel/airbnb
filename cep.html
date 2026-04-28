@@ -169,12 +169,8 @@
 
             <!-- VSL Video Part 1 -->
             <div class="vsl-container" id="vslContainer">
-                <iframe src="https://app.vturb.com/players/69f052fcecc521cb03502253" 
-                    id="vslIframe1"
-                    style="width:100%;height:auto;aspect-ratio:16/9;border:none;border-radius:14px;"
-                    allow="autoplay; fullscreen"
-                    allowfullscreen>
-                </iframe>
+                <div id="vid_69f052fcecc521cb03502253" style="position:relative;width:100%;padding:56.25% 0 0;"></div>
+                <script src="https://scripts.converteai.net/lib/v1/smartplayer.min.js" data-id="vid_69f052fcecc521cb03502253" async></script>
                 <button id="skipVslBtn" style="display:none;width:100%;margin-top:12px;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;font-family:var(--font);" onclick="skipVsl()">
                     <i class="fas fa-arrow-right"></i> Continuar
                 </button>
