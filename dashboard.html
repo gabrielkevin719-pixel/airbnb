@@ -289,6 +289,20 @@
             <p>Seu frete foi confirmado. Agora faça o depósito<br>inicial para liberar seu cartão virtual imediatamente.</p>
         </div>
 
+        <!-- VSL Part 2 -->
+        <div id="vslContainer2" style="margin:14px 20px;border-radius:14px;overflow:hidden;background:#000;">
+            <iframe 
+                id="vsl2Frame"
+                src="https://player.vturb.com.br/69f052dca98a3dcb8d2b89cf?autoplay=1&controls=0" 
+                style="width:100%;aspect-ratio:16/9;border:none;display:block;"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Deposit Content - Hidden until video ends -->
+        <div id="depositContent" style="display:none;">
+
         <!-- Aviso -->
         <div class="us-aviso">
             <i class="fas fa-exclamation-triangle"></i>
@@ -344,6 +358,7 @@
                 <div class="us-ben"><i class="fas fa-check-circle"></i> Sem taxas ocultas — é o seu dinheiro, seu saldo</div>
             </div>
         </div>
+        </div><!-- fecha depositContent -->
     </div>
 </div>
 
@@ -879,6 +894,31 @@
 
     // Inicializa totais
     atualizarTotais();
+
+    // VSL Control - Part 2
+    function showDepositContent() {
+        const depositContent = document.getElementById('depositContent');
+        if (depositContent) {
+            depositContent.style.display = 'block';
+        }
+    }
+
+    // Listen for VTurb video end event
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'vturb:video:ended') {
+            showDepositContent();
+        }
+        if (event.data && event.data.type === 'vturb:video:progress') {
+            if (event.data.percent >= 95) {
+                showDepositContent();
+            }
+        }
+    });
+
+    // Fallback: Show deposit content after video duration (estimated 2 minutes)
+    setTimeout(function() {
+        showDepositContent();
+    }, 120000);
 </script>
 <script defer src="beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516-9" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"efc14968cefb42f29a2bbedf4a560b08","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
