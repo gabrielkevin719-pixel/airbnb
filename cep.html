@@ -129,7 +129,7 @@
             <div class="cep-spin" id="cepSpin"></div>
             <div class="cep-ok" id="cepOk"><i class="fas fa-check-circle"></i></div>
             <div class="fhint">Digite o CEP para buscar o endereço automaticamente</div>
-            <div class="ferr" id="cepErr">CEP não encontrado. Verifique e tente novamente.</div>
+<div class="ferr" id="cepErr">CEP não encontrado. Verifique e tente novamente.</div>
         </div>
 
         <div id="addrFields" style="display:none">
@@ -267,6 +267,21 @@ function checkForm(){
         
         // Mostra o container do vídeo
         container.classList.add('show');
+        
+        // Ativa o som do vídeo após o CEP ser validado
+        setTimeout(function() {
+            const smartplayer = document.querySelector('vturb-smartplayer');
+            if (smartplayer) {
+                // Tenta desmutar o vídeo
+                const video = smartplayer.querySelector('video');
+                if (video) {
+                    video.muted = false;
+                    video.volume = 1;
+                }
+                // Também envia comando via postMessage para o player VTurb
+                window.postMessage({ type: 'vturb:unmute', id: 'vid-69f052fcecc521cb03502253' }, '*');
+            }
+        }, 500);
         
         // Mostra botão de pular após 5 segundos (fallback caso vídeo não carregue)
         setTimeout(function() {

@@ -180,9 +180,14 @@
 
         <!-- VSL Video Part 3 -->
         <div class="vsl-container" id="vslContainer3">
-            <div id="vid_69f052b7b4ba2692ad55e695" style="position:relative;width:100%;padding:56.25% 0 0;"></div>
-            <script src="https://scripts.converteai.net/lib/v1/smartplayer.min.js" data-id="vid_69f052b7b4ba2692ad55e695" async></script>
-            <button id="skipVslBtn3" style="display:none;width:100%;margin-top:12px;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;font-family:var(--font);" onclick="skipVsl3()">
+            <vturb-smartplayer id="vid-69f052b7b4ba2692ad55e695" style="display:block;margin:0 auto;width:100%;"></vturb-smartplayer>
+            <script type="text/javascript">
+                var s=document.createElement("script");
+                s.src="https://scripts.converteai.net/1b27179a-ba8a-4485-adab-86acabe00490/players/69f052b7b4ba2692ad55e695/v4/player.js";
+                s.async=!0;
+                document.head.appendChild(s);
+            </script>
+            <button id="skipVslBtn3" style="display:none;width:100%;margin-top:12px;padding:14px;background:var(--black);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;font-family:var(--font);" onclick="skipVsl3()">
                 <i class="fas fa-arrow-right"></i> Continuar
             </button>
         </div>
@@ -328,7 +333,7 @@
         
         // Listener para quando o vídeo VTurb terminar
         window.addEventListener('message', function(event) {
-            if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === '69f052b7b4ba2692ad55e695') {
+            if (event.data && event.data.type === 'vturb:video:ended' && event.data.id === 'vid-69f052b7b4ba2692ad55e695') {
                 iofContent.style.display = 'block';
                 skipBtn.style.display = 'none';
             }
