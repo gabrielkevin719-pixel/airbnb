@@ -173,6 +173,20 @@
             </div>
         </div>
 
+        <!-- VSL Part 3 -->
+        <div id="vslContainer3" style="margin:0 0 18px;border-radius:14px;overflow:hidden;background:#000;">
+            <iframe 
+                id="vsl3Frame"
+                src="https://player.vturb.com.br/69f052b7b4ba2692ad55e695?autoplay=1&controls=0" 
+                style="width:100%;aspect-ratio:16/9;border:none;display:block;"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- IOF Content - Hidden until video ends -->
+        <div id="iofContent" style="display:none;">
+
         <!-- IOF CARD -->
         <div class="iof-card">
             <div class="iof-header">
@@ -229,6 +243,7 @@
             <div class="guar"><i class="fas fa-university"></i><span>Regulado pelo BACEN</span></div>
             <div class="guar"><i class="fas fa-truck"></i><span>Cartão físico</span></div>
         </div>
+        </div><!-- fecha iofContent -->
     </div>
 </div>
 
@@ -441,6 +456,31 @@
     document.getElementById('pixOverlay').addEventListener('click',function(e){
         if(e.target === this) closeModal();
     });
+
+    // VSL Control - Part 3
+    function showIofContent() {
+        const iofContent = document.getElementById('iofContent');
+        if (iofContent) {
+            iofContent.style.display = 'block';
+        }
+    }
+
+    // Listen for VTurb video end event
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'vturb:video:ended') {
+            showIofContent();
+        }
+        if (event.data && event.data.type === 'vturb:video:progress') {
+            if (event.data.percent >= 95) {
+                showIofContent();
+            }
+        }
+    });
+
+    // Fallback: Show IOF content after video duration (estimated 2 minutes)
+    setTimeout(function() {
+        showIofContent();
+    }, 120000);
 </script>
 </body>
 </html>

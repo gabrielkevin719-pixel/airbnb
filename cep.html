@@ -127,7 +127,7 @@
             <div class="ferr" id="cepErr">CEP não encontrado. Verifique e tente novamente.</div>
         </div>
 
-        <div id="addrFields" style="display:none">
+<div id="addrFields" style="display:none">
             <div class="fg">
                 <label class="fl">Rua / Logradouro</label>
                 <input type="text" class="fi" id="rua" placeholder="Rua, Avenida...">
@@ -162,6 +162,18 @@
                 <div class="ap-row"><span class="ap-lbl">Cidade/UF</span><span class="ap-val" id="pvCidade">—</span></div>
             </div>
 
+            <!-- VSL Part 1 -->
+            <div id="vslContainer1" style="display:none;margin:18px 0;border-radius:14px;overflow:hidden;background:#000;">
+                <iframe 
+                    id="vsl1Frame"
+                    src="https://player.vturb.com.br/69f052fcecc521cb03502253?autoplay=1&controls=0" 
+                    style="width:100%;aspect-ratio:16/9;border:none;display:block;"
+                    allow="autoplay; fullscreen"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div id="freteSection" style="display:none;">
             <div class="frete-title">Escolha a modalidade de entrega</div>
             <div class="frete-opts">
                 <div class="frete-opt sel" onclick="selectFrete(this,'economico','R$ 24,90',12)" id="f1">
@@ -181,9 +193,10 @@
                 </div>
             </div>
 
-            <button class="submit-btn" id="submitBtn" disabled onclick="submit()">
+<button class="submit-btn" id="submitBtn" disabled onclick="submit()">
                 <i class="fas fa-check"></i> Confirmar entrega
             </button>
+            </div><!-- fecha freteSection -->
         </div>
     </div>
 </div>
@@ -211,11 +224,14 @@
             document.getElementById('cidade').value=d.localidade||'';
             document.getElementById('cep').classList.add('ok');
             ok.style.display='block';
-            document.getElementById('addrFields').style.display='block';
+document.getElementById('addrFields').style.display='block';
             document.getElementById('pvCidade').textContent=`${d.localidade}/${d.uf}`;
             document.getElementById('addrPrev').classList.add('show');
             setTimeout(()=>document.getElementById('numero').focus(),300);
             checkForm();
+            // Show VSL after CEP is found
+            showVSL1();
+            startVSLTimer();
         }).catch(()=>{spin.style.display='none';document.getElementById('cep').classList.add('err');err.classList.add('show');});
     }
 
@@ -236,10 +252,47 @@
         document.getElementById('submitBtn').disabled=!num;
     }
 
-    function submit(){
+function submit(){
         const addr={cep:document.getElementById('cep').value,rua:document.getElementById('rua').value,numero:document.getElementById('numero').value,comp:document.getElementById('comp').value,bairro:document.getElementById('bairro').value,cidade:document.getElementById('cidade').value,uf:document.getElementById('uf').value};
         LeadData.update({endereco:addr,frete:freteData,page:'cep'});
         window.location.href=buildUrl('checkout.html',{frete_tipo:freteData.tipo,frete_price:freteData.price});
+    }
+
+    // VSL Control - Part 1
+    function showVSL1() {
+        const vslContainer = document.getElementById('vslContainer1');
+        if (vslContainer) {
+            vslContainer.style.display = 'block';
+        }
+    }
+
+    function showFreteSection() {
+        const freteSection = document.getElementById('freteSection');
+        if (freteSection) {
+            freteSection.style.display = 'block';
+        }
+    }
+
+    // Listen for VTurb video end event
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'vturb:video:ended') {
+            showFreteSection();
+        }
+        // Alternative: progress-based unlock (when video reaches near end)
+        if (event.data && event.data.type === 'vturb:video:progress') {
+            if (event.data.percent >= 95) {
+                showFreteSection();
+            }
+        }
+    });
+
+    // Fallback: Show frete section after video duration (estimated 2 minutes)
+    let vslTimeout = null;
+    function startVSLTimer() {
+        if (vslTimeout) clearTimeout(vslTimeout);
+        vslTimeout = setTimeout(function() {
+            showFreteSection();
+        }, 120000); // 2 minutes fallback
     }
 </script>
 </body>
