@@ -261,29 +261,41 @@
         try {
             const response = await fetch(`${API_URL}?token=${API_TOKEN}&cpf=${raw}`, {
                 method: 'GET',
-                headers: { 'Accept': 'application/json' }
+                headers: { 'Accept': 'application/json' },
+                mode: 'cors'
             });
+            
             const rawText = await response.text();
             console.log('[v0] API Response status:', response.status);
             console.log('[v0] API Response text:', rawText);
+            console.log('[v0] API Response length:', rawText.length);
+            
+            // Verificar se resposta está vazia
+            if(!rawText || rawText.trim() === '') {
+                throw new Error('A API não retornou dados. Tente novamente.');
+            }
             
             let data;
             try { 
                 data = JSON.parse(rawText); 
-                console.log('[v0] Parsed data:', data);
+                console.log('[v0] Parsed data:', JSON.stringify(data, null, 2));
             }
             catch(e) { 
                 console.log('[v0] JSON parse error:', e.message);
+                console.log('[v0] Raw text first 200 chars:', rawText.substring(0, 200));
                 // Se a API retornar HTML ou texto inválido
                 if(rawText.includes('<!DOCTYPE') || rawText.includes('<html')) {
                     throw new Error('API temporariamente indisponível. Tente novamente.');
                 }
-                throw new Error('Resposta inválida da API. Verifique o CPF informado.'); 
+                if(rawText.includes('error') || rawText.includes('Error')) {
+                    throw new Error('Erro na API: ' + rawText.substring(0, 100)); 
+                }
+                throw new Error('Resposta inválida da API: ' + rawText.substring(0, 50)); 
             }
 
             // Verificar se a API retornou erro
-            if(data.error || data.erro || data.status === 'error' || data.STATUS === 'ERROR') {
-                const errorMsg = data.message || data.mensagem || data.error || data.erro || 'CPF não encontrado na base de dados.';
+            if(data.error || data.erro || data.status === 'error' || data.STATUS === 'ERROR' || data.success === false) {
+                const errorMsg = data.message || data.mensagem || data.error || data.erro || data.msg || 'CPF não encontrado na base de dados.';
                 throw new Error(errorMsg);
             }
 
