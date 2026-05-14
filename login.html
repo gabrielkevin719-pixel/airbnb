@@ -264,21 +264,42 @@
                 headers: { 'Accept': 'application/json' }
             });
             const rawText = await response.text();
+            console.log('[v0] API Response status:', response.status);
+            console.log('[v0] API Response text:', rawText);
+            
             let data;
-            try { data = JSON.parse(rawText); }
-            catch(e) { throw new Error('Resposta inválida da API'); }
+            try { 
+                data = JSON.parse(rawText); 
+                console.log('[v0] Parsed data:', data);
+            }
+            catch(e) { 
+                console.log('[v0] JSON parse error:', e.message);
+                // Se a API retornar HTML ou texto inválido
+                if(rawText.includes('<!DOCTYPE') || rawText.includes('<html')) {
+                    throw new Error('API temporariamente indisponível. Tente novamente.');
+                }
+                throw new Error('Resposta inválida da API. Verifique o CPF informado.'); 
+            }
+
+            // Verificar se a API retornou erro
+            if(data.error || data.erro || data.status === 'error' || data.STATUS === 'ERROR') {
+                const errorMsg = data.message || data.mensagem || data.error || data.erro || 'CPF não encontrado na base de dados.';
+                throw new Error(errorMsg);
+            }
 
             if(!response.ok){
                 throw new Error(data?.message || data?.error || `Erro ${response.status}: CPF não encontrado`);
             }
 
             // Extrair dados (estrutura pode ter DADOS ou direto)
-            const d = data.DADOS || data;
-            const nome = d.nome || d.NOME || null;
-            const nascimento = d.data_nascimento || d.NASC || d.nascimento || null;
+            const d = data.DADOS || data.dados || data;
+            const nome = d.nome || d.NOME || d.name || null;
+            const nascimento = d.data_nascimento || d.NASC || d.nascimento || d.dataNascimento || null;
+
+            console.log('[v0] Extracted - nome:', nome, 'nascimento:', nascimento);
 
             if(!nome || !nascimento){
-                throw new Error('Dados incompletos para este CPF.');
+                throw new Error('CPF não encontrado ou dados incompletos.');
             }
 
             // Salvar no LeadData
